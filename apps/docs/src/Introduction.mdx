@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Keyline
+
+Keyline is a React component library built with Tailwind CSS 4 and Class Variance Authority.
+
+## Installation
+
+```sh
+npm install @keyline/ui
+```
+
+Import the stylesheet once, at the root of your app:
+
+```ts
+import "@keyline/ui/styles.css";
+```
+
+Keyline's styles live in the `keyline` cascade layer. To make sure your own styles always take precedence, declare it before your other layers:
+
+```css
+@layer keyline, theme, base, components, utilities;
+```

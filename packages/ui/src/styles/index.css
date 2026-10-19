@@ -1,0 +1,15 @@
+/*
+ * Keyline's compiled stylesheet. Everything sits inside the `keyline` cascade
+ * layer, so consumers can declare it first and any of their own styles win:
+ *
+ *   @layer keyline, theme, base, components, utilities;
+ *
+ * Preflight is deliberately omitted so we never reset the host app's styles.
+ */
+@layer keyline.theme, keyline.utilities;
+
+@import "tailwindcss/theme.css" layer(keyline.theme) prefix(kl);
+@import "tailwindcss/utilities.css" layer(keyline.utilities) source(none);
+
+@source "../**/*.{ts,tsx}";
+@source not "../**/*.stories.tsx";
