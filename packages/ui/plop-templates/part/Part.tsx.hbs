@@ -1,0 +1,22 @@
+import { cn } from "../../../lib/cn";
+import type { {{name}}Props } from "./{{name}}.types";
+{{#if hasVariants}}
+import { {{camelCase name}}Variants } from "./{{name}}.variants";
+{{/if}}
+
+/** {{{description}}} */
+{{#if hasVariants}}
+export function {{name}}({ className, variant, size, ...props }: {{name}}Props) {
+  return (
+    <{{element}}
+      data-slot="{{kebabCase name}}"
+      className={cn({{camelCase name}}Variants({ variant, size }), className)}
+      {...props}
+    />
+  );
+}
+{{else}}
+export function {{name}}({ className, ...props }: {{name}}Props) {
+  return <{{element}} data-slot="{{kebabCase name}}" className={cn(["kl:text-fg-1"], className)} {...props} />;
+}
+{{/if}}
