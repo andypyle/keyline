@@ -1,0 +1,274 @@
+/*
+ * Keyline design tokens, ported from the Loam theme on andypyle.dev.
+ *
+ * Tokens are written unprefixed (--color-surface) and Tailwind's prefix(kl) emits them as
+ * --kl-color-surface, with utilities like kl:bg-surface. Tailwind does NOT rewrite var()
+ * references inside values, so any token that points at another token must use the
+ * prefixed name: var(--kl-color-ink-900), never var(--color-ink-900).
+ *
+ * `static` emits every token whether or not a component uses it, so consumers can rely
+ * on var(--kl-*) in their own CSS. Tailwind's default colors, radii, shadows, font sizes
+ * and breakpoints are cleared; spacing keeps Tailwind's 4px scale (kl:p-4 = 16px).
+ */
+
+@theme static {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Neutrals — cool slate, paper to ink */
+  --color-slate-50: #f7f8f9;
+  --color-slate-100: #edeff1;
+  --color-slate-200: #dfe3e7;
+  --color-slate-300: #c3cad1;
+  --color-slate-400: #8a949e;
+  --color-slate-500: #56616b;
+  --color-slate-700: #363f48;
+  --color-ink-900: #1a1f24;
+
+  /* Sage — primary accent */
+  --color-sage-100: #dfeadb;
+  --color-sage-300: #adc9a1;
+  --color-sage-500: #7fa56f;
+  --color-sage-700: #4a6e3d;
+
+  /* Mist — pale slate-blue, active/selected highlight */
+  --color-mist-100: #dee5ec;
+  --color-mist-300: #abbccd;
+  --color-mist-500: #8ea4bb;
+  --color-mist-700: #4c627a;
+
+  /* Moss — sea green, "on" + success */
+  --color-moss-100: #dae8e1;
+  --color-moss-300: #9cc3b0;
+  --color-moss-500: #578f75;
+  --color-moss-700: #35614d;
+
+  /* Lichen — soft grey-green tint */
+  --color-lichen-100: #e2e9dd;
+  --color-lichen-300: #bccbb2;
+  --color-lichen-500: #8da383;
+
+  /* Dusk — slate blue, info */
+  --color-dusk-100: #dde3ee;
+  --color-dusk-300: #a5b4ce;
+  --color-dusk-500: #607397;
+  --color-dusk-700: #3f4e6d;
+
+  /* Amber — warnings only */
+  --color-amber-100: #f5e4bc;
+  --color-amber-300: #ebc273;
+  --color-amber-500: #d9a13b;
+
+  /* Rust — errors only */
+  --color-rust-100: #f3d3cb;
+  --color-rust-300: #e0907e;
+  --color-rust-500: #b33a24;
+
+  /* Semantic — prefer these in components; dark mode swaps them below */
+  --color-page: var(--kl-color-slate-100);
+  --color-surface: var(--kl-color-slate-50);
+  --color-sunken: var(--kl-color-slate-200);
+  --color-inverse: var(--kl-color-ink-900);
+  --color-inverse-hover: var(--kl-color-slate-700);
+  --color-fg-1: var(--kl-color-ink-900);
+  --color-fg-2: var(--kl-color-slate-700);
+  --color-fg-3: var(--kl-color-slate-500);
+  --color-fg-inverse: var(--kl-color-slate-50);
+  --color-line: var(--kl-color-ink-900); /* every outline + offset shadow */
+  --color-on-fill: var(--kl-color-ink-900); /* text/icons on mid-tone fills (sage-500, mist-500, -300 tints) */
+  --color-subtle: var(--kl-color-slate-300); /* dashed dividers, quiet borders */
+  --color-accent: var(--kl-color-sage-500);
+  --color-accent-strong: var(--kl-color-sage-700);
+  --color-accent-soft: var(--kl-color-sage-100);
+  --color-link: var(--kl-color-sage-700);
+  --color-link-hover: var(--kl-color-ink-900);
+  --color-focus: var(--kl-color-dusk-500);
+  --color-selection: var(--kl-color-mist-300);
+  --color-code: var(--kl-color-ink-900);
+  --color-code-fg: var(--kl-color-slate-100);
+  --color-overlay: rgba(26, 31, 36, 0.5);
+
+  --color-success: var(--kl-color-moss-500);
+  --color-success-soft: var(--kl-color-moss-100);
+  --color-warning: var(--kl-color-amber-500);
+  --color-warning-soft: var(--kl-color-amber-100);
+  --color-danger: var(--kl-color-rust-500);
+  --color-danger-soft: var(--kl-color-rust-100);
+  --color-info: var(--kl-color-dusk-500);
+  --color-info-soft: var(--kl-color-dusk-100);
+
+  /* Type */
+  --font-*: initial;
+  --font-display: "Fredoka", ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+  /* Sizes only set font-size (no paired line-height), so text-* never changes leading */
+  --text-*: initial;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 36px;
+  --text-body: var(--kl-text-lg); /* page body copy */
+  --text-prose: var(--kl-text-xl); /* long-form copy */
+  --text-h4: 22px;
+  --text-h3: 28px;
+  --text-h2: 38px;
+  --text-h1: 52px;
+  --text-display: 72px;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.02em;
+  --tracking-caps: 0.08em;
+
+  /* Radii (rounded-full is the pill) */
+  --radius-*: initial;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Hard offset shadows — no blur, ever */
+  --shadow-*: initial;
+  --shadow-sm: 2px 2px 0 0 var(--kl-color-line);
+  --shadow-md: 4px 4px 0 0 var(--kl-color-line);
+  --shadow-lg: 6px 6px 0 0 var(--kl-color-line);
+  --shadow-xl: 8px 8px 0 0 var(--kl-color-line);
+
+  /* Motion. --dur-* are for hand-written CSS; in markup use kl:duration-120 / 200 / 320 */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --dur-slow: 320ms;
+
+  /* Tailwind's 4px spacing base, restated here so var(--kl-spacing) is always emitted */
+  --spacing: 0.25rem;
+
+  /* Layout widths: max-w-content, max-w-page */
+  --container-content: 680px;
+  --container-page: 1120px;
+
+  /* One breakpoint: max-md: is phones (≤720px), md: is everything wider */
+  --breakpoint-*: initial;
+  --breakpoint-md: 721px;
+}
+
+/* Animations are inline so their stagger variables resolve on the animated element.
+   Keyframes are kl- namespaced so they can't collide with the host app's. */
+@theme static inline {
+  --animate-fade-in: kl-fade-in 200ms var(--kl-ease-out);
+  --animate-fade-out: kl-fade-out 240ms var(--kl-ease-out) both;
+  --animate-pop-in: kl-pop-in 320ms var(--kl-ease-bounce);
+  --animate-pop-out: kl-pop-out 220ms cubic-bezier(0.5, 0, 0.75, 0) 40ms both;
+  --animate-slide-in: kl-slide-in 320ms var(--kl-ease-bounce) var(--kl-stagger-in, 0ms) both;
+  --animate-slide-out: kl-slide-out 160ms var(--kl-ease-out) var(--kl-stagger-out, 0ms) both;
+
+  @keyframes kl-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes kl-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes kl-pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes kl-pop-out {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.9) translateY(12px);
+    }
+  }
+  @keyframes kl-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes kl-slide-out {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+}
+
+/* kl:dark: variant for one-off tweaks. Matches the token swap below. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Dark mode is opt-in: set data-theme="dark" on <html>. Keyline never follows the OS
+   setting on its own, since the host app may be light-only; apps that want that can set
+   the attribute from prefers-color-scheme themselves. These sit outside @theme, so they
+   use the emitted --kl- names directly. */
+@layer keyline.theme {
+  [data-theme="dark"] {
+    /* 100-level tints become deep, low-light versions of each hue */
+    --kl-color-sage-100: #253222;
+    --kl-color-mist-100: #222c37;
+    --kl-color-moss-100: #1f3029;
+    --kl-color-lichen-100: #262d24;
+    --kl-color-dusk-100: #232a3a;
+    --kl-color-amber-100: #3a2f17;
+    --kl-color-rust-100: #3d211b;
+
+    --kl-color-page: #14181c;
+    --kl-color-surface: #1d2227;
+    --kl-color-sunken: #262c32;
+    --kl-color-inverse: #e6eaee;
+    --kl-color-inverse-hover: #c3cad1;
+    --kl-color-fg-1: #e9edf0;
+    --kl-color-fg-2: #b6bfc8;
+    --kl-color-fg-3: #8d97a1;
+    --kl-color-fg-inverse: #14181c;
+    --kl-color-subtle: #353d45;
+    --kl-color-line: #07090b;
+    --kl-color-on-fill: #1a1f24;
+
+    --kl-color-accent-strong: var(--kl-color-sage-300);
+    --kl-color-link: var(--kl-color-sage-300);
+    --kl-color-link-hover: #e9edf0;
+    --kl-color-focus: var(--kl-color-dusk-300);
+    --kl-color-selection: var(--kl-color-mist-500);
+
+    --kl-color-code: #0c0f12;
+    --kl-color-code-fg: #dfe3e7;
+    --kl-color-overlay: rgba(5, 7, 9, 0.6);
+  }
+}

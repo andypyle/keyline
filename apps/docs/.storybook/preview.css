@@ -1,0 +1,8 @@
+/* Stand-in for a host app's base styles, since Keyline ships no preflight. */
+body {
+  margin: 0;
+  background: var(--kl-color-page);
+  color: var(--kl-color-fg-1);
+  font-family: var(--kl-font-body);
+  -webkit-font-smoothing: antialiased;
+}

@@ -9,6 +9,7 @@
 @layer keyline.theme, keyline.utilities;
 
 @import "tailwindcss/theme.css" layer(keyline.theme) prefix(kl);
+@import "./theme.css";
 @import "tailwindcss/utilities.css" layer(keyline.utilities) source(none);
 
 @source "../**/*.{ts,tsx}";

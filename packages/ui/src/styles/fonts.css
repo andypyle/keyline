@@ -1,0 +1,15 @@
+/*
+ * Keyline's typefaces. Storybook imports this file directly; for the published package,
+ * scripts/build-fonts.mjs reads this list, copies the .woff2 files into dist/fonts and
+ * appends the @font-face rules to dist/styles.css.
+ */
+@import "@fontsource/figtree/400.css";
+@import "@fontsource/figtree/400-italic.css";
+@import "@fontsource/figtree/500.css";
+@import "@fontsource/figtree/600.css";
+@import "@fontsource/figtree/700.css";
+@import "@fontsource/fredoka/400.css";
+@import "@fontsource/fredoka/500.css";
+@import "@fontsource/fredoka/600.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";

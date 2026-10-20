@@ -22,7 +22,7 @@
   "scripts": {
     "build": "pnpm build:js && pnpm build:css",
     "build:js": "tsdown",
-    "build:css": "tailwindcss -i src/styles/index.css -o dist/styles.css --minify",
+    "build:css": "tailwindcss -i src/styles/index.css -o dist/styles.css --minify && node scripts/build-fonts.mjs",
     "dev": "tsdown --watch",
     "typecheck": "tsc --noEmit"
   },
@@ -31,6 +31,9 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/fredoka": "^5.3.0",
+    "@fontsource/geist-mono": "^5.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.7.0"

@@ -1,0 +1,153 @@
+/* Layout for the Foundations pages. Docs-only, so plain classes on Keyline's tokens. */
+
+.fd-page {
+  max-width: var(--kl-container-page);
+  margin: 0 auto;
+  padding: 40px 32px 64px;
+  font-family: var(--kl-font-body);
+  color: var(--kl-color-fg-1);
+}
+
+.fd-title {
+  margin: 0 0 8px;
+  font: 500 var(--kl-text-h2) / var(--kl-leading-snug) var(--kl-font-display);
+  letter-spacing: var(--kl-tracking-display);
+}
+
+.fd-lede {
+  margin: 0 0 40px;
+  max-width: var(--kl-container-content);
+  font-size: var(--kl-text-lg);
+  line-height: var(--kl-leading-body);
+  color: var(--kl-color-fg-2);
+}
+
+.fd-section + .fd-section {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 3px dashed var(--kl-color-subtle);
+}
+
+.fd-heading {
+  margin: 0 0 4px;
+  font: 500 var(--kl-text-h4) / var(--kl-leading-snug) var(--kl-font-display);
+  letter-spacing: var(--kl-tracking-display);
+}
+
+.fd-note {
+  margin: 0 0 20px;
+  font-size: var(--kl-text-sm);
+  color: var(--kl-color-fg-3);
+}
+
+.fd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--fd-min, 180px), 1fr));
+  gap: 20px;
+}
+
+.fd-list {
+  display: grid;
+  gap: 16px;
+}
+
+.fd-card {
+  background: var(--kl-color-surface);
+  border: 2px solid var(--kl-color-line);
+  border-radius: var(--kl-radius-md);
+  overflow: hidden;
+}
+
+.fd-swatch {
+  height: 72px;
+  border-bottom: 2px solid var(--kl-color-line);
+}
+
+.fd-meta {
+  padding: 10px 12px 12px;
+  display: grid;
+  gap: 2px;
+  font-size: var(--kl-text-xs);
+  line-height: 1.4;
+  color: var(--kl-color-fg-3);
+}
+
+.fd-meta strong {
+  font-size: var(--kl-text-sm);
+  font-weight: 600;
+  color: var(--kl-color-fg-1);
+}
+
+.fd-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.fd-label {
+  display: grid;
+  gap: 2px;
+  font-size: var(--kl-text-xs);
+  line-height: 1.4;
+  color: var(--kl-color-fg-3);
+}
+
+.fd-label strong {
+  font-size: var(--kl-text-sm);
+  font-weight: 600;
+  color: var(--kl-color-fg-1);
+}
+
+.fd-code {
+  font-family: var(--kl-font-mono);
+}
+
+.fd-box {
+  height: 96px;
+  background: var(--kl-color-surface);
+  border: 2px solid var(--kl-color-line);
+}
+
+.fd-button {
+  padding: 6px 14px;
+  font: 600 var(--kl-text-sm) var(--kl-font-body);
+  color: var(--kl-color-fg-1);
+  background: var(--kl-color-surface);
+  border: 2px solid var(--kl-color-line);
+  border-radius: 999px;
+  box-shadow: var(--kl-shadow-sm);
+  cursor: pointer;
+}
+
+.fd-track {
+  position: relative;
+  height: 28px;
+  background: var(--kl-color-sunken);
+  border-radius: 999px;
+}
+
+.fd-dot {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  background: var(--kl-color-accent);
+  border: 2px solid var(--kl-color-line);
+  border-radius: 999px;
+}
+
+.fd-track[data-run] .fd-dot {
+  left: calc(100% - 24px);
+}
+
+@media (width < 721px) {
+  .fd-page {
+    padding: 24px 16px 48px;
+  }
+  .fd-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

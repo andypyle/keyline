@@ -6,10 +6,11 @@ const config: StorybookConfig = {
   // Stories live next to their components in each package.
   stories: [
     "../src/**/*.mdx",
+    "../src/**/*.stories.@(ts|tsx)",
     "../../../packages/*/src/**/*.mdx",
     "../../../packages/*/src/**/*.stories.@(ts|tsx)",
   ],
-  addons: ["@storybook/addon-docs"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-themes"],
   framework: "@storybook/react-vite",
   viteFinal: (config) => mergeConfig(config, { plugins: [tailwindcss()] }),
 };
