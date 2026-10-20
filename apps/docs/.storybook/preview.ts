@@ -15,7 +15,7 @@ const preview: Preview = {
       },
     },
     options: {
-      storySort: { order: ["Introduction", "Foundations", ["Colors", "Typography", "Shape & Layout", "Motion"]] },
+      storySort: { order: ["Introduction", "Foundations", ["Colors", "Typography", "Shape & Layout", "Motion"], "Components"] },
     },
   },
   decorators: [

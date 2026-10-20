@@ -68,6 +68,7 @@
   /* Semantic — prefer these in components; dark mode swaps them below */
   --color-page: var(--kl-color-slate-100);
   --color-surface: var(--kl-color-slate-50);
+  --color-surface-hover: var(--kl-color-mist-100);
   --color-sunken: var(--kl-color-slate-200);
   --color-inverse: var(--kl-color-ink-900);
   --color-inverse-hover: var(--kl-color-slate-700);
@@ -79,8 +80,12 @@
   --color-on-fill: var(--kl-color-ink-900); /* text/icons on mid-tone fills (sage-500, mist-500, -300 tints) */
   --color-subtle: var(--kl-color-slate-300); /* dashed dividers, quiet borders */
   --color-accent: var(--kl-color-sage-500);
+  --color-accent-hover: var(--kl-color-sage-300);
   --color-accent-strong: var(--kl-color-sage-700);
   --color-accent-soft: var(--kl-color-sage-100);
+  --color-neutral: var(--kl-color-slate-700); /* slate fills */
+  --color-neutral-hover: var(--kl-color-slate-500);
+  --color-on-neutral: var(--kl-color-slate-50); /* text/icons on neutral fills */
   --color-link: var(--kl-color-sage-700);
   --color-link-hover: var(--kl-color-ink-900);
   --color-focus: var(--kl-color-dusk-500);
@@ -172,6 +177,14 @@
   --animate-slide-in: kl-slide-in 320ms var(--kl-ease-bounce) var(--kl-stagger-in, 0ms) both;
   --animate-slide-out: kl-slide-out 160ms var(--kl-ease-out) var(--kl-stagger-out, 0ms) both;
 
+  /* One-shot icon accents, played when the icon's control is hovered or focused */
+  --animate-icon-dash: kl-icon-dash 640ms var(--kl-ease-out);
+  --animate-icon-dash-back: kl-icon-dash-back 640ms var(--kl-ease-out);
+  --animate-icon-nudge: kl-icon-nudge 420ms var(--kl-ease-bounce);
+  --animate-icon-hop: kl-icon-hop 520ms var(--kl-ease-out);
+  --animate-icon-spin: kl-icon-spin 520ms var(--kl-ease-bounce);
+  --animate-icon-close: kl-icon-close 420ms var(--kl-ease-bounce);
+
   @keyframes kl-fade-in {
     from {
       opacity: 0;
@@ -226,6 +239,107 @@
     to {
       opacity: 0;
       transform: translateY(10px);
+    }
+  }
+
+  /* Slides out forward, re-enters from behind and settles with a small bounce */
+  @keyframes kl-icon-dash {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    28% {
+      opacity: 0;
+      transform: translateX(9px);
+    }
+    29% {
+      opacity: 0;
+      transform: translateX(-9px);
+    }
+    55% {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+    72% {
+      transform: translateX(-2px);
+    }
+    86% {
+      transform: translateX(1px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes kl-icon-dash-back {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    28% {
+      opacity: 0;
+      transform: translateX(-9px);
+    }
+    29% {
+      opacity: 0;
+      transform: translateX(9px);
+    }
+    55% {
+      opacity: 1;
+      transform: translateX(-4px);
+    }
+    72% {
+      transform: translateX(2px);
+    }
+    86% {
+      transform: translateX(-1px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes kl-icon-nudge {
+    0%,
+    to {
+      transform: rotate(0);
+    }
+    40% {
+      transform: rotate(-8deg);
+    }
+    70% {
+      transform: rotate(4deg);
+    }
+  }
+  @keyframes kl-icon-hop {
+    0%,
+    to {
+      transform: translateY(0);
+    }
+    35% {
+      transform: translateY(-4px);
+    }
+    60% {
+      transform: translateY(0.5px);
+    }
+    80% {
+      transform: translateY(-1px);
+    }
+  }
+  /* A full turn; ease-bounce overshoots slightly before settling */
+  @keyframes kl-icon-spin {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* An X looks the same after a quarter turn, so it ends back at rest without a jump */
+  @keyframes kl-icon-close {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(90deg);
     }
   }
 }

@@ -1,0 +1,9 @@
+import type { ComponentPropsWithRef } from "react";
+{{#if hasVariants}}
+import type { {{name}}VariantProps } from "./{{name}}.variants";
+
+export interface {{name}}Props extends ComponentPropsWithRef<"{{element}}">, {{name}}VariantProps {}
+{{else}}
+
+export interface {{name}}Props extends ComponentPropsWithRef<"{{element}}"> {}
+{{/if}}

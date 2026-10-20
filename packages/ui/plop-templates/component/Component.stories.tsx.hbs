@@ -1,0 +1,28 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { {{name}} } from "./{{name}}";
+
+const meta = {
+  title: "Components/{{name}}",
+  component: {{name}},
+  tags: ["autodocs"],
+{{#unless (isVoid element)}}
+  args: { children: "{{name}}" },
+{{/unless}}
+{{#if hasVariants}}
+  argTypes: {
+    variant: { control: "inline-radio", options: ["default", "inverse"] },
+    size: { control: "inline-radio", options: ["sm", "md", "lg"] },
+  },
+{{/if}}
+} satisfies Meta<typeof {{name}}>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+{{#if hasVariants}}
+
+export const Inverse: Story = {
+  args: { variant: "inverse" },
+};
+{{/if}}
