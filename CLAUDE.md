@@ -43,7 +43,7 @@ This creates `packages/ui/src/components/<Name>/` with:
 
 It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`.
 
-Don't add other files (`index.ts` barrels, `utils.ts`, CSS files) to a component folder. Shared helpers go in `packages/ui/src/lib/`.
+Don't add other files (`index.ts` barrels, `utils.ts`, CSS files) to a component folder. Shared helpers go in `packages/ui/src/lib/`, including React context that one component provides and another reads (e.g. `lib/button-group-context.ts`).
 
 ## Component conventions
 

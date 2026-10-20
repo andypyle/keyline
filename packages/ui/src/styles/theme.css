@@ -64,6 +64,7 @@
   --color-rust-100: #f3d3cb;
   --color-rust-300: #e0907e;
   --color-rust-500: #b33a24;
+  --color-rust-700: #8a2a18;
 
   /* Semantic — prefer these in components; dark mode swaps them below */
   --color-page: var(--kl-color-slate-100);
@@ -99,6 +100,7 @@
   --color-warning: var(--kl-color-amber-500);
   --color-warning-soft: var(--kl-color-amber-100);
   --color-danger: var(--kl-color-rust-500);
+  --color-danger-hover: var(--kl-color-rust-700); /* darker, not lighter: white text needs the contrast */
   --color-danger-soft: var(--kl-color-rust-100);
   --color-info: var(--kl-color-dusk-500);
   --color-info-soft: var(--kl-color-dusk-100);

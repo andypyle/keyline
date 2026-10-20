@@ -6,3 +6,9 @@ body {
   font-family: var(--kl-font-body);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Inline story previews on Docs pages get Storybook's white canvas by default. Give them the page
+   color so they follow the theme, like the standalone story canvas does. */
+.sbdocs .docs-story {
+  background: var(--kl-color-page);
+}

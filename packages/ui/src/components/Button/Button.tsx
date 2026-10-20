@@ -1,4 +1,6 @@
+import { useButtonGroup } from "../../lib/button-group-context";
 import { cn } from "../../lib/cn";
+import { buttonGroupItemVariants } from "../ButtonGroup/ButtonGroup.variants";
 import type { ButtonProps } from "./Button.types";
 import { buttonIconVariants, buttonVariants } from "./Button.variants";
 
@@ -15,6 +17,8 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
+  // Inside a ButtonGroup, the group's size and variant are defaults; this Button's own props win.
+  const group = useButtonGroup();
   // Disabled buttons don't respond to hover, so their icons shouldn't either.
   const animation = props.disabled ? "none" : iconAnimation;
 
@@ -22,7 +26,11 @@ export function Button({
     <button
       data-slot="button"
       type={type}
-      className={cn(buttonVariants({ variant, size, radius }), className)}
+      className={cn(
+        buttonVariants({ variant: variant ?? group?.variant, size: size ?? group?.size, radius }),
+        group && buttonGroupItemVariants({ orientation: group.orientation }),
+        className,
+      )}
       {...props}
     >
       {startIcon && (

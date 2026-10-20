@@ -47,7 +47,7 @@ export const buttonVariants = cva(
         secondary: ["kl:bg-surface", "kl:text-fg-1", "kl:enabled:hover:bg-surface-hover"],
         neutral: ["kl:bg-neutral", "kl:text-on-neutral", "kl:enabled:hover:bg-neutral-hover"],
         inverse: ["kl:bg-inverse", "kl:text-fg-inverse", "kl:enabled:hover:bg-inverse-hover"],
-        danger: ["kl:bg-danger", "kl:text-white"],
+        danger: ["kl:bg-danger", "kl:text-white", "kl:enabled:hover:bg-danger-hover"],
         ghost: [
           "kl:bg-transparent",
           "kl:text-fg-1",
