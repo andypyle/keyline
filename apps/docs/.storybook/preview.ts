@@ -14,6 +14,8 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    // Axe checks every story; violations fail `pnpm test`, not just show in the panel.
+    a11y: { test: "error" },
     options: {
       storySort: { order: ["Introduction", "Foundations", ["Colors", "Typography", "Shape & Layout", "Motion"], "Components"] },
     },

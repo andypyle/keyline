@@ -88,6 +88,17 @@ export const Variants: Story = {
   ),
 };
 
+/** Dark mode swaps the semantic tokens, so contrast is checked here too. */
+export const VariantsDark: Story = {
+  name: "Variants (dark)",
+  globals: { theme: "dark" },
+  render: Variants.render,
+  play: async () => {
+    // Guards the contrast check: if the theme global stops applying, this story would silently test light mode.
+    await expect(document.documentElement).toHaveAttribute("data-theme", "dark");
+  },
+};
+
 export const Sizes: Story = {
   render: (args) => (
     <div style={row}>

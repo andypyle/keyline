@@ -59,6 +59,8 @@ Tests are `play` functions in the component's stories, using `expect`, `fn` and 
 
 Test behavior a consumer relies on, not styling: keyboard access and focus, event handlers firing (or not, when disabled), accessible names and roles, and defaults that prevent bugs (like `type="button"`). Don't assert on class names or computed styles. Put spies in `meta.args` (`onClick: fn()`) and group related assertions with `step()`.
 
+Every story is also checked with axe (`@storybook/addon-a11y`), and violations fail `pnpm test`. Fix violations rather than disabling rules; if a rule must be turned off for one story, do it in that story's `parameters.a11y.config` with a comment explaining why. Stories render in light mode by default, so components with colored fills need a dark-mode story (`globals: { theme: "dark" }`) for contrast to be checked there too. See `Variants (dark)` in `Button.stories.tsx`.
+
 ## Styling and tokens
 
 - Every Tailwind utility uses the `kl:` prefix (`kl:bg-surface`, `kl:px-3`). Unprefixed utilities aren't generated.
