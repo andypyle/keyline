@@ -115,6 +115,10 @@ Order the classes by utility category, in this order:
 
 Keep the array on one line if it fits within ~100 characters; otherwise put one class per line.
 
+## Git
+
+Don't add `Co-Authored-By` trailers or any other Claude or Claude Code attribution to commit messages or pull request descriptions (no "Generated with Claude Code" lines).
+
 ## Before finishing
 
 Run `pnpm typecheck`, `pnpm test` and `pnpm build`. Changes that affect `@keyline/ui` consumers need a changeset (`pnpm changeset`).
