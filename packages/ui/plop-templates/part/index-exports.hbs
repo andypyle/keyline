@@ -1,0 +1,6 @@
+export { {{name}} } from "./components/{{parent}}/parts/{{name}}";
+export type { {{name}}Props } from "./components/{{parent}}/parts/{{name}}.types";
+{{#if hasVariants}}
+export { {{camelCase name}}Variants } from "./components/{{parent}}/parts/{{name}}.variants";
+export type { {{name}}VariantProps } from "./components/{{parent}}/parts/{{name}}.variants";
+{{/if}}

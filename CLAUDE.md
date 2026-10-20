@@ -9,6 +9,7 @@ pnpm + Turborepo monorepo for the Keyline React component library.
 
 ```sh
 pnpm gen component   # scaffold a component (see below)
+pnpm gen part        # scaffold a part of a compound component (see below)
 pnpm typecheck       # all packages
 pnpm test            # every story as a test in headless Chromium (Storybook's Vitest addon)
 pnpm build           # all packages + Storybook
@@ -18,7 +19,7 @@ pnpm changeset       # record a change to a published package
 
 ## Creating components
 
-**Always create a component with the generator. Never create its files or folder by hand.** The generator is the source of truth for component structure. If the structure needs to change, change the templates in `packages/ui/plop-templates/component/` and `packages/ui/plopfile.js`, not individual components.
+**Always create a component with the generator. Never create its files or folder by hand.** The generator is the source of truth for component structure. If the structure needs to change, change the templates in `packages/ui/plop-templates/` and `packages/ui/plopfile.js`, not individual components.
 
 Prompts can't be answered from a non-interactive shell, so pass all four answers as positional arguments:
 
@@ -43,7 +44,22 @@ This creates `packages/ui/src/components/<Name>/` with:
 
 It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`.
 
-Don't add other files (`index.ts` barrels, `utils.ts`, CSS files) to a component folder. Shared helpers go in `packages/ui/src/lib/`, including React context that one component provides and another reads (e.g. `lib/button-group-context.ts`).
+### Compound components
+
+A compound component is built from parts the consumer composes (`Card` from `CardImage`, `CardTitle`, `CardAction`, …). Generate the parent with `pnpm gen component`, then generate each part, again only with the generator:
+
+```sh
+pnpm gen part <Parent> <PartName> "<one-line description>" <root-element> <y|n>
+# e.g.
+pnpm gen part Card CardTitle "Heading of a Card." h3 n
+```
+
+- `<Parent>`: an existing component folder.
+- `<PartName>`: PascalCase, starting with the parent's name.
+
+This creates `<PartName>.tsx`, `<PartName>.types.ts` and, with variants, `<PartName>.variants.ts` in `src/components/<Parent>/parts/`, and appends the exports to `index.ts`. Parts get no stories of their own: the parent's stories compose them and test them together. Parts read the parent's settings through CSS custom properties set on the parent (e.g. `--kl-card-border`), or through React context in `src/lib/` when they need more than styling.
+
+Apart from `parts/`, don't add other files or folders (`index.ts` barrels, `utils.ts`, CSS files) to a component folder. Shared helpers go in `packages/ui/src/lib/`, including React context that one component provides and another reads (e.g. `lib/button-group-context.ts`).
 
 ## Component conventions
 

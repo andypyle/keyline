@@ -1,0 +1,21 @@
+import { cva, type VariantProps } from "class-variance-authority";
+
+export const {{camelCase name}}Variants = cva(["kl:border-2", "kl:border-line", "kl:rounded-md"], {
+  variants: {
+    variant: {
+      default: ["kl:bg-surface", "kl:text-fg-1"],
+      inverse: ["kl:bg-inverse", "kl:text-fg-inverse"],
+    },
+    size: {
+      sm: ["kl:px-2", "kl:py-1"],
+      md: ["kl:px-3", "kl:py-2"],
+      lg: ["kl:px-4", "kl:py-3"],
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+});
+
+export type {{name}}VariantProps = VariantProps<typeof {{camelCase name}}Variants>;

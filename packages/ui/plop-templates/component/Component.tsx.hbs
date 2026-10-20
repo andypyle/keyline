@@ -4,7 +4,7 @@ import type { {{name}}Props } from "./{{name}}.types";
 import { {{camelCase name}}Variants } from "./{{name}}.variants";
 {{/if}}
 
-/** {{description}} */
+/** {{{description}}} */
 {{#if hasVariants}}
 export function {{name}}({ className, variant, size, ...props }: {{name}}Props) {
   return (
