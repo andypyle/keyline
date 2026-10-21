@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect, fn, userEvent } from "storybook/test";
+import { expect, fn, userEvent, waitFor } from "storybook/test";
 import type { ButtonProps } from "../Button/Button.types";
 import { DropdownMenu } from "./DropdownMenu";
 import type { DropdownMenuProps } from "./DropdownMenu.types";
@@ -251,6 +251,36 @@ export const AlignEnd: Story = {
     const trigger = canvas.getByRole("button", { name: "Options" });
     await userEvent.click(trigger);
     await expectAnchored(trigger, canvas.getByRole("menu", { name: "Options" }), "right");
+  },
+};
+
+/** A menu taller than the viewport is capped and scrolls, keeping clear of the viewport's edges. */
+export const LongMenu: Story = {
+  name: "Long menu",
+  render: ({ onAction, ...args }) => (
+    <DropdownMenu {...args}>
+      <DropdownMenuTrigger variant="secondary">Move to</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        {Array.from({ length: 40 }, (_, i) => (
+          <DropdownMenuItem key={i} onClick={() => onAction(`folder ${i + 1}`)}>
+            Folder {i + 1}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+  play: async ({ canvas }) => {
+    await userEvent.click(canvas.getByRole("button", { name: "Move to" }));
+    const menu = canvas.getByRole("menu", { name: "Move to" });
+    await expect(menu.scrollHeight).toBeGreaterThan(menu.clientHeight);
+    // The browser slides an overflowing menu back into the viewport, so it never gets cut off; what
+    // the cap decides is the gap left at each edge, at least the menu's 8px margin. Measured once
+    // the opening bounce has settled, since the menu scales while it plays.
+    await waitFor(async () => {
+      const box = menu.getBoundingClientRect();
+      await expect(box.top).toBeGreaterThanOrEqual(8);
+      await expect(window.innerHeight - box.bottom).toBeGreaterThanOrEqual(8);
+    });
   },
 };
 

@@ -7,8 +7,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 //
 // Opening grows the menu out of the trigger's corner on ease-bounce, so it overshoots a touch and
 // settles; closing takes the base timing, a quicker ease-out with no bounce.
+//
+// Keyline ships without a CSS reset, so box-border is what makes the max height include the menu's
+// padding and border, keeping a long menu inside the viewport.
 export const dropdownMenuContentVariants = cva(
   [
+    "kl:box-border",
     "kl:inset-auto",
     "kl:overflow-y-auto",
     "kl:[position-anchor:var(--kl-dropdown-menu-anchor)]",
