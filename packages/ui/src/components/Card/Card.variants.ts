@@ -37,6 +37,14 @@ export const cardVariants = cva(
         true: ["kl:[--kl-card-border:0px]"],
         false: [],
       },
+      /**
+       * `horizontal` makes the card the `card` container: the parts query its width (`@2xl/card:`)
+       * to sit side by side. Vertical cards declare no container, so those queries never match.
+       */
+      orientation: {
+        vertical: [],
+        horizontal: ["kl:@container/card"],
+      },
     },
     // Raised cards rest on shadow-lg, but only react when they hold an enabled CardAction, whose
     // overlay makes the whole card its click target. Hover and keyboard focus lift by the shadow's
@@ -60,8 +68,29 @@ export const cardVariants = cva(
     defaultVariants: {
       flat: false,
       noBorders: false,
+      orientation: "vertical",
     },
   },
 );
+
+// The inner layout of a horizontal card: a column like a vertical card, then a row once the card
+// is wide enough. It must not be positioned, so CardAction's overlay still covers the whole card.
+//
+// The parts mirror themselves for `reversed` by reading data-reversed on the card: the body aligns
+// to the edge away from the image, and CardImage moves its divider and rounded corners across.
+export const cardLayoutVariants = cva(["kl:flex", "kl:flex-1", "kl:flex-col"], {
+  variants: {
+    /** In a wide horizontal card, puts the image on the right and the body on the left. */
+    reversed: {
+      true: ["kl:@2xl/card:flex-row-reverse"],
+      false: ["kl:@2xl/card:flex-row"],
+    },
+  },
+  defaultVariants: {
+    reversed: false,
+  },
+});
+
+export type CardLayoutVariantProps = VariantProps<typeof cardLayoutVariants>;
 
 export type CardVariantProps = VariantProps<typeof cardVariants>;

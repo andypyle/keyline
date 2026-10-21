@@ -33,7 +33,7 @@ type CardStoryArgs = CardProps & { onAction: () => void };
 
 function ProjectCard({ onAction, ...args }: CardStoryArgs) {
   return (
-    <Card {...args} style={width}>
+    <Card style={width} {...args}>
       <CardImage src={image} alt="" />
       <CardBody>
         <CardTitle>Keyline design system</CardTitle>
@@ -70,7 +70,7 @@ const meta = {
   title: "Components/Card",
   component: Card,
   tags: ["autodocs"],
-  args: { flat: false, noBorders: false, onAction: fn() },
+  args: { flat: false, noBorders: false, orientation: "vertical", reversed: false, onAction: fn() },
   argTypes: {
     onAction: { table: { disable: true } },
   },
@@ -165,6 +165,34 @@ export const WithoutAction: Story = {
     await userEvent.tab();
     await expect(document.body).toHaveFocus();
   },
+};
+
+/**
+ * A horizontal card puts the image beside the body once the card is 42rem wide, and stacks them
+ * below that. It sizes to its container, so give it a width.
+ */
+export const Horizontal: Story = {
+  args: { orientation: "horizontal" },
+  render: (args) => (
+    <div style={{ display: "grid", gap: 24 }}>
+      <ProjectCard {...args} style={{ maxWidth: 760 }} />
+      <ProjectCard {...args} style={width} />
+    </div>
+  ),
+  play: async ({ canvas }) => {
+    const [wide] = canvas.getAllByRole("button", { name: "Read the Keyline case study" });
+    const card = wide!.closest("[data-slot=card]")!;
+    // The layout wrapper must not take over as the overlay's containing block.
+    await expect(hitAt(card.querySelector("[data-slot=card-image]")!, 0.5, 0.5)).toBe(wide);
+    await expect(hitAt(card, 0.998, 0.5)).toBe(wide);
+  },
+};
+
+/** `reversed` mirrors a wide horizontal card: the image on the right, the body aligned left. */
+export const HorizontalReversed: Story = {
+  args: { orientation: "horizontal", reversed: true },
+  render: Horizontal.render,
+  play: Horizontal.play,
 };
 
 export const DisabledAction: Story = {

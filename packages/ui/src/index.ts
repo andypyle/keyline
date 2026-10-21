@@ -12,8 +12,8 @@ export type { ButtonGroupVariantProps } from "./components/ButtonGroup/ButtonGro
 
 export { Card } from "./components/Card/Card";
 export type { CardProps } from "./components/Card/Card.types";
-export { cardVariants } from "./components/Card/Card.variants";
-export type { CardVariantProps } from "./components/Card/Card.variants";
+export { cardVariants, cardLayoutVariants } from "./components/Card/Card.variants";
+export type { CardVariantProps, CardLayoutVariantProps } from "./components/Card/Card.variants";
 
 export { CardImage } from "./components/Card/parts/CardImage";
 export type { CardImageProps } from "./components/Card/parts/CardImage.types";
@@ -41,3 +41,8 @@ export type {
 } from "./components/Card/parts/CardAction.types";
 export { cardActionVariants, cardActionFaceVariants } from "./components/Card/parts/CardAction.variants";
 export type { CardActionVariantProps } from "./components/Card/parts/CardAction.variants";
+
+export { CardGrid } from "./components/CardGrid/CardGrid";
+export type { CardGridProps } from "./components/CardGrid/CardGrid.types";
+export { cardGridVariants, cardGridItemsVariants } from "./components/CardGrid/CardGrid.variants";
+export type { CardGridVariantProps } from "./components/CardGrid/CardGrid.variants";

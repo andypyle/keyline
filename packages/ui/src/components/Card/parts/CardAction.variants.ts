@@ -31,6 +31,8 @@ export const cardActionVariants = cva([
   "kl:focus-visible:outline-offset-4",
   "kl:focus-visible:outline-focus",
   "kl:disabled:cursor-not-allowed",
+  // A reversed horizontal card mirrors the body, so the action moves to the bottom left.
+  "kl:@2xl/card:in-data-[reversed=true]:self-start",
 ]);
 
 // Hover lands anywhere on the card, since the overlay belongs to the action. The face lifts by its
