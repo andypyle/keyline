@@ -2,10 +2,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 export const inputVariants = cva(
   [
+    // Keyline ships without a CSS reset, so box-border is what keeps w-full from adding the
+    // padding and border on top of the container's width.
+    "kl:box-border",
     "kl:block",
     "kl:w-full",
     "kl:min-w-0",
-    // Keyline ships without a CSS reset, so clear the browser's default input margin and font.
+    // Clear the browser's default input margin and font, too.
     "kl:m-0",
     "kl:font-body",
     "kl:bg-surface",
