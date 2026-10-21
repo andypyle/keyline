@@ -1,5 +1,6 @@
 import { useId, useMemo, useState } from "react";
 import { cn } from "../../lib/cn";
+import { useField, useFieldControlProps } from "../../lib/field-context";
 import { RadioGroupContext } from "../../lib/radio-group-context";
 import type { RadioGroupProps } from "./RadioGroup.types";
 import { radioGroupVariants } from "./RadioGroup.variants";
@@ -16,11 +17,18 @@ export function RadioGroup({
   defaultValue,
   onValueChange,
   name,
-  disabled = false,
-  required = false,
+  disabled: disabledProp,
+  required: requiredProp,
   size,
   ...props
 }: RadioGroupProps) {
+  // In a Field, the group is named by the FieldLabel through aria-labelledby, since a <label for>
+  // can't name a group.
+  const field = useField();
+  const fieldProps = useFieldControlProps(props);
+  const disabled = disabledProp ?? field?.disabled ?? false;
+  const required = requiredProp ?? field?.required ?? false;
+  const labelledBy = props["aria-labelledby"] ?? (field?.hasLabel ? field.labelId : undefined);
   const [uncontrolledValue, setUncontrolledValue] = useState<string | null>(defaultValue ?? null);
   const controlled = valueProp !== undefined;
   const value = controlled ? valueProp : uncontrolledValue;
@@ -53,6 +61,8 @@ export function RadioGroup({
         aria-required={required || undefined}
         className={cn(radioGroupVariants({ orientation: resolvedOrientation }), className)}
         {...props}
+        {...fieldProps}
+        aria-labelledby={labelledBy}
       />
     </RadioGroupContext>
   );

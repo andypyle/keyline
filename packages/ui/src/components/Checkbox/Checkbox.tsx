@@ -1,5 +1,6 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
 import { cn } from "../../lib/cn";
+import { useField, useFieldControlProps } from "../../lib/field-context";
 import { mergeRefs } from "../../lib/merge-refs";
 import type { CheckboxProps } from "./Checkbox.types";
 import { checkboxIndicatorVariants, checkboxVariants } from "./Checkbox.variants";
@@ -9,7 +10,9 @@ import { checkboxIndicatorVariants, checkboxVariants } from "./Checkbox.variants
  * `<label>` as usual. Wrap it in a label with its text, or point a `<label for>` at its `id`. Props
  * and `className` go to the input; it sits in a small wrapper that holds the check mark.
  */
-export function Checkbox({ ref, className, size, indeterminate = false, ...props }: CheckboxProps) {
+export function Checkbox({ ref, className, size, indeterminate = false, disabled, required, ...props }: CheckboxProps) {
+  const field = useField();
+  const fieldProps = useFieldControlProps(props);
   const inputRef = useRef<HTMLInputElement>(null);
   const mergedRef = useMemo(() => mergeRefs(inputRef, ref), [ref]);
 
@@ -27,8 +30,11 @@ export function Checkbox({ ref, className, size, indeterminate = false, ...props
       <input
         data-slot="checkbox"
         type="checkbox"
+        disabled={disabled ?? field?.disabled}
+        required={required ?? field?.required}
         className={cn(checkboxVariants({ size }), className)}
         {...props}
+        {...fieldProps}
         ref={mergedRef}
       />
       <svg

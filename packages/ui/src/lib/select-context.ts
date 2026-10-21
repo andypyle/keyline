@@ -11,6 +11,8 @@ export interface SelectContextValue {
   active: ListboxActive | null;
   setActive: (active: ListboxActive | null) => void;
   disabled: boolean;
+  /** Announced on the trigger; the hidden form input does the validating. */
+  required: boolean;
   triggerId: string;
   contentId: string;
   triggerRef: RefObject<HTMLButtonElement | null>;

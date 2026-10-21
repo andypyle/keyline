@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import { cn } from "../../lib/cn";
+import { useField } from "../../lib/field-context";
 import { FormValueInput } from "../../lib/form-value-input";
 import { useItemRegistry, type ListboxActive } from "../../lib/listbox";
 import { SelectContext } from "../../lib/select-context";
@@ -27,11 +28,14 @@ export function Select({
   onOpenChange,
   name,
   form,
-  required = false,
-  disabled = false,
+  required: requiredProp,
+  disabled: disabledProp,
   children,
   ...props
 }: SelectProps) {
+  const field = useField();
+  const required = requiredProp ?? field?.required ?? false;
+  const disabled = disabledProp ?? field?.disabled ?? false;
   const [uncontrolledValue, setUncontrolledValue] = useState<string | null>(defaultValue ?? null);
   const valueControlled = valueProp !== undefined;
   const value = valueControlled ? valueProp : uncontrolledValue;
@@ -90,6 +94,7 @@ export function Select({
       active,
       setActive,
       disabled,
+      required,
       triggerId: `${id}-trigger`,
       contentId: `${id}-content`,
       triggerRef,
@@ -97,7 +102,7 @@ export function Select({
       items,
       registerItem,
     }),
-    [value, select, open, setOpen, active, disabled, id, items, registerItem],
+    [value, select, open, setOpen, active, disabled, required, id, items, registerItem],
   );
 
   // The content renders in the top layer, so it's tethered to this wrapper with CSS anchor

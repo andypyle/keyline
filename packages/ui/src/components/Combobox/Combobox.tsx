@@ -1,6 +1,7 @@
 import { useCallback, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { cn } from "../../lib/cn";
 import { ComboboxContext, defaultComboboxFilter, namesOption } from "../../lib/combobox-context";
+import { useField } from "../../lib/field-context";
 import { FormValueInput } from "../../lib/form-value-input";
 import { useItemRegistry, type ListboxActive, type ListboxItemRecord } from "../../lib/listbox";
 import type { ComboboxProps } from "./Combobox.types";
@@ -33,11 +34,14 @@ export function Combobox({
   allowCustomValue = false,
   name,
   form,
-  required = false,
-  disabled = false,
+  required: requiredProp,
+  disabled: disabledProp,
   children,
   ...props
 }: ComboboxProps) {
+  const field = useField();
+  const required = requiredProp ?? field?.required ?? false;
+  const disabled = disabledProp ?? field?.disabled ?? false;
   const [uncontrolledValue, setUncontrolledValue] = useState<string | null>(defaultValue ?? null);
   const valueControlled = valueProp !== undefined;
   const value = valueControlled ? valueProp : uncontrolledValue;
@@ -156,6 +160,7 @@ export function Combobox({
       matches,
       hasMatches,
       disabled,
+      required,
       inputId: `${id}-input`,
       contentId: `${id}-content`,
       inputRef,
@@ -179,6 +184,7 @@ export function Combobox({
       matches,
       hasMatches,
       disabled,
+      required,
       id,
       items,
       registerItem,

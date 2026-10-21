@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef } from "react";
 import { cn } from "../../../lib/cn";
-import { mergeRefs } from "../../../lib/merge-refs";
+import { useFieldControlProps } from "../../../lib/field-context";
 import { getInitialOption, getOptionValues } from "../../../lib/listbox";
+import { mergeRefs } from "../../../lib/merge-refs";
 import { useSelect } from "../../../lib/select-context";
 import type { SelectTriggerProps } from "./SelectTrigger.types";
 import { selectTriggerVariants } from "./SelectTrigger.variants";
@@ -29,6 +30,7 @@ export function SelectTrigger({
   ...props
 }: SelectTriggerProps) {
   const select = useSelect();
+  const fieldProps = useFieldControlProps(props);
   const mergedRef = useMemo(() => mergeRefs(select.triggerRef, ref), [select.triggerRef, ref]);
   const typeahead = useRef({ text: "", timer: 0 });
   useEffect(() => () => window.clearTimeout(typeahead.current.timer), []);
@@ -182,8 +184,10 @@ export function SelectTrigger({
         event.preventDefault();
         if (next !== undefined) select.setActive({ value: next, source: "keyboard" });
       }}
+      aria-required={select.required || undefined}
       {...props}
-      id={props.id ?? select.triggerId}
+      {...fieldProps}
+      id={fieldProps.id ?? select.triggerId}
       ref={mergedRef}
     >
       {selected?.icon && (

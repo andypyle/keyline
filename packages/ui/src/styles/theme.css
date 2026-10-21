@@ -102,6 +102,7 @@
   --color-danger: var(--kl-color-rust-500);
   --color-danger-hover: var(--kl-color-rust-700); /* darker, not lighter: white text needs the contrast */
   --color-danger-soft: var(--kl-color-rust-100);
+  --color-danger-text: var(--kl-color-rust-500); /* error messages; lightens in dark mode, where rust-500 is too dim */
   --color-info: var(--kl-color-dusk-500);
   --color-info-soft: var(--kl-color-dusk-100);
 
@@ -381,6 +382,7 @@
     --kl-color-link: var(--kl-color-sage-300);
     --kl-color-link-hover: #e9edf0;
     --kl-color-focus: var(--kl-color-dusk-300);
+    --kl-color-danger-text: var(--kl-color-rust-300);
     --kl-color-selection: var(--kl-color-mist-500);
 
     --kl-color-code: #0c0f12;

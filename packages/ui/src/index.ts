@@ -174,3 +174,17 @@ export { Switch } from "./components/Switch/Switch";
 export type { SwitchProps } from "./components/Switch/Switch.types";
 export { switchVariants, switchThumbVariants } from "./components/Switch/Switch.variants";
 export type { SwitchVariantProps, SwitchThumbVariantProps } from "./components/Switch/Switch.variants";
+
+export { Field } from "./components/Field/Field";
+export type { FieldProps } from "./components/Field/Field.types";
+export { fieldVariants } from "./components/Field/Field.variants";
+export type { FieldVariantProps } from "./components/Field/Field.variants";
+
+export { FieldLabel } from "./components/Field/parts/FieldLabel";
+export type { FieldLabelProps } from "./components/Field/parts/FieldLabel.types";
+
+export { FieldDescription } from "./components/Field/parts/FieldDescription";
+export type { FieldDescriptionProps } from "./components/Field/parts/FieldDescription.types";
+
+export { FieldError } from "./components/Field/parts/FieldError";
+export type { FieldErrorProps } from "./components/Field/parts/FieldError.types";

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { cn } from "../../../lib/cn";
 import { useCombobox } from "../../../lib/combobox-context";
+import { useFieldControlProps } from "../../../lib/field-context";
 import { getInitialOption, getOptionValues } from "../../../lib/listbox";
 import { mergeRefs } from "../../../lib/merge-refs";
 import { inputVariants } from "../../Input/Input.variants";
@@ -26,6 +27,7 @@ export function ComboboxInput({
   ...props
 }: ComboboxInputProps) {
   const combobox = useCombobox();
+  const fieldProps = useFieldControlProps(props);
   const mergedRef = useMemo(() => mergeRefs(combobox.inputRef, ref), [combobox.inputRef, ref]);
   const isDisabled = combobox.disabled || disabled;
   const activeId =
@@ -110,8 +112,10 @@ export function ComboboxInput({
           onBlur?.(event);
           if (!event.defaultPrevented) combobox.commit();
         }}
+        aria-required={combobox.required || undefined}
         {...props}
-        id={props.id ?? combobox.inputId}
+        {...fieldProps}
+        id={fieldProps.id ?? combobox.inputId}
         ref={mergedRef}
       />
       {icon && (

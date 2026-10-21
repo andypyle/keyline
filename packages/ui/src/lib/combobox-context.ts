@@ -31,6 +31,8 @@ export interface ComboboxContextValue {
   /** Whether any option matches the current query. */
   hasMatches: boolean;
   disabled: boolean;
+  /** Announced on the input; the hidden form input does the validating. */
+  required: boolean;
   inputId: string;
   contentId: string;
   inputRef: RefObject<HTMLInputElement | null>;
