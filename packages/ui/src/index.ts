@@ -88,3 +88,13 @@ export type { ModalFooterProps } from "./components/Modal/parts/ModalFooter.type
 
 export { ModalClose } from "./components/Modal/parts/ModalClose";
 export type { ModalCloseProps } from "./components/Modal/parts/ModalClose.types";
+
+export { Input } from "./components/Input/Input";
+export type { InputProps } from "./components/Input/Input.types";
+export { inputVariants } from "./components/Input/Input.variants";
+export type { InputVariantProps } from "./components/Input/Input.variants";
+
+export { Textarea } from "./components/Textarea/Textarea";
+export type { TextareaProps } from "./components/Textarea/Textarea.types";
+export { textareaVariants } from "./components/Textarea/Textarea.variants";
+export type { TextareaVariantProps } from "./components/Textarea/Textarea.variants";
