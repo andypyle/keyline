@@ -68,9 +68,17 @@ export const modalContentVariants = cva(
         md: ["kl:max-w-lg"],
         lg: ["kl:max-w-2xl"],
       },
+      // ModalTitle pads its end by --kl-modal-title-inset, so a long title stays clear of the
+      // corner close button: the 40px button reaches 32px past the panel's padding, plus a gap.
+      /** Leaves out the corner close button. Escape and a click on the backdrop still close the modal. */
+      noCloseButton: {
+        true: [],
+        false: ["kl:[--kl-modal-title-inset:--spacing(11)]"],
+      },
     },
     defaultVariants: {
       size: "md",
+      noCloseButton: false,
     },
   },
 );

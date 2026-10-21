@@ -12,13 +12,22 @@ export function ModalTitle({ className, ...props }: ModalTitleProps) {
     return () => setHasTitle(false);
   }, [setHasTitle]);
 
-  // The end padding keeps a long title clear of the corner close button.
+  // ModalContent sets the end padding, keeping a long title clear of its corner close button, and
+  // leaves it unset (no padding) when there's no button.
   return (
     <h2
       data-slot="modal-title"
       id={titleId}
       className={cn(
-        ["kl:m-0", "kl:pe-10", "kl:font-display", "kl:font-medium", "kl:text-h4", "kl:leading-snug", "kl:text-fg-1"],
+        [
+          "kl:m-0",
+          "kl:pe-(--kl-modal-title-inset)",
+          "kl:font-display",
+          "kl:font-medium",
+          "kl:text-h4",
+          "kl:leading-snug",
+          "kl:text-fg-1",
+        ],
         className,
       )}
       {...props}

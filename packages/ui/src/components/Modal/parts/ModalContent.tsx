@@ -26,6 +26,7 @@ export function ModalContent({
   ref,
   className,
   size,
+  noCloseButton,
   closeLabel = "Close",
   children,
   onKeyDown,
@@ -59,7 +60,7 @@ export function ModalContent({
       data-slot="modal-content"
       aria-labelledby={modal.hasTitle ? modal.titleId : undefined}
       aria-describedby={modal.hasDescription ? modal.descriptionId : undefined}
-      className={cn(modalContentVariants({ size }), className)}
+      className={cn(modalContentVariants({ size, noCloseButton }), className)}
       onKeyDown={(event) => {
         onKeyDown?.(event);
         // Escape is handled here rather than left to the dialog's cancel event: browsers force a
@@ -101,21 +102,26 @@ export function ModalContent({
       ref={mergedRef}
     >
       {children}
-      {/* Last in the DOM, so opening focuses the content's first control rather than this. */}
-      <Button
-        data-slot="modal-close-button"
-        variant="ghost"
-        size="icon"
-        iconAnimation="close"
-        aria-label={closeLabel}
-        startIcon={
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        }
-        className={cn(["kl:absolute", "kl:top-4", "kl:right-4"])}
-        onClick={() => setOpen(false)}
-      />
+      {/* Last in the DOM, so opening focuses the content's first control rather than this. A
+          step up from Button's icon size, so it's an easy target at the panel's corner. It's a
+          ghost button, so only the X shows at rest; the X fills more of its icon than most so it
+          reads at that size. */}
+      {!noCloseButton && (
+        <Button
+          data-slot="modal-close-button"
+          variant="ghost"
+          size="icon"
+          iconAnimation="close"
+          aria-label={closeLabel}
+          startIcon={
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 5l14 14M19 5L5 19" />
+            </svg>
+          }
+          className={cn(["kl:absolute", "kl:top-4", "kl:right-4", "kl:size-10", "kl:[&_svg]:size-6"])}
+          onClick={() => setOpen(false)}
+        />
+      )}
     </dialog>
   );
 }

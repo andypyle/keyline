@@ -26,14 +26,15 @@ const input = {
 
 type ModalStoryArgs = ModalProps & {
   size?: ModalContentProps["size"];
+  noCloseButton?: ModalContentProps["noCloseButton"];
   onAction: (action: string) => void;
 };
 
-function PublishModal({ size, onAction, ...args }: ModalStoryArgs) {
+function PublishModal({ size, noCloseButton, onAction, ...args }: ModalStoryArgs) {
   return (
     <Modal {...args}>
       <ModalTrigger>Publish changes</ModalTrigger>
-      <ModalContent size={size}>
+      <ModalContent size={size} noCloseButton={noCloseButton}>
         <ModalTitle>Publish changes?</ModalTitle>
         <ModalDescription>
           Your edits to 3 pages go live on the Keyline docs site for everyone. You can unpublish them later.
@@ -82,6 +83,7 @@ const meta = {
     open: { control: false },
     defaultOpen: { control: false },
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },
+    noCloseButton: { control: "boolean" },
     onAction: { table: { disable: true } },
   },
   render: (args) => <PublishModal {...args} />,
@@ -213,6 +215,32 @@ export const Small: Story = {
 export const Large: Story = {
   args: { size: "lg" },
   play: Open.play,
+};
+
+/**
+ * `noCloseButton` leaves out the corner close button, for modals whose footer already offers a way
+ * out. Escape and a click on the backdrop still close it.
+ */
+export const NoCloseButton: Story = {
+  name: "No close button",
+  args: { noCloseButton: true },
+  play: async ({ canvas, canvasElement, step }) => {
+    const dialog = getDialog(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "Publish changes" }));
+
+    await step("has no close button, but keeps its footer actions", async () => {
+      await expect(canvas.queryByRole("button", { name: "Close" })).not.toBeInTheDocument();
+      await expect(canvas.getByRole("button", { name: "Cancel" })).toHaveFocus();
+    });
+
+    await step("still closes on Escape and on the backdrop", async () => {
+      await userEvent.keyboard("{Escape}");
+      await expect(dialog.open).toBe(false);
+      await userEvent.click(canvas.getByRole("button", { name: "Publish changes" }));
+      await userEvent.pointer({ keys: "[MouseLeft]", target: dialog, coords: { clientX: 1, clientY: 1 } });
+      await expect(dialog.open).toBe(false);
+    });
+  },
 };
 
 /**
