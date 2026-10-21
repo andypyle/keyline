@@ -169,3 +169,8 @@ export { RadioGroup } from "./components/RadioGroup/RadioGroup";
 export type { RadioGroupProps } from "./components/RadioGroup/RadioGroup.types";
 export { radioGroupVariants } from "./components/RadioGroup/RadioGroup.variants";
 export type { RadioGroupVariantProps } from "./components/RadioGroup/RadioGroup.variants";
+
+export { Switch } from "./components/Switch/Switch";
+export type { SwitchProps } from "./components/Switch/Switch.types";
+export { switchVariants, switchThumbVariants } from "./components/Switch/Switch.variants";
+export type { SwitchVariantProps, SwitchThumbVariantProps } from "./components/Switch/Switch.variants";
