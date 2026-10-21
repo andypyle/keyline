@@ -1,6 +1,6 @@
 import { useId, useMemo, useState } from "react";
 import { cn } from "../../../lib/cn";
-import { SelectGroupContext } from "../../../lib/select-context";
+import { ListboxGroupContext } from "../../../lib/listbox";
 import type { SelectGroupProps } from "./SelectGroup.types";
 
 /** Groups related options in a Select. Put a SelectLabel first to name it; screen readers announce the name with its options. */
@@ -10,7 +10,7 @@ export function SelectGroup({ className, ...props }: SelectGroupProps) {
   const context = useMemo(() => ({ labelId, setHasLabel }), [labelId]);
 
   return (
-    <SelectGroupContext value={context}>
+    <ListboxGroupContext value={context}>
       <div
         data-slot="select-group"
         role="group"
@@ -18,6 +18,6 @@ export function SelectGroup({ className, ...props }: SelectGroupProps) {
         className={cn(["kl:flex", "kl:flex-col", "kl:gap-0.5"], className)}
         {...props}
       />
-    </SelectGroupContext>
+    </ListboxGroupContext>
   );
 }

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef } from "react";
 import { cn } from "../../../lib/cn";
 import { mergeRefs } from "../../../lib/merge-refs";
-import { getInitialOption, getOptionValues, useSelect } from "../../../lib/select-context";
+import { getInitialOption, getOptionValues } from "../../../lib/listbox";
+import { useSelect } from "../../../lib/select-context";
 import type { SelectTriggerProps } from "./SelectTrigger.types";
 import { selectTriggerVariants } from "./SelectTrigger.variants";
 

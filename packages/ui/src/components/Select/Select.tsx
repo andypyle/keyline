@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import { cn } from "../../lib/cn";
-import { SelectContext, type SelectActive, type SelectItemRecord } from "../../lib/select-context";
+import { FormValueInput } from "../../lib/form-value-input";
+import { useItemRegistry, type ListboxActive } from "../../lib/listbox";
+import { SelectContext } from "../../lib/select-context";
 import type { SelectProps } from "./Select.types";
 
 /**
@@ -38,8 +40,8 @@ export function Select({
   const openControlled = openProp !== undefined;
   const open = openControlled ? openProp : uncontrolledOpen;
 
-  const [active, setActive] = useState<SelectActive | null>(null);
-  const [items, setItems] = useState<ReadonlyMap<string, SelectItemRecord>>(() => new Map());
+  const [active, setActive] = useState<ListboxActive | null>(null);
+  const [items, registerItem] = useItemRegistry();
 
   const id = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -65,31 +67,6 @@ export function Select({
     },
     [value, valueControlled, onValueChange, setOpen],
   );
-
-  // Items register on mount and whenever their text or state changes. Updates that change nothing
-  // keep the same map, so they don't re-render the Select.
-  const registerItem = useCallback((itemValue: string, record: SelectItemRecord) => {
-    setItems((prev) => {
-      const current = prev.get(itemValue);
-      if (
-        current?.id === record.id &&
-        current.text === record.text &&
-        current.icon === record.icon &&
-        current.disabled === record.disabled
-      ) {
-        return prev;
-      }
-      return new Map(prev).set(itemValue, record);
-    });
-    return () => {
-      setItems((prev) => {
-        if (prev.get(itemValue)?.id !== record.id) return prev;
-        const next = new Map(prev);
-        next.delete(itemValue);
-        return next;
-      });
-    };
-  }, []);
 
   // The list is a manual popover, so the browser doesn't light-dismiss it; close it on a press
   // outside here. Presses on the trigger are left to its own click handler, which toggles.
@@ -138,33 +115,14 @@ export function Select({
         {...props}
       >
         {children}
-        {(name !== undefined || required) && (
-          // Carries the value into form submission and validation. It isn't type="hidden" or
-          // read-only, since browsers skip those when validating `required`. When validation
-          // fails the browser focuses it, so focus moves on to the trigger.
-          <input
-            aria-hidden
-            tabIndex={-1}
-            name={name}
-            form={form}
-            required={required}
-            disabled={disabled}
-            value={value ?? ""}
-            onChange={() => {}}
-            onFocus={() => triggerRef.current?.focus()}
-            className={cn([
-              "kl:absolute",
-              "kl:bottom-0",
-              "kl:left-4",
-              "kl:size-px",
-              "kl:m-0",
-              "kl:p-0",
-              "kl:border-0",
-              "kl:opacity-0",
-              "kl:pointer-events-none",
-            ])}
-          />
-        )}
+        <FormValueInput
+          name={name}
+          form={form}
+          required={required}
+          disabled={disabled}
+          value={value}
+          onFocus={() => triggerRef.current?.focus()}
+        />
       </div>
     </SelectContext>
   );

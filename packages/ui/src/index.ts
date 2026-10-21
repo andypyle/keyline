@@ -125,3 +125,32 @@ export type { SelectLabelProps } from "./components/Select/parts/SelectLabel.typ
 
 export { SelectSeparator } from "./components/Select/parts/SelectSeparator";
 export type { SelectSeparatorProps } from "./components/Select/parts/SelectSeparator.types";
+
+export { Combobox } from "./components/Combobox/Combobox";
+export type { ComboboxProps } from "./components/Combobox/Combobox.types";
+
+export { ComboboxInput } from "./components/Combobox/parts/ComboboxInput";
+export type { ComboboxInputProps } from "./components/Combobox/parts/ComboboxInput.types";
+export { comboboxInputVariants, comboboxToggleVariants, comboboxIconVariants } from "./components/Combobox/parts/ComboboxInput.variants";
+export type {
+  ComboboxInputVariantProps,
+  ComboboxToggleVariantProps,
+  ComboboxIconVariantProps,
+} from "./components/Combobox/parts/ComboboxInput.variants";
+
+export { ComboboxContent } from "./components/Combobox/parts/ComboboxContent";
+export type { ComboboxContentProps } from "./components/Combobox/parts/ComboboxContent.types";
+export { comboboxContentVariants } from "./components/Combobox/parts/ComboboxContent.variants";
+export type { ComboboxContentVariantProps } from "./components/Combobox/parts/ComboboxContent.variants";
+
+export { ComboboxItem } from "./components/Combobox/parts/ComboboxItem";
+export type { ComboboxItemProps } from "./components/Combobox/parts/ComboboxItem.types";
+
+export { ComboboxGroup } from "./components/Combobox/parts/ComboboxGroup";
+export type { ComboboxGroupProps } from "./components/Combobox/parts/ComboboxGroup.types";
+
+export { ComboboxLabel } from "./components/Combobox/parts/ComboboxLabel";
+export type { ComboboxLabelProps } from "./components/Combobox/parts/ComboboxLabel.types";
+
+export { ComboboxSeparator } from "./components/Combobox/parts/ComboboxSeparator";
+export type { ComboboxSeparatorProps } from "./components/Combobox/parts/ComboboxSeparator.types";

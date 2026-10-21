@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { cn } from "../../../lib/cn";
 import { mergeRefs } from "../../../lib/merge-refs";
-import { getInitialOption, getTriggerLabel, useSelect } from "../../../lib/select-context";
+import { getControlLabel, getInitialOption } from "../../../lib/listbox";
+import { useSelect } from "../../../lib/select-context";
 import type { SelectContentProps } from "./SelectContent.types";
 import { selectContentVariants } from "./SelectContent.variants";
 
@@ -21,7 +22,7 @@ export function SelectContent({ ref, className, align, onMouseDown, ...props }: 
   useEffect(() => {
     const content = contentRef.current;
     if (!content) return;
-    if (triggerRef.current) setLabel(getTriggerLabel(triggerRef.current));
+    if (triggerRef.current) setLabel(getControlLabel(triggerRef.current));
     const showing = content.matches(":popover-open");
     if (open && !showing) {
       content.showPopover();
