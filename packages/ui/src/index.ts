@@ -65,3 +65,26 @@ export type { DropdownMenuItemVariantProps } from "./components/DropdownMenu/par
 
 export { DropdownMenuSeparator } from "./components/DropdownMenu/parts/DropdownMenuSeparator";
 export type { DropdownMenuSeparatorProps } from "./components/DropdownMenu/parts/DropdownMenuSeparator.types";
+
+export { Modal } from "./components/Modal/Modal";
+export type { ModalProps } from "./components/Modal/Modal.types";
+
+export { ModalTrigger } from "./components/Modal/parts/ModalTrigger";
+export type { ModalTriggerProps } from "./components/Modal/parts/ModalTrigger.types";
+
+export { ModalContent } from "./components/Modal/parts/ModalContent";
+export type { ModalContentProps } from "./components/Modal/parts/ModalContent.types";
+export { modalContentVariants } from "./components/Modal/parts/ModalContent.variants";
+export type { ModalContentVariantProps } from "./components/Modal/parts/ModalContent.variants";
+
+export { ModalTitle } from "./components/Modal/parts/ModalTitle";
+export type { ModalTitleProps } from "./components/Modal/parts/ModalTitle.types";
+
+export { ModalDescription } from "./components/Modal/parts/ModalDescription";
+export type { ModalDescriptionProps } from "./components/Modal/parts/ModalDescription.types";
+
+export { ModalFooter } from "./components/Modal/parts/ModalFooter";
+export type { ModalFooterProps } from "./components/Modal/parts/ModalFooter.types";
+
+export { ModalClose } from "./components/Modal/parts/ModalClose";
+export type { ModalCloseProps } from "./components/Modal/parts/ModalClose.types";

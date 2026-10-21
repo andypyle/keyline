@@ -1,0 +1,5 @@
+---
+"@keyline/ui": minor
+---
+
+Add `Modal`, composed from `ModalTrigger`, `ModalContent`, `ModalTitle`, `ModalDescription`, `ModalFooter` and `ModalClose`. The content is a native `<dialog>` opened with `showModal()`, so the rest of the page is inert while it's open and focus returns to the trigger on close. It's named and described by its title and description, opens with a fade and a small bounce over a fading, lightly blurred backdrop, and closes on Escape, the corner close button (which turns on hover and focus), a click on the backdrop, any `ModalClose`, or a `<form method="dialog">` inside it. The page behind stops scrolling while it's open. `ModalContent` takes a `size` (`sm`, `md`, `lg`) and a `closeLabel` for the close button's accessible name. `ModalTrigger` and `ModalClose` are Buttons, so they take every Button prop; `ModalClose` defaults to `secondary`. `open`, `defaultOpen` and `onOpenChange` support controlled and uncontrolled use.
