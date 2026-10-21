@@ -39,6 +39,14 @@ const preview: Preview = {
       storySort: { order: ["Introduction", "Foundations", ["Colors", "Typography", "Shape & Layout", "Motion"], "Components"] },
     },
   },
+  // withThemeByDataAttribute applies the theme in an effect that, in the dev server, only runs once
+  // the play function and the axe check have finished, so a dark story would be tested in light
+  // mode. Set it before the story renders as well; the decorator still drives the toolbar. Docs
+  // pages are left alone: withDocsStoryTheme scopes a story's theme to its preview block there.
+  beforeEach: ({ globals, viewMode }) => {
+    if (viewMode === "docs") return;
+    document.documentElement.setAttribute("data-theme", typeof globals.theme === "string" && globals.theme ? globals.theme : "light");
+  },
   decorators: [
     // Dark mode is opt-in, exactly as consumers turn it on: data-theme on <html>.
     withThemeByDataAttribute({
