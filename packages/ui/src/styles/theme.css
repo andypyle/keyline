@@ -349,10 +349,10 @@
 /* kl:dark: variant for one-off tweaks. Matches the token swap below. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Dark mode is opt-in: set data-theme="dark" on <html>. Keyline never follows the OS
-   setting on its own, since the host app may be light-only; apps that want that can set
-   the attribute from prefers-color-scheme themselves. These sit outside @theme, so they
-   use the emitted --kl- names directly. */
+/* Dark mode is opt-in: set data-theme="dark" on <html> for the whole page, or on any element
+   for just that part of it. Keyline never follows the OS setting on its own, since the host
+   app may be light-only; apps that want that can set the attribute from prefers-color-scheme
+   themselves. These sit outside @theme, so they use the emitted --kl- names directly. */
 @layer keyline.theme {
   [data-theme="dark"] {
     /* 100-level tints become deep, low-light versions of each hue */
@@ -386,5 +386,31 @@
     --kl-color-code: #0c0f12;
     --kl-color-code-fg: #dfe3e7;
     --kl-color-overlay: rgba(5, 7, 9, 0.6);
+
+    /* The rest of the tokens that point at other tokens, restated unchanged. A var() resolves
+       on the element that declares it and descendants inherit the result, so the @theme
+       declarations resolve once on <html>, against the light palette. Restating them here
+       resolves them again against the swapped one, which is what makes data-theme work on
+       elements below <html>. Any new token that points at another token belongs here too. */
+    --kl-color-surface-hover: var(--kl-color-mist-100);
+    --kl-color-accent: var(--kl-color-sage-500);
+    --kl-color-accent-hover: var(--kl-color-sage-300);
+    --kl-color-accent-soft: var(--kl-color-sage-100);
+    --kl-color-neutral: var(--kl-color-slate-700);
+    --kl-color-neutral-hover: var(--kl-color-slate-500);
+    --kl-color-on-neutral: var(--kl-color-slate-50);
+    --kl-color-success: var(--kl-color-moss-500);
+    --kl-color-success-soft: var(--kl-color-moss-100);
+    --kl-color-warning: var(--kl-color-amber-500);
+    --kl-color-warning-soft: var(--kl-color-amber-100);
+    --kl-color-danger: var(--kl-color-rust-500);
+    --kl-color-danger-hover: var(--kl-color-rust-700);
+    --kl-color-danger-soft: var(--kl-color-rust-100);
+    --kl-color-info: var(--kl-color-dusk-500);
+    --kl-color-info-soft: var(--kl-color-dusk-100);
+    --kl-shadow-sm: 2px 2px 0 0 var(--kl-color-line);
+    --kl-shadow-md: 4px 4px 0 0 var(--kl-color-line);
+    --kl-shadow-lg: 6px 6px 0 0 var(--kl-color-line);
+    --kl-shadow-xl: 8px 8px 0 0 var(--kl-color-line);
   }
 }

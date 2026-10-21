@@ -12,3 +12,9 @@ body {
 .sbdocs .docs-story {
   background: var(--kl-color-page);
 }
+
+/* A story block themed on its own (see withDocsStoryTheme) needs the text color the body would
+   give it, since the body's resolved against the page's theme. */
+.sbdocs .docs-story[data-theme] {
+  color: var(--kl-color-fg-1);
+}

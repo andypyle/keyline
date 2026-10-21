@@ -1,10 +1,29 @@
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react-vite";
+import type { Decorator, Preview } from "@storybook/react-vite";
+import { createElement } from "react";
 
 // Load the library's source stylesheets so Tailwind rebuilds as components change.
 import "../../../packages/ui/src/styles/fonts.css";
 import "../../../packages/ui/src/styles/index.css";
 import "./preview.css";
+
+// A Docs page renders every story in one document, so a story's own theme global (like the
+// `Variants (dark)` stories' `globals: { theme: "dark" }`) can't go on <html> there. data-theme
+// works on any element, so put it on that story's preview block instead.
+const withDocsStoryTheme: Decorator = (Story, context) => {
+  const theme = context.storyGlobals?.theme;
+  if (context.viewMode !== "docs" || typeof theme !== "string") return Story();
+  return createElement(
+    "div",
+    {
+      style: { display: "contents" },
+      ref: (node: HTMLDivElement | null) => {
+        node?.closest(".docs-story")?.setAttribute("data-theme", theme);
+      },
+    },
+    Story(),
+  );
+};
 
 const preview: Preview = {
   parameters: {
@@ -27,6 +46,7 @@ const preview: Preview = {
       defaultTheme: "light",
       attributeName: "data-theme",
     }),
+    withDocsStoryTheme,
   ],
 };
 
