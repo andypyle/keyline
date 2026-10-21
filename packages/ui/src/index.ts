@@ -46,3 +46,22 @@ export { CardGrid } from "./components/CardGrid/CardGrid";
 export type { CardGridProps } from "./components/CardGrid/CardGrid.types";
 export { cardGridVariants, cardGridItemsVariants } from "./components/CardGrid/CardGrid.variants";
 export type { CardGridVariantProps } from "./components/CardGrid/CardGrid.variants";
+
+export { DropdownMenu } from "./components/DropdownMenu/DropdownMenu";
+export type { DropdownMenuProps } from "./components/DropdownMenu/DropdownMenu.types";
+
+export { DropdownMenuTrigger } from "./components/DropdownMenu/parts/DropdownMenuTrigger";
+export type { DropdownMenuTriggerProps } from "./components/DropdownMenu/parts/DropdownMenuTrigger.types";
+
+export { DropdownMenuContent } from "./components/DropdownMenu/parts/DropdownMenuContent";
+export type { DropdownMenuContentProps } from "./components/DropdownMenu/parts/DropdownMenuContent.types";
+export { dropdownMenuContentVariants } from "./components/DropdownMenu/parts/DropdownMenuContent.variants";
+export type { DropdownMenuContentVariantProps } from "./components/DropdownMenu/parts/DropdownMenuContent.variants";
+
+export { DropdownMenuItem } from "./components/DropdownMenu/parts/DropdownMenuItem";
+export type { DropdownMenuItemProps } from "./components/DropdownMenu/parts/DropdownMenuItem.types";
+export { dropdownMenuItemVariants } from "./components/DropdownMenu/parts/DropdownMenuItem.variants";
+export type { DropdownMenuItemVariantProps } from "./components/DropdownMenu/parts/DropdownMenuItem.variants";
+
+export { DropdownMenuSeparator } from "./components/DropdownMenu/parts/DropdownMenuSeparator";
+export type { DropdownMenuSeparatorProps } from "./components/DropdownMenu/parts/DropdownMenuSeparator.types";

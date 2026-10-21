@@ -56,6 +56,8 @@ export const buttonGroupItemVariants = cva(
     "kl:shadow-none",
     "kl:enabled:hover:translate-none",
     "kl:enabled:hover:shadow-none",
+    "kl:enabled:aria-expanded:not-active:translate-none",
+    "kl:enabled:aria-expanded:not-active:shadow-none",
     "kl:enabled:active:translate-none",
     "kl:enabled:active:pt-0.5",
     "kl:focus-visible:z-10",

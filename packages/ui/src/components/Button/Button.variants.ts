@@ -43,16 +43,42 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: ["kl:bg-accent", "kl:text-on-fill", "kl:enabled:hover:bg-accent-hover"],
-        secondary: ["kl:bg-surface", "kl:text-fg-1", "kl:enabled:hover:bg-surface-hover"],
-        neutral: ["kl:bg-neutral", "kl:text-on-neutral", "kl:enabled:hover:bg-neutral-hover"],
-        inverse: ["kl:bg-inverse", "kl:text-fg-inverse", "kl:enabled:hover:bg-inverse-hover"],
-        danger: ["kl:bg-danger", "kl:text-white", "kl:enabled:hover:bg-danger-hover"],
+        primary: [
+          "kl:bg-accent",
+          "kl:text-on-fill",
+          "kl:enabled:hover:bg-accent-hover",
+          "kl:enabled:aria-expanded:bg-accent-hover",
+        ],
+        secondary: [
+          "kl:bg-surface",
+          "kl:text-fg-1",
+          "kl:enabled:hover:bg-surface-hover",
+          "kl:enabled:aria-expanded:bg-surface-hover",
+        ],
+        neutral: [
+          "kl:bg-neutral",
+          "kl:text-on-neutral",
+          "kl:enabled:hover:bg-neutral-hover",
+          "kl:enabled:aria-expanded:bg-neutral-hover",
+        ],
+        inverse: [
+          "kl:bg-inverse",
+          "kl:text-fg-inverse",
+          "kl:enabled:hover:bg-inverse-hover",
+          "kl:enabled:aria-expanded:bg-inverse-hover",
+        ],
+        danger: [
+          "kl:bg-danger",
+          "kl:text-white",
+          "kl:enabled:hover:bg-danger-hover",
+          "kl:enabled:aria-expanded:bg-danger-hover",
+        ],
         ghost: [
           "kl:bg-transparent",
           "kl:text-fg-1",
           "kl:border-transparent",
           "kl:enabled:hover:bg-sunken",
+          "kl:enabled:aria-expanded:bg-sunken",
           "kl:enabled:active:translate-px",
         ],
       },
@@ -72,7 +98,8 @@ export const buttonVariants = cva(
       },
     },
     // Shadow depth scales with size. Hover lifts by half the shadow's growth so its outer edge
-    // stays put; pressing drops the button onto where the shadow was.
+    // stays put; pressing drops the button onto where the shadow was. A button whose popup is open
+    // (aria-expanded) holds the hover look, so it doesn't drop when the pointer moves into the popup.
     compoundVariants: [
       {
         variant: raised,
@@ -81,6 +108,8 @@ export const buttonVariants = cva(
           "kl:shadow-sm",
           "kl:enabled:hover:-translate-px",
           "kl:enabled:hover:shadow-[3px_3px_0_0_var(--kl-color-line)]",
+          "kl:enabled:aria-expanded:not-active:-translate-px",
+          "kl:enabled:aria-expanded:not-active:shadow-[3px_3px_0_0_var(--kl-color-line)]",
           "kl:enabled:active:translate-0.5",
           "kl:enabled:active:shadow-none",
         ],
@@ -92,6 +121,8 @@ export const buttonVariants = cva(
           "kl:shadow-md",
           "kl:enabled:hover:-translate-0.5",
           "kl:enabled:hover:shadow-lg",
+          "kl:enabled:aria-expanded:not-active:-translate-0.5",
+          "kl:enabled:aria-expanded:not-active:shadow-lg",
           "kl:enabled:active:translate-1",
           "kl:enabled:active:shadow-none",
         ],
