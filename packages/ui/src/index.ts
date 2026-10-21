@@ -98,3 +98,30 @@ export { Textarea } from "./components/Textarea/Textarea";
 export type { TextareaProps } from "./components/Textarea/Textarea.types";
 export { textareaVariants } from "./components/Textarea/Textarea.variants";
 export type { TextareaVariantProps } from "./components/Textarea/Textarea.variants";
+
+export { Select } from "./components/Select/Select";
+export type { SelectProps } from "./components/Select/Select.types";
+
+export { SelectTrigger } from "./components/Select/parts/SelectTrigger";
+export type { SelectTriggerProps } from "./components/Select/parts/SelectTrigger.types";
+export { selectTriggerVariants } from "./components/Select/parts/SelectTrigger.variants";
+export type { SelectTriggerVariantProps } from "./components/Select/parts/SelectTrigger.variants";
+
+export { SelectContent } from "./components/Select/parts/SelectContent";
+export type { SelectContentProps } from "./components/Select/parts/SelectContent.types";
+export { selectContentVariants } from "./components/Select/parts/SelectContent.variants";
+export type { SelectContentVariantProps } from "./components/Select/parts/SelectContent.variants";
+
+export { SelectItem } from "./components/Select/parts/SelectItem";
+export type { SelectItemProps } from "./components/Select/parts/SelectItem.types";
+export { selectItemVariants } from "./components/Select/parts/SelectItem.variants";
+export type { SelectItemVariantProps } from "./components/Select/parts/SelectItem.variants";
+
+export { SelectGroup } from "./components/Select/parts/SelectGroup";
+export type { SelectGroupProps } from "./components/Select/parts/SelectGroup.types";
+
+export { SelectLabel } from "./components/Select/parts/SelectLabel";
+export type { SelectLabelProps } from "./components/Select/parts/SelectLabel.types";
+
+export { SelectSeparator } from "./components/Select/parts/SelectSeparator";
+export type { SelectSeparatorProps } from "./components/Select/parts/SelectSeparator.types";
