@@ -8,7 +8,7 @@ const field = { display: "grid", gap: 6, fontWeight: 600 } as const;
 const hint = { fontSize: 14, fontWeight: 400 } as const;
 
 const meta = {
-  title: "Components/Textarea",
+  title: "Forms/Textarea",
   component: Textarea,
   tags: ["autodocs"],
   args: { onChange: fn() },

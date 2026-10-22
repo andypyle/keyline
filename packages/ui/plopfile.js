@@ -5,6 +5,10 @@ import path from "node:path";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const componentsDir = path.join(root, "src/components");
 
+// Storybook sidebar sections, each a top-level story title. Keep in step with storySort in
+// apps/docs/.storybook/preview.ts.
+const SECTIONS = ["Buttons", "Forms", "Layout", "Overlays"];
+
 // Elements that can't take children, so their stories shouldn't pass any.
 const VOID_ELEMENTS = new Set(["area", "br", "col", "hr", "img", "input", "meta", "source", "track", "wbr"]);
 
@@ -49,6 +53,12 @@ export default function (plop) {
         },
       },
       ...sharedPrompts,
+      {
+        type: "list",
+        name: "section",
+        message: "Storybook section:",
+        choices: SECTIONS,
+      },
     ],
     actions: (answers) => {
       const dir = "src/components/{{name}}";

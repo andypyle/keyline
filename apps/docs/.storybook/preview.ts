@@ -35,8 +35,22 @@ const preview: Preview = {
     },
     // Axe checks every story; violations fail `pnpm test`, not just show in the panel.
     a11y: { test: "error" },
+    // Each top-level section is a sidebar heading. Components within a section sort alphabetically,
+    // except Forms, which runs from Field, which wraps the rest, through the text fields to the
+    // choice controls, with each group's member after the group.
     options: {
-      storySort: { order: ["Introduction", "Foundations", ["Colors", "Typography", "Shape & Layout", "Motion"], "Components"] },
+      storySort: {
+        order: [
+          "Introduction",
+          "Foundations",
+          ["Colors", "Typography", "Shape & Layout", "Motion"],
+          "Buttons",
+          "Forms",
+          ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch"],
+          "Layout",
+          "Overlays",
+        ],
+      },
     },
   },
   // withThemeByDataAttribute applies the theme in an effect that, in the dev server, only runs once

@@ -49,7 +49,7 @@ function ProjectCard({ title, description, horizontal, reversed }: ProjectCardPr
 }
 
 const meta = {
-  title: "Components/CardGrid",
+  title: "Layout/CardGrid",
   component: CardGrid,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

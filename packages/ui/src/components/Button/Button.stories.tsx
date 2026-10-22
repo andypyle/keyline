@@ -22,7 +22,7 @@ const PencilIcon = () => <Icon d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4zM13.5 6.
 const HeartIcon = () => <Icon d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />;
 
 const meta = {
-  title: "Components/Button",
+  title: "Buttons/Button",
   component: Button,
   tags: ["autodocs"],
   args: { children: "Button", onClick: fn() },

@@ -75,7 +75,7 @@ function getDialog(canvasElement: HTMLElement) {
 }
 
 const meta = {
-  title: "Components/Modal",
+  title: "Overlays/Modal",
   component: Modal,
   tags: ["autodocs"],
   args: { onOpenChange: fn(), onAction: fn() },

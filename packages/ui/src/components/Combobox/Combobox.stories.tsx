@@ -81,7 +81,7 @@ function CountryCombobox({ label = "Country", input, onFormSubmit: _, ...args }:
 }
 
 const meta = {
-  title: "Components/Combobox",
+  title: "Forms/Combobox",
   component: Combobox,
   tags: ["autodocs"],
   args: { onValueChange: fn(), onOpenChange: fn(), onFormSubmit: fn() },

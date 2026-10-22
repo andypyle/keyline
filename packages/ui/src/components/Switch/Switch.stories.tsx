@@ -7,7 +7,7 @@ const stack = { display: "grid", gap: 14, justifyItems: "start" } as const;
 const option = { display: "inline-flex", alignItems: "center", gap: 10, fontWeight: 500 } as const;
 
 const meta = {
-  title: "Components/Switch",
+  title: "Forms/Switch",
   component: Switch,
   tags: ["autodocs"],
   args: { onChange: fn() },

@@ -15,7 +15,7 @@ function Icon({ d }: { d: string }) {
 }
 
 const meta = {
-  title: "Components/ButtonGroup",
+  title: "Buttons/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
   args: {

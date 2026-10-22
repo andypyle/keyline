@@ -13,7 +13,7 @@ const hint = { fontSize: 14, fontWeight: 400 } as const;
 type CheckboxStoryArgs = CheckboxProps & { onFormSubmit: (data: Record<string, FormDataEntryValue>) => void };
 
 const meta = {
-  title: "Components/Checkbox",
+  title: "Forms/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   args: { onChange: fn(), onFormSubmit: fn() },

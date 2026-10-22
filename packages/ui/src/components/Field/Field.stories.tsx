@@ -25,7 +25,7 @@ const stack = { display: "grid", gap: 24, maxWidth: 360 } as const;
 const option = { display: "inline-flex", alignItems: "center", gap: 10, fontWeight: 500 } as const;
 
 const meta = {
-  title: "Components/Field",
+  title: "Forms/Field",
   component: Field,
   tags: ["autodocs"],
   argTypes: {

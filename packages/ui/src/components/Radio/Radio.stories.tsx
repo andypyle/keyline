@@ -9,7 +9,7 @@ const option = { display: "inline-flex", alignItems: "center", gap: 10, fontWeig
 
 /** Radios belong in a RadioGroup, which ties them together; see RadioGroup for its keyboard and form behaviour. */
 const meta = {
-  title: "Components/Radio",
+  title: "Forms/Radio",
   component: Radio,
   tags: ["autodocs"],
   args: { value: "standard", onChange: fn() },

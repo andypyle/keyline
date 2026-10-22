@@ -67,7 +67,7 @@ function NotesCard({ onAction, ...args }: CardStoryArgs) {
 }
 
 const meta = {
-  title: "Components/Card",
+  title: "Layout/Card",
   component: Card,
   tags: ["autodocs"],
   args: { flat: false, noBorders: false, orientation: "vertical", reversed: false, onAction: fn() },

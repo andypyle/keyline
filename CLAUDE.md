@@ -21,17 +21,18 @@ pnpm changeset       # record a change to a published package
 
 **Always create a component with the generator. Never create its files or folder by hand.** The generator is the source of truth for component structure. If the structure needs to change, change the templates in `packages/ui/plop-templates/` and `packages/ui/plopfile.js`, not individual components.
 
-Prompts can't be answered from a non-interactive shell, so pass all four answers as positional arguments:
+Prompts can't be answered from a non-interactive shell, so pass all five answers as positional arguments:
 
 ```sh
-pnpm gen component <Name> "<one-line description>" <root-element> <y|n>
+pnpm gen component <Name> "<one-line description>" <root-element> <y|n> <Section>
 # e.g.
-pnpm gen component Button "Triggers an action." button y
+pnpm gen component Button "Triggers an action." button y Buttons
 ```
 
 - `<Name>`: PascalCase. Generation fails if `src/components/<Name>` already exists.
 - `<root-element>`: lowercase HTML tag; it types the props (`ComponentPropsWithRef<"button">`).
 - `y|n`: whether the component has CVA variants.
+- `<Section>`: the Storybook sidebar section the stories go in: `Buttons`, `Forms`, `Layout` or `Overlays`. A new section goes in `SECTIONS` in `plopfile.js` and in `storySort` in `apps/docs/.storybook/preview.ts`.
 
 This creates `packages/ui/src/components/<Name>/` with:
 
@@ -40,7 +41,7 @@ This creates `packages/ui/src/components/<Name>/` with:
 | `<Name>.tsx` | The component, and nothing else |
 | `<Name>.types.ts` | `<Name>Props` and any other public types |
 | `<Name>.variants.ts` | CVA config (`<name>Variants`) and `<Name>VariantProps`; only if it has variants |
-| `<Name>.stories.tsx` | Stories, titled `Components/<Name>` |
+| `<Name>.stories.tsx` | Stories, titled `<Section>/<Name>` |
 
 It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`.
 

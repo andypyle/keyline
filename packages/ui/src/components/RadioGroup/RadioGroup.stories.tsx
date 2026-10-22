@@ -38,7 +38,7 @@ function Shipping({ onFormSubmit: _, ...args }: Partial<RadioGroupStoryArgs>) {
 }
 
 const meta = {
-  title: "Components/RadioGroup",
+  title: "Forms/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   args: { onValueChange: fn(), onFormSubmit: fn() },

@@ -60,7 +60,7 @@ function ProjectMenu({ label = "Options", trigger, align, onAction, ...args }: D
 }
 
 const meta = {
-  title: "Components/DropdownMenu",
+  title: "Overlays/DropdownMenu",
   component: DropdownMenu,
   tags: ["autodocs"],
   args: { onOpenChange: fn(), onAction: fn() },

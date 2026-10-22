@@ -8,7 +8,7 @@ const field = { display: "grid", gap: 6, fontWeight: 600 } as const;
 const hint = { fontSize: 14, fontWeight: 400 } as const;
 
 const meta = {
-  title: "Components/Input",
+  title: "Forms/Input",
   component: Input,
   tags: ["autodocs"],
   args: { onChange: fn() },

@@ -88,7 +88,7 @@ function FruitSelect({ label = "Fruit", trigger, onFormSubmit: _, ...args }: Par
 const typeaheadReset = () => new Promise((resolve) => setTimeout(resolve, 600));
 
 const meta = {
-  title: "Components/Select",
+  title: "Forms/Select",
   component: Select,
   tags: ["autodocs"],
   args: { onValueChange: fn(), onOpenChange: fn(), onFormSubmit: fn() },
