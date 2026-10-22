@@ -14,7 +14,39 @@ permissions:
   contents: read
 
 jobs:
+  # Typecheck, test and build. Deploy only runs if every step here passes.
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium for story tests
+        run: pnpm --filter docs exec playwright install --with-deps chromium
+
+      - run: pnpm typecheck
+
+      - run: pnpm test
+
+      - run: pnpm build
+
+      # Deploy the exact build that was tested rather than rebuilding it.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: apps/docs/storybook-static
+          retention-days: 7
+
   deploy:
+    needs: verify
     # Secrets aren't available to pull requests from forks, so skip those.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
@@ -33,7 +65,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm turbo run build --filter=docs
+      - uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: apps/docs/storybook-static
 
       - name: Deploy to production
         if: github.ref == 'refs/heads/main'
