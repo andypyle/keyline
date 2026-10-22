@@ -28,8 +28,8 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=19",
+    "react-dom": ">=19"
   },
   "dependencies": {
     "@fontsource/figtree": "^5.3.0",
