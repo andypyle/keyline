@@ -1,5 +1,18 @@
-import { afterEach, expect } from "vitest";
-import { page, server } from "vitest/browser";
+import { afterEach, beforeEach, expect } from "vitest";
+import { commands, page, server } from "vitest/browser";
+
+declare module "vitest/browser" {
+  interface BrowserCommands {
+    /** Defined in vitest.config.ts. */
+    resetPointer: () => Promise<void>;
+  }
+}
+
+// Start every story with the pointer away from it, so nothing begins in a hover state left over
+// from the previous test.
+beforeEach(async () => {
+  await commands.resetPointer();
+});
 
 // Visual regression: after a story renders and its play function finishes, compare a screenshot
 // of the page with the baseline in apps/docs/screenshots. Baselines are generated on GitHub's

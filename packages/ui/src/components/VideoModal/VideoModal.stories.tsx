@@ -65,6 +65,11 @@ export const Default: Story = {
     });
 
     await step("takes the player's keyboard shortcuts straight away", async () => {
+      // The digits jump to a fraction of the video's length, which isn't known until its metadata
+      // loads; the seek slider is enabled once it is.
+      await waitFor(() => expect(canvas.getByRole("slider", { name: "Seek" })).not.toHaveAttribute("aria-disabled"), {
+        timeout: 5000,
+      });
       await userEvent.keyboard("k");
       await waitFor(() => expect(video.paused).toBe(true));
       await userEvent.keyboard("5");
