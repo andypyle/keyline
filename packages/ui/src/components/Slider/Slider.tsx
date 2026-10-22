@@ -39,6 +39,7 @@ export function Slider({
   disabled: disabledProp,
   onKeyDown,
   onPointerDown,
+  children,
   ...props
 }: SliderProps) {
   // In a Field, the slider is named by the FieldLabel through aria-labelledby, since a <label for>
@@ -189,6 +190,7 @@ export function Slider({
       ref={mergedRef}
     >
       <span data-slot="slider-track" className={sliderTrackVariants({ orientation })}>
+        {children}
         <span data-slot="slider-range" className={sliderRangeVariants({ orientation })} />
       </span>
       <span data-slot="slider-thumb" ref={thumbRef} className={sliderThumbVariants({ orientation })} />

@@ -1,0 +1,5 @@
+---
+"@keyline/ui": minor
+---
+
+Add `VideoPlayer`, a video with Keyline-styled controls in a bar below it. Compose it from `VideoPlayerVideo` (a native video, with captions as `<track>` children) and `VideoPlayerControls`, which holds the full set by default: `VideoPlayerPlay`, `VideoPlayerSeek`, `VideoPlayerTime`, `VideoPlayerMute`, `VideoPlayerVolume`, `VideoPlayerCaptions` and `VideoPlayerFullscreen`. Pass the parts you want to choose and order them yourself. The controls follow the video's own media events, so playing or seeking it through its ref keeps them in step. While focus is in the player it takes YouTube's keyboard shortcuts (Space or K, the arrows, J, L, Home, End, 0 to 9, M, C and F), leaving keys a focused control uses to that control. The video becomes a tab stop described by the list of shortcuts; turn them off with `keyboardShortcuts={false}`, and translate the description with `shortcutsDescription`. Narrow players drop the volume slider, then put the seek bar on its own row, then hide the time. The player takes `ratio`, `radius`, `flat` and `noBorders`, and each button's labels can be replaced for translation.

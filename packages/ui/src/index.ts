@@ -213,3 +213,35 @@ export type {
   SliderRangeVariantProps,
   SliderThumbVariantProps,
 } from "./components/Slider/Slider.variants";
+
+export { VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
+export type { VideoPlayerProps } from "./components/VideoPlayer/VideoPlayer.types";
+export { videoPlayerVariants } from "./components/VideoPlayer/VideoPlayer.variants";
+export type { VideoPlayerVariantProps } from "./components/VideoPlayer/VideoPlayer.variants";
+
+export { VideoPlayerVideo } from "./components/VideoPlayer/parts/VideoPlayerVideo";
+export type { VideoPlayerVideoProps } from "./components/VideoPlayer/parts/VideoPlayerVideo.types";
+
+export { VideoPlayerControls } from "./components/VideoPlayer/parts/VideoPlayerControls";
+export type { VideoPlayerControlsProps } from "./components/VideoPlayer/parts/VideoPlayerControls.types";
+
+export { VideoPlayerPlay } from "./components/VideoPlayer/parts/VideoPlayerPlay";
+export type { VideoPlayerPlayProps } from "./components/VideoPlayer/parts/VideoPlayerPlay.types";
+
+export { VideoPlayerSeek } from "./components/VideoPlayer/parts/VideoPlayerSeek";
+export type { VideoPlayerSeekProps } from "./components/VideoPlayer/parts/VideoPlayerSeek.types";
+
+export { VideoPlayerTime } from "./components/VideoPlayer/parts/VideoPlayerTime";
+export type { VideoPlayerTimeProps } from "./components/VideoPlayer/parts/VideoPlayerTime.types";
+
+export { VideoPlayerMute } from "./components/VideoPlayer/parts/VideoPlayerMute";
+export type { VideoPlayerMuteProps } from "./components/VideoPlayer/parts/VideoPlayerMute.types";
+
+export { VideoPlayerVolume } from "./components/VideoPlayer/parts/VideoPlayerVolume";
+export type { VideoPlayerVolumeProps } from "./components/VideoPlayer/parts/VideoPlayerVolume.types";
+
+export { VideoPlayerCaptions } from "./components/VideoPlayer/parts/VideoPlayerCaptions";
+export type { VideoPlayerCaptionsProps } from "./components/VideoPlayer/parts/VideoPlayerCaptions.types";
+
+export { VideoPlayerFullscreen } from "./components/VideoPlayer/parts/VideoPlayerFullscreen";
+export type { VideoPlayerFullscreenProps } from "./components/VideoPlayer/parts/VideoPlayerFullscreen.types";

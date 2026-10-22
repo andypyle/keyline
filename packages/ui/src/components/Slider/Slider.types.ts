@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import type { SliderVariantProps } from "./Slider.variants";
 
 export interface SliderProps extends Omit<ComponentPropsWithRef<"div">, "defaultValue">, SliderVariantProps {
@@ -31,6 +31,11 @@ export interface SliderProps extends Omit<ComponentPropsWithRef<"div">, "default
   name?: string;
   /** The id of a form to submit with, when the Slider isn't inside it. */
   form?: string;
+  /**
+   * Rendered inside the track, behind the filled range, for marks like a video's buffered
+   * progress. Position them against the track; the slider handles all input.
+   */
+  children?: ReactNode;
   /** Stops the value changing, skips the Slider in keyboard navigation, and leaves it out of form submission. */
   disabled?: boolean;
 }
