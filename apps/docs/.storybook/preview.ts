@@ -37,7 +37,8 @@ const preview: Preview = {
     a11y: { test: "error" },
     // Each top-level section is a sidebar heading. Components within a section sort alphabetically,
     // except Forms, which runs from Field, which wraps the rest, through the text fields to the
-    // choice controls, with each group's member after the group.
+    // choice controls, with each group's member after the group, and ends with Examples that
+    // combine them.
     options: {
       storySort: {
         order: [
@@ -46,7 +47,7 @@ const preview: Preview = {
           ["Colors", "Typography", "Shape & Layout", "Motion"],
           "Buttons",
           "Forms",
-          ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch"],
+          ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch", "Examples"],
           "Layout",
           "Overlays",
         ],
