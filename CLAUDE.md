@@ -83,6 +83,7 @@ Every story, except those matching `VISUAL_EXCLUDED_PREFIXES` (`apps/docs/.story
 
 - Changing a component's appearance on purpose: push the branch, then run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the regenerated baselines into `apps/docs/screenshots/`. Review the changed PNGs, then commit and push them yourself. (The workflow doesn't commit: GitHub holds PR checks on bot-pushed commits for manual approval.)
 - A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
+- Story tests run with reduced motion, the pointer moved away from the story, and the clock frozen at 2026-03-18 (only `Date`; timers are real). In play functions, compute dates with `today()` from `src/lib/calendar-date.ts` rather than hard-coding them.
 - Baselines are named by story ID. Renaming or deleting a story leaves its old baseline behind; delete it by hand.
 - Never generate or commit baselines from macOS.
 - CI renders screenshots in Playwright's Docker image (`mcr.microsoft.com/playwright:v<version>-noble`). When upgrading `playwright`, bump that tag in both `.github/workflows/storybook.yml` and `update-screenshots.yml` to match, then run `pnpm screenshots:update`.
