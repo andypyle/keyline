@@ -381,6 +381,51 @@ export const InForm: Story = {
   },
 };
 
+/**
+ * Like a native control, an uncontrolled Combobox goes back to its `defaultValue` when its form
+ * resets, with that option's text, or empty without one.
+ */
+export const FormReset: Story = {
+  name: "Form reset",
+  args: { name: "country", defaultValue: "canada" },
+  render: (args) => (
+    <form
+      style={stack}
+      onSubmit={(event) => {
+        event.preventDefault();
+        args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
+      }}
+    >
+      <CountryCombobox {...args} />
+      <CountryCombobox {...args} label="Second country" name="second" defaultValue={undefined} />
+      <div style={{ display: "flex", gap: 12 }}>
+        <Button type="reset" variant="secondary">
+          Reset
+        </Button>
+        <Button type="submit">Submit</Button>
+      </div>
+    </form>
+  ),
+  play: async ({ args, canvas }) => {
+    const input = canvas.getByRole("combobox", { name: "Country" });
+    const second = canvas.getByRole("combobox", { name: "Second country" });
+    await userEvent.click(input);
+    await userEvent.clear(input);
+    await userEvent.keyboard("new{Enter}");
+    await userEvent.click(second);
+    await userEvent.keyboard("ice{Enter}");
+    await expect(input).toHaveValue("New Zealand");
+    await expect(second).toHaveValue("Iceland");
+
+    await userEvent.click(canvas.getByRole("button", { name: "Reset" }));
+    await expect(input).toHaveValue("Canada");
+    await expect(second).toHaveValue("");
+
+    await userEvent.click(canvas.getByRole("button", { name: "Submit" }));
+    await expect(args.onFormSubmit).toHaveBeenCalledWith({ country: "canada", second: "" });
+  },
+};
+
 const REGIONS = [
   { label: "Europe", countries: ["France", "Germany", "Ireland", "Norway", "Spain"] },
   { label: "Americas", countries: ["Argentina", "Brazil", "Canada", "Chile", "México"] },

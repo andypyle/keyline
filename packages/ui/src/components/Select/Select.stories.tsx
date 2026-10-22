@@ -344,6 +344,42 @@ export const InForm: Story = {
   },
 };
 
+/** Like a native select, an uncontrolled Select goes back to its `defaultValue` when its form resets. */
+export const FormReset: Story = {
+  name: "Form reset",
+  args: { name: "fruit", defaultValue: "banana" },
+  render: (args) => (
+    <form
+      style={stack}
+      onSubmit={(event) => {
+        event.preventDefault();
+        args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
+      }}
+    >
+      <FruitSelect {...args} />
+      <div style={{ display: "flex", gap: 12 }}>
+        <Button type="reset" variant="secondary">
+          Reset
+        </Button>
+        <Button type="submit">Submit</Button>
+      </div>
+    </form>
+  ),
+  play: async ({ args, canvas }) => {
+    const trigger = canvas.getByRole("combobox", { name: "Fruit" });
+    await userEvent.click(trigger);
+    await userEvent.click(canvas.getByRole("option", { name: "Cherry" }));
+    await expect(trigger).toHaveTextContent("Cherry");
+
+    await userEvent.click(canvas.getByRole("button", { name: "Reset" }));
+    await expect(trigger).toHaveTextContent("Banana");
+    await expect(args.onValueChange).toHaveBeenCalledTimes(1);
+
+    await userEvent.click(canvas.getByRole("button", { name: "Submit" }));
+    await expect(args.onFormSubmit).toHaveBeenCalledWith({ fruit: "banana" });
+  },
+};
+
 /** Long lists cap their height and scroll, keeping the highlighted option in view. */
 export const LongList: Story = {
   name: "Long list",

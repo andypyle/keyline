@@ -4,6 +4,7 @@ import { useField } from "../../lib/field-context";
 import { FormValueInput } from "../../lib/form-value-input";
 import { useItemRegistry, type ListboxActive } from "../../lib/listbox";
 import { SelectContext } from "../../lib/select-context";
+import { useFormReset } from "../../lib/use-form-reset";
 import type { SelectProps } from "./Select.types";
 
 /**
@@ -71,6 +72,12 @@ export function Select({
     },
     [value, valueControlled, onValueChange, setOpen],
   );
+
+  // Like a native select, an uncontrolled Select goes back to its defaultValue when its form resets.
+  useFormReset(triggerRef, form, () => {
+    if (!valueControlled) setUncontrolledValue(defaultValue ?? null);
+    setOpen(false);
+  });
 
   // The list is a manual popover, so the browser doesn't light-dismiss it; close it on a press
   // outside here. Presses on the trigger are left to its own click handler, which toggles.

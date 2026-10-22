@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
 import {
   Button,
@@ -42,9 +42,11 @@ interface InviteArgs {
 /**
  * The browser blocks a submit while a required control is empty and fires `invalid` on each one,
  * so the form collects those names to show their FieldErrors. A control's error clears once it's
- * valid again.
+ * valid again. The modal stays mounted while closed, so the form is reset each time it closes,
+ * however it closes, to open fresh next time.
  */
 function InviteModal({ onOpenChange, onInvite }: InviteArgs) {
+  const formRef = useRef<HTMLFormElement>(null);
   const [errors, setErrors] = useState<ReadonlySet<string>>(new Set());
   const flag = (event: FormEvent<HTMLFormElement>) => {
     const { name } = event.target as HTMLInputElement;
@@ -61,7 +63,10 @@ function InviteModal({ onOpenChange, onInvite }: InviteArgs) {
   return (
     <Modal
       onOpenChange={(open) => {
-        if (!open) setErrors(new Set());
+        if (!open) {
+          formRef.current?.reset();
+          setErrors(new Set());
+        }
         onOpenChange(open);
       }}
     >
@@ -70,6 +75,7 @@ function InviteModal({ onOpenChange, onInvite }: InviteArgs) {
         <ModalTitle>Invite a teammate</ModalTitle>
         <ModalDescription>They'll get an email with a link to join the Keyline Docs workspace.</ModalDescription>
         <form
+          ref={formRef}
           method="dialog"
           style={stack}
           onInvalidCapture={flag}
@@ -256,6 +262,17 @@ export const Default: Story = {
       await waitFor(() => expect(args.onOpenChange).toHaveBeenLastCalledWith(false));
     });
 
+    await step("opens fresh next time, with every field back to its default", async () => {
+      await userEvent.click(canvas.getByRole("button", { name: "Invite teammate" }));
+      await expect(canvas.getByRole("textbox", { name: "Name" })).toHaveValue("");
+      await expect(canvas.getByRole("textbox", { name: "Email" })).toHaveValue("");
+      await expect(canvas.getByRole("combobox", { name: "Role" })).toHaveTextContent("Pick a role");
+      await expect(canvas.getByRole("combobox", { name: "Team" })).toHaveValue("");
+      await expect(canvas.getByRole("radio", { name: "All projects" })).toBeChecked();
+      await expect(canvas.getByRole("textbox", { name: "Message" })).toHaveValue("");
+      await expect(canvas.getByRole("switch", { name: "Require two-factor sign-in" })).toBeChecked();
+      await expect(canvas.getByRole("checkbox", { name: "Send me a copy" })).not.toBeChecked();
+    });
   },
 };
 
@@ -275,6 +292,11 @@ export const Dismiss: Story = {
       await expect(dialog.open).toBe(false);
     });
 
+    await step("discards what was typed", async () => {
+      await open();
+      await expect(canvas.getByRole("textbox", { name: "Name" })).toHaveValue("");
+      await userEvent.click(canvas.getByRole("button", { name: "Cancel" }));
+    });
 
     await step("Escape", async () => {
       await open();

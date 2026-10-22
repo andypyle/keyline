@@ -170,3 +170,54 @@ export const InForm: Story = {
     });
   },
 };
+
+/** Like native radios, an uncontrolled group goes back to its `defaultValue` when its form resets. */
+export const FormReset: Story = {
+  name: "Form reset",
+  args: { name: "shipping", defaultValue: "standard" },
+  render: ({ onFormSubmit, ...args }) => (
+    <form
+      style={field}
+      onSubmit={(event) => {
+        event.preventDefault();
+        onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
+      }}
+    >
+      <Shipping {...args} />
+      <div style={{ display: "flex", gap: 12 }}>
+        <Button type="reset" variant="secondary">
+          Reset
+        </Button>
+        <Button type="submit">Submit</Button>
+      </div>
+    </form>
+  ),
+  play: async ({ args, canvas, step }) => {
+    const reset = canvas.getByRole("button", { name: "Reset" });
+
+    await step("goes back to the default", async () => {
+      await userEvent.click(canvas.getByRole("radio", { name: /Express/ }));
+      await userEvent.click(reset);
+      await expect(canvas.getByRole("radio", { name: /Standard/ })).toBeChecked();
+      await expect(canvas.getByRole("radio", { name: /Express/ })).not.toBeChecked();
+      // The browser puts the checked radio back on its own; this catches the group's state
+      // staying on Express, which would swallow choosing it again.
+      await userEvent.click(canvas.getByRole("radio", { name: /Express/ }));
+      await expect(args.onValueChange).toHaveBeenCalledTimes(2);
+      await expect(args.onValueChange).toHaveBeenLastCalledWith("express");
+      await userEvent.click(reset);
+    });
+
+    await step("stays on the default when it was already chosen again", async () => {
+      await userEvent.click(canvas.getByRole("radio", { name: /Pick up/ }));
+      await userEvent.click(canvas.getByRole("radio", { name: /Standard/ }));
+      await userEvent.click(reset);
+      await expect(canvas.getByRole("radio", { name: /Standard/ })).toBeChecked();
+    });
+
+    await step("submits the default", async () => {
+      await userEvent.click(canvas.getByRole("button", { name: "Submit" }));
+      await expect(args.onFormSubmit).toHaveBeenCalledWith({ shipping: "standard" });
+    });
+  },
+};

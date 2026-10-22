@@ -1,7 +1,9 @@
-import { useId, useMemo, useState } from "react";
+import { useId, useMemo, useRef, useState } from "react";
 import { cn } from "../../lib/cn";
 import { useField, useFieldControlProps } from "../../lib/field-context";
+import { mergeRefs } from "../../lib/merge-refs";
 import { RadioGroupContext } from "../../lib/radio-group-context";
+import { useFormReset } from "../../lib/use-form-reset";
 import type { RadioGroupProps } from "./RadioGroup.types";
 import { radioGroupVariants } from "./RadioGroup.variants";
 
@@ -11,6 +13,7 @@ import { radioGroupVariants } from "./RadioGroup.variants";
  * reaches the chosen Radio (or the first), and the arrow keys move between them, choosing as they go.
  */
 export function RadioGroup({
+  ref,
   className,
   orientation,
   value: valueProp,
@@ -34,6 +37,13 @@ export function RadioGroup({
   const value = controlled ? valueProp : uncontrolledValue;
   const generatedName = useId();
   const resolvedOrientation = orientation ?? "vertical";
+  const groupRef = useRef<HTMLDivElement>(null);
+  const mergedRef = useMemo(() => mergeRefs(groupRef, ref), [ref]);
+
+  // Like native radios, an uncontrolled group goes back to its defaultValue when its form resets.
+  useFormReset(groupRef, undefined, () => {
+    if (!controlled) setUncontrolledValue(defaultValue ?? null);
+  });
 
   const context = useMemo(
     () => ({
@@ -63,6 +73,7 @@ export function RadioGroup({
         {...props}
         {...fieldProps}
         aria-labelledby={labelledBy}
+        ref={mergedRef}
       />
     </RadioGroupContext>
   );

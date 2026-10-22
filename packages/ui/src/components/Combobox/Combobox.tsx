@@ -4,6 +4,7 @@ import { ComboboxContext, defaultComboboxFilter, namesOption } from "../../lib/c
 import { useField } from "../../lib/field-context";
 import { FormValueInput } from "../../lib/form-value-input";
 import { useItemRegistry, type ListboxActive, type ListboxItemRecord } from "../../lib/listbox";
+import { useFormReset } from "../../lib/use-form-reset";
 import type { ComboboxProps } from "./Combobox.types";
 
 /**
@@ -134,6 +135,13 @@ export function Combobox({
       setInputValue(selectedText);
     }
   }, [inputValue, items, select, setOpen, selectedText, allowCustomValue]);
+
+  // Like a native control, an uncontrolled Combobox goes back to its defaultValue when its form
+  // resets. Closing the list puts back the selected option's text, through the effect above.
+  useFormReset(inputRef, form, () => {
+    if (!valueControlled) setUncontrolledValue(defaultValue ?? null);
+    setOpen(false);
+  });
 
   const matches = useCallback(
     (text: string) => filter === false || query === "" || filter(text, query),
