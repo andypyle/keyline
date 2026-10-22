@@ -1,0 +1,42 @@
+<style>
+  /* Roomier sidebar items: Storybook's are 14px text on a 28px row. Left padding is left alone,
+     since Storybook sets it per nesting depth. */
+  .sidebar-item > a,
+  .sidebar-item > button {
+    min-height: 34px;
+    padding-top: 7px;
+    padding-bottom: 6px;
+    gap: 8px;
+    font-size: 15px;
+  }
+  /* Keeps the icon level with the taller first line of text */
+  .sidebar-item > a > div:first-child,
+  .sidebar-item > button > div:first-child {
+    margin-top: 3px;
+  }
+
+  /* The theme can't set the sidebar's type icons, which use Storybook's own colors for stories,
+     docs and groups. Selected items are left alone so their icons stay white on the highlight. */
+  [data-nodetype="story"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+    color: #607397; /* dusk-500 */
+  }
+  [data-nodetype="document"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+    color: #d9a13b; /* amber-500 */
+  }
+  [data-nodetype="group"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+    color: #4c627a; /* mist-700 */
+  }
+
+  /* The manager follows the OS setting (see manager.ts), so these match it. */
+  @media (prefers-color-scheme: dark) {
+    [data-nodetype="story"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+      color: #a5b4ce; /* dusk-300 */
+    }
+    [data-nodetype="document"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+      color: #ebc273; /* amber-300 */
+    }
+    [data-nodetype="group"]:not([data-selected="true"]) svg[viewBox="0 0 14 14"] {
+      color: #abbccd; /* mist-300 */
+    }
+  }
+</style>

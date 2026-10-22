@@ -6,6 +6,7 @@ import { createElement } from "react";
 import "../../../packages/ui/src/styles/fonts.css";
 import "../../../packages/ui/src/styles/index.css";
 import "./preview.css";
+import { lightTheme } from "./theme";
 
 // A Docs page renders every story in one document, so a story's own theme global (like the
 // `Variants (dark)` stories' `globals: { theme: "dark" }`) can't go on <html> there. data-theme
@@ -27,6 +28,8 @@ const withDocsStoryTheme: Decorator = (Story, context) => {
 
 const preview: Preview = {
   parameters: {
+    // Docs pages stay light; story blocks on them follow their own theme (see withDocsStoryTheme).
+    docs: { theme: lightTheme },
     controls: {
       matchers: {
         color: /(background|color)$/i,
