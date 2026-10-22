@@ -16,8 +16,13 @@ permissions:
 jobs:
   # Typecheck, test and build. Deploy only runs if every step here passes.
   verify:
-    # Pinned, like the Update screenshots workflow, so screenshots render on the same image as their baselines.
     runs-on: ubuntu-24.04
+    # Playwright's image has Chromium, its dependencies and fonts preinstalled, so screenshots render
+    # exactly as their baselines did (see the Update screenshots workflow, which uses the same image).
+    # Keep the tag in step with the playwright version in pnpm-lock.yaml.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
 
@@ -29,9 +34,6 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-
-      - name: Install Chromium for story tests
-        run: pnpm --filter docs exec playwright install --with-deps chromium
 
       - run: pnpm typecheck
 
