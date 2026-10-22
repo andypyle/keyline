@@ -79,10 +79,11 @@ Test behavior a consumer relies on, not styling: keyboard access and focus, even
 
 ### Visual regression
 
-Stories in the components listed in `VISUAL_STORY_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`) are also screenshotted after their play function and compared with a baseline in `apps/docs/screenshots/`. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
+Every story, except those matching `VISUAL_EXCLUDED_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`), is also screenshotted after its play function and compared with a baseline in `apps/docs/screenshots/`. A new component's stories fail in CI until their baselines exist, so run `pnpm screenshots:update` after adding one. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
 
 - Changing a component's appearance on purpose: push the branch, then run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the regenerated baselines into `apps/docs/screenshots/`. Review the changed PNGs, then commit and push them yourself. (The workflow doesn't commit: GitHub holds PR checks on bot-pushed commits for manual approval.)
 - A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
+- Story tests run with reduced motion, the pointer moved away from the story, and the clock frozen at 2026-03-18 (only `Date`; timers are real). In play functions, compute dates with `today()` from `src/lib/calendar-date.ts` rather than hard-coding them.
 - Baselines are named by story ID. Renaming or deleting a story leaves its old baseline behind; delete it by hand.
 - Never generate or commit baselines from macOS.
 - CI renders screenshots in Playwright's Docker image (`mcr.microsoft.com/playwright:v<version>-noble`). When upgrading `playwright`, bump that tag in both `.github/workflows/storybook.yml` and `update-screenshots.yml` to match, then run `pnpm screenshots:update`.
