@@ -5,3 +5,4 @@ storybook-static
 .wrangler
 *.log
 .DS_Store
+.vitest

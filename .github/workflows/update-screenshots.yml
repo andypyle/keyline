@@ -1,0 +1,67 @@
+name: Update screenshots
+
+# Regenerates the visual regression baselines in apps/docs/screenshots on Linux and commits any that
+# changed to the branch it runs on. Run it from the Actions tab or with:
+#   gh workflow run update-screenshots.yml --ref <branch>
+on:
+  workflow_dispatch:
+  # TEMPORARY: workflow_dispatch only works once this file is on main. Remove before merging.
+  push:
+    branches: [test/visual-regression]
+
+concurrency:
+  group: update-screenshots-${{ github.ref }}
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    # main is protected; update baselines on the branch that changes them.
+    if: github.ref != 'refs/heads/main'
+    # Pinned to the same image as the Storybook workflow's verify job.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium for story tests
+        run: pnpm --filter docs exec playwright install --with-deps chromium
+
+      - run: pnpm turbo run build --filter=@keyline/ui
+
+      # --update writes missing baselines and replaces ones that no longer match. Other failures
+      # (a play function, axe) still fail the run, and nothing is committed.
+      - run: pnpm --filter docs exec vitest run --update
+
+      - name: Commit changed baselines
+        id: commit
+        run: |
+          git add apps/docs/screenshots
+          if git diff --cached --quiet; then
+            echo "Baselines are up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update screenshot baselines"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN don't start workflows, so start the Storybook workflow
+      # explicitly to run the required verify check on the new commit.
+      - name: Re-run checks on the new commit
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run storybook.yml --ref "${{ github.ref_name }}"

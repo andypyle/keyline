@@ -76,6 +76,14 @@ Tests are `play` functions in the component's stories, using `expect`, `fn` and 
 
 Test behavior a consumer relies on, not styling: keyboard access and focus, event handlers firing (or not, when disabled), accessible names and roles, and defaults that prevent bugs (like `type="button"`). Don't assert on class names or computed styles. Put spies in `meta.args` (`onClick: fn()`) and group related assertions with `step()`.
 
+### Visual regression
+
+Stories in the components listed in `VISUAL_STORY_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`) are also screenshotted after their play function and compared with a baseline in `apps/docs/screenshots/`. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
+
+- Changing a component's appearance on purpose: push the branch, then run the Update screenshots workflow on it (`gh workflow run update-screenshots.yml --ref <branch>`). It commits the new baselines and re-runs the checks. Review the changed PNGs in the PR diff.
+- A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
+- Never generate or commit baselines from macOS.
+
 Every story is also checked with axe (`@storybook/addon-a11y`), and violations fail `pnpm test`. Fix violations rather than disabling rules; if a rule must be turned off for one story, do it in that story's `parameters.a11y.config` with a comment explaining why. Stories render in light mode by default, so components with colored fills need a dark-mode story (`globals: { theme: "dark" }`) for contrast to be checked there too. See `Variants (dark)` in `Button.stories.tsx`.
 
 ## Styling and tokens

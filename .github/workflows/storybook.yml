@@ -16,7 +16,8 @@ permissions:
 jobs:
   # Typecheck, test and build. Deploy only runs if every step here passes.
   verify:
-    runs-on: ubuntu-latest
+    # Pinned, like the Update screenshots workflow, so screenshots render on the same image as their baselines.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -35,6 +36,15 @@ jobs:
       - run: pnpm typecheck
 
       - run: pnpm test
+
+      # On a visual regression, upload the actual and diff images to review.
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshot-diffs
+          path: apps/docs/.vitest/screenshot-diffs
+          if-no-files-found: ignore
+          retention-days: 7
 
       - run: pnpm build
 
