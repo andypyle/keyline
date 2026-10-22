@@ -21,7 +21,7 @@ export const buttonVariants = cva(
     "kl:m-0",
     "kl:p-0",
     "kl:font-body",
-    "kl:font-medium",
+    "kl:font-bold",
     "kl:leading-none",
     "kl:whitespace-nowrap",
     "kl:border-line",
