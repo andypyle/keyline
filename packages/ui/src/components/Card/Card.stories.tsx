@@ -223,6 +223,59 @@ export const DisabledAction: Story = {
   },
 };
 
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12l5 5L19 7" />
+    </svg>
+  );
+}
+
+/** CardTags are Badges, neutral outlines by default. They take Badge's `variant`, `tone`, `size` and icons. */
+export const Tags: Story = {
+  render: (args) => (
+    <Card {...args} style={width}>
+      <CardBody>
+        <CardTitle>Keyline 0.5</CardTitle>
+        <CardDescription>Badges, status tokens and a new Display section.</CardDescription>
+        <CardTags aria-label="Status">
+          <CardTag tone="success" startIcon={<CheckIcon />}>
+            Shipped
+          </CardTag>
+          <CardTag variant="filled" tone="info">
+            Minor
+          </CardTag>
+          <CardTag tone="warning">Needs docs</CardTag>
+          <CardTag>Components</CardTag>
+        </CardTags>
+      </CardBody>
+    </Card>
+  ),
+  play: async ({ canvas, step }) => {
+    await step("renders a list item per tag", async () => {
+      const list = canvas.getByRole("list", { name: "Status" });
+      await expect(list.querySelectorAll(":scope > li")).toHaveLength(4);
+    });
+
+    await step("hides tag icons from assistive tech, so the label alone is announced", async () => {
+      const shipped = canvas.getByText("Shipped").closest("li")!;
+      await expect(shipped.querySelector('[data-slot="icon"]')).toHaveAttribute("aria-hidden", "true");
+      await expect(shipped).toHaveTextContent(/^Shipped$/);
+    });
+  },
+};
+
+/** Dark mode swaps the semantic tokens, so contrast is checked here too. */
+export const TagsDark: Story = {
+  name: "Tags (dark)",
+  globals: { theme: "dark" },
+  render: Tags.render,
+  play: async () => {
+    // Guards the contrast check: if the theme global stops applying, this story would silently test light mode.
+    await expect(document.documentElement).toHaveAttribute("data-theme", "dark");
+  },
+};
+
 export const Variants: Story = {
   render: (args) => (
     <div style={row}>
