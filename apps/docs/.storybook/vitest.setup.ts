@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, expect } from "vitest";
+import { afterEach, beforeEach, expect, vi } from "vitest";
 import { commands, page, server } from "vitest/browser";
 
 declare module "vitest/browser" {
@@ -8,10 +8,21 @@ declare module "vitest/browser" {
   }
 }
 
+// Every story sees the same "today", so the date pickers (which open on the current month and mark
+// today) render the same on every run. Noon UTC is the same calendar date in nearly every time zone.
+// Only Date is faked, so timers and waitFor run in real time, and the clock still ticks forward.
+const TODAY = new Date("2026-03-18T12:00:00Z");
+
 // Start every story with the pointer away from it, so nothing begins in a hover state left over
 // from the previous test.
 beforeEach(async () => {
+  vi.useFakeTimers({ toFake: ["Date"], shouldAdvanceTime: true });
+  vi.setSystemTime(TODAY);
   await commands.resetPointer();
+});
+
+afterEach(() => {
+  vi.useRealTimers();
 });
 
 // Visual regression: after a story renders and its play function finishes, compare a screenshot
@@ -25,9 +36,6 @@ const VISUAL_EXCLUDED_PREFIXES = [
   "media-mediavideo--",
   "media-videomodal--",
   "media-videoplayer--",
-  // They open on the current month, so baselines would go stale; covered once the clock is frozen.
-  "forms-datepicker--",
-  "forms-daterangepicker--",
 ];
 
 afterEach(async ({ task }) => {
