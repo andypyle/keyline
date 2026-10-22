@@ -44,7 +44,7 @@ This creates `packages/ui/src/components/<Name>/` with:
 | `<Name>.variants.ts` | CVA config (`<name>Variants`) and `<Name>VariantProps`; only if it has variants |
 | `<Name>.stories.tsx` | Stories, titled `<Section>/<Name>` |
 
-It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`.
+It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`. Its stories need screenshot baselines before CI passes: push the branch and run `pnpm screenshots:update` (see Visual regression).
 
 ### Compound components
 
@@ -151,3 +151,7 @@ Don't add `Co-Authored-By` trailers or any other Claude or Claude Code attributi
 ## Before finishing
 
 Run `pnpm typecheck`, `pnpm test` and `pnpm build`. Changes that affect `@keyline/ui` consumers need a changeset (`pnpm changeset`).
+
+If the change alters how any story looks, push and run `pnpm screenshots:update`, review the changed baselines, and commit them: `pnpm test` on macOS doesn't compare screenshots, so only CI catches a stale baseline.
+
+CI's `verify` job (typecheck, tests including screenshots, build) is a required check on `main`, and Storybook only deploys after it passes.
