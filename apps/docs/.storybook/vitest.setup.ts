@@ -19,14 +19,22 @@ beforeEach(async () => {
 // Linux runners (the Update screenshots workflow), and fonts and anti-aliasing render differently
 // on macOS, so the comparison only runs on Linux.
 //
-// Prototype: only these components are compared for now. Story IDs are `<title>--<story>`, kebab-cased.
-const VISUAL_STORY_PREFIXES = ["buttons-button--", "layout-card--"];
+// Every story is compared except these. Story IDs are `<title>--<story>`, kebab-cased.
+const VISUAL_EXCLUDED_PREFIXES = [
+  // Their frames depend on playback position, so screenshots aren't stable.
+  "media-mediavideo--",
+  "media-videomodal--",
+  "media-videoplayer--",
+  // They open on the current month, so baselines would go stale; covered once the clock is frozen.
+  "forms-datepicker--",
+  "forms-daterangepicker--",
+];
 
 afterEach(async ({ task }) => {
   // Set by Storybook's Vitest plugin on every story test.
   const { storyId } = task.meta as { storyId?: unknown };
   if (server.platform !== "linux" || typeof storyId !== "string") return;
-  if (!VISUAL_STORY_PREFIXES.some((prefix) => storyId.startsWith(prefix))) return;
+  if (VISUAL_EXCLUDED_PREFIXES.some((prefix) => storyId.startsWith(prefix))) return;
   // A story that already failed would only add a second, misleading screenshot failure.
   if (task.result?.state === "fail") return;
 

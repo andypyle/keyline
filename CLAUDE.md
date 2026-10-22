@@ -79,7 +79,7 @@ Test behavior a consumer relies on, not styling: keyboard access and focus, even
 
 ### Visual regression
 
-Stories in the components listed in `VISUAL_STORY_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`) are also screenshotted after their play function and compared with a baseline in `apps/docs/screenshots/`. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
+Every story, except those matching `VISUAL_EXCLUDED_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`), is also screenshotted after its play function and compared with a baseline in `apps/docs/screenshots/`. A new component's stories fail in CI until their baselines exist, so run `pnpm screenshots:update` after adding one. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
 
 - Changing a component's appearance on purpose: push the branch, then run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the regenerated baselines into `apps/docs/screenshots/`. Review the changed PNGs, then commit and push them yourself. (The workflow doesn't commit: GitHub holds PR checks on bot-pushed commits for manual approval.)
 - A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
