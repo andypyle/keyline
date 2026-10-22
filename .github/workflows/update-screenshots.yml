@@ -3,11 +3,7 @@ name: Update screenshots
 # Regenerates the visual regression baselines on Linux and uploads them as the `screenshots`
 # artifact. It doesn't commit them: run `pnpm screenshots:update` locally, which starts this
 # workflow, downloads the result into apps/docs/screenshots, and leaves you to review and commit.
-on:
-  workflow_dispatch:
-  # TEMPORARY: workflow_dispatch only works once this file is on main. Remove before merging.
-  push:
-    branches: [test/visual-regression]
+on: workflow_dispatch
 
 concurrency:
   group: update-screenshots-${{ github.ref }}
