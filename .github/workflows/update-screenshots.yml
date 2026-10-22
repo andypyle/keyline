@@ -1,8 +1,8 @@
 name: Update screenshots
 
-# Regenerates the visual regression baselines in apps/docs/screenshots on Linux and commits any that
-# changed to the branch it runs on. Run it from the Actions tab or with:
-#   gh workflow run update-screenshots.yml --ref <branch>
+# Regenerates the visual regression baselines on Linux and uploads them as the `screenshots`
+# artifact. It doesn't commit them: run `pnpm screenshots:update` locally, which starts this
+# workflow, downloads the result into apps/docs/screenshots, and leaves you to review and commit.
 on:
   workflow_dispatch:
   # TEMPORARY: workflow_dispatch only works once this file is on main. Remove before merging.
@@ -13,20 +13,16 @@ concurrency:
   group: update-screenshots-${{ github.ref }}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   update:
-    # main is protected; update baselines on the branch that changes them.
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-24.04
     # The same image as the Storybook workflow's verify job, so baselines render as they'll be checked.
     # Keep the tag in step with the playwright version in pnpm-lock.yaml.
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble
       options: --ipc=host
-    outputs:
-      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,38 +37,13 @@ jobs:
 
       - run: pnpm turbo run build --filter=@keyline/ui
 
-      # --update writes missing baselines and replaces ones that no longer match. Other failures
-      # (a play function, axe) still fail the run, and nothing is committed.
-      - run: pnpm --filter docs exec vitest run --update
+      # Regenerate every baseline from scratch, so baselines for removed or renamed stories go too.
+      # Other failures (a play function, axe) still fail the run, and nothing is uploaded.
+      - run: rm -rf apps/docs/screenshots && pnpm --filter docs exec vitest run --update
 
-      - name: Commit changed baselines
-        id: commit
-        run: |
-          # The container runs as root, so git won't trust the runner-owned checkout without this.
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add apps/docs/screenshots
-          if git diff --cached --quiet; then
-            echo "Baselines are up to date."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update screenshot baselines"
-          git push
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-
-  # Pushes made with GITHUB_TOKEN don't start workflows, so start the Storybook workflow explicitly
-  # to run the required verify check on the new commit. A separate job, outside the container,
-  # because Playwright's image doesn't include the gh CLI.
-  recheck:
-    needs: update
-    if: needs.update.outputs.changed == 'true'
-    runs-on: ubuntu-24.04
-    permissions:
-      actions: write
-    steps:
-      - name: Re-run checks on the new commit
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run storybook.yml --repo "${{ github.repository }}" --ref "${{ github.ref_name }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: apps/docs/screenshots
+          if-no-files-found: error
+          retention-days: 7
