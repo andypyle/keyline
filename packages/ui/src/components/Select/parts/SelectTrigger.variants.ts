@@ -14,6 +14,7 @@ export const selectTriggerVariants = cva(
     // Keyline ships without a CSS reset, so clear the browser's default button spacing.
     "kl:m-0",
     "kl:font-body",
+    "kl:font-medium",
     "kl:leading-none",
     "kl:text-left",
     "kl:bg-surface",

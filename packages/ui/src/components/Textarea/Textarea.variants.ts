@@ -12,10 +12,12 @@ export const textareaVariants = cva(
     // Clear the browser's default textarea margin and font, too.
     "kl:m-0",
     "kl:font-body",
+    "kl:font-medium",
     "kl:leading-body",
     "kl:bg-surface",
     "kl:text-fg-1",
     "kl:border-line",
+    "kl:placeholder:font-normal",
     "kl:placeholder:text-fg-3",
     "kl:read-only:bg-sunken",
     "kl:focus-visible:outline-3",

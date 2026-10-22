@@ -81,7 +81,7 @@ export function DateRangePickerTrigger({
       <span
         data-slot="date-range-picker-value"
         data-placeholder={value ? undefined : ""}
-        className={cn(["kl:flex-1", "kl:min-w-0", "kl:py-0.5", "kl:truncate", "kl:data-placeholder:text-fg-3"])}
+        className={cn(["kl:flex-1", "kl:min-w-0", "kl:py-0.5", "kl:truncate", "kl:data-placeholder:font-normal", "kl:data-placeholder:text-fg-3"])}
       >
         {text}
       </span>

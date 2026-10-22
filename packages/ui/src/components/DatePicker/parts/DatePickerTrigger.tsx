@@ -82,7 +82,7 @@ export function DatePickerTrigger({
       <span
         data-slot="date-picker-value"
         data-placeholder={picker.value !== null ? undefined : ""}
-        className={cn(["kl:flex-1", "kl:min-w-0", "kl:py-0.5", "kl:truncate", "kl:data-placeholder:text-fg-3"])}
+        className={cn(["kl:flex-1", "kl:min-w-0", "kl:py-0.5", "kl:truncate", "kl:data-placeholder:font-normal", "kl:data-placeholder:text-fg-3"])}
       >
         {text}
       </span>

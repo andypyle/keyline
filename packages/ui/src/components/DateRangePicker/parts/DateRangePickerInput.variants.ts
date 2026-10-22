@@ -16,6 +16,7 @@ export const dateRangePickerInputVariants = cva(
     "kl:min-w-0",
     "kl:m-0",
     "kl:font-body",
+    "kl:font-medium",
     "kl:bg-surface",
     "kl:text-fg-1",
     "kl:border-line",
@@ -97,6 +98,7 @@ export const dateRangePickerFieldVariants = cva([
   "kl:text-fg-1",
   "kl:border-0",
   "kl:outline-none",
+  "kl:placeholder:font-normal",
   "kl:placeholder:text-fg-3",
   "kl:disabled:cursor-not-allowed",
 ]);
