@@ -83,6 +83,7 @@ Stories in the components listed in `VISUAL_STORY_PREFIXES` (`apps/docs/.storybo
 
 - Changing a component's appearance on purpose: push the branch, then run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the regenerated baselines into `apps/docs/screenshots/`. Review the changed PNGs, then commit and push them yourself. (The workflow doesn't commit: GitHub holds PR checks on bot-pushed commits for manual approval.)
 - A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
+- Baselines are named by story ID. Renaming or deleting a story leaves its old baseline behind; delete it by hand.
 - Never generate or commit baselines from macOS.
 - CI renders screenshots in Playwright's Docker image (`mcr.microsoft.com/playwright:v<version>-noble`). When upgrading `playwright`, bump that tag in both `.github/workflows/storybook.yml` and `update-screenshots.yml` to match, then run `pnpm screenshots:update`.
 

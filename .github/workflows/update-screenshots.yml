@@ -37,9 +37,10 @@ jobs:
 
       - run: pnpm turbo run build --filter=@keyline/ui
 
-      # Regenerate every baseline from scratch, so baselines for removed or renamed stories go too.
-      # Other failures (a play function, axe) still fail the run, and nothing is uploaded.
-      - run: rm -rf apps/docs/screenshots && pnpm --filter docs exec vitest run --update
+      # --update writes missing baselines and replaces ones that no longer match; ones that still
+      # match (within the comparator's tolerance) are left alone, so rendering noise doesn't churn
+      # them. Other failures (a play function, axe) still fail the run, and nothing is uploaded.
+      - run: pnpm --filter docs exec vitest run --update
 
       - uses: actions/upload-artifact@v4
         with:
