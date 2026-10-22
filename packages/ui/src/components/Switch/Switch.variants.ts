@@ -56,7 +56,7 @@ export const switchThumbVariants = cva(
     "kl:place-self-center",
     "kl:justify-self-start",
     "kl:ml-1",
-    "kl:bg-surface",
+    "kl:bg-thumb",
     "kl:border-2",
     "kl:border-line",
     "kl:rounded-full",
