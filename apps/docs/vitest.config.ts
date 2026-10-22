@@ -34,6 +34,10 @@ export default defineConfig({
       // actual and diff images go in .vitest/screenshot-diffs, which CI uploads.
       expect: {
         toMatchScreenshot: {
+          // Chromium occasionally renders a pixel or two of anti-aliasing differently between runs.
+          // Real changes (a border, a color, spacing, a font) differ by hundreds of pixels.
+          comparatorName: "pixelmatch",
+          comparatorOptions: { allowedMismatchedPixels: 25 },
           resolveScreenshotPath: ({ arg, ext, root }) => `${root}/screenshots/${arg}${ext}`,
           resolveDiffPath: ({ arg, ext, root }) => `${root}/.vitest/screenshot-diffs/${arg}${ext}`,
         },
