@@ -4,7 +4,27 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Keyline
 
-Keyline is a React component library built with Tailwind CSS 4 and Class Variance Authority.
+Keyline is a React component library with a distinct look: dark outlines, hard shadows, soft shapes and quiet, earthy color. It's built with Tailwind CSS 4 and Class Variance Authority, on native HTML elements wherever it can be.
+
+## The look
+
+In print design, a keyline is the thin outline drawn around an image or a panel to mark its edge. Keyline is named after the thing it's made of: every surface is drawn with one.
+
+- **Outlines.** Buttons, fields, cards and menus all have a 2px outline in near-black ink, or 3px on larger controls. In dark mode, they go darker than the surfaces they surround.
+- **Hard shadows.** Shadows are solid offsets with no blur, as if each surface were cut from card and laid on the page. They show what you can press: a button rises a little on hover, and on press it drops into its shadow, which disappears.
+- **Soft shapes.** Buttons are pills, and everything else has generous rounded corners. Headings use Fredoka, a rounded typeface; body text uses Figtree, a friendly sans-serif; code uses Geist Mono.
+- **Quiet color.** The palette is muted and named after the natural world: slate, sage, mist, moss, lichen and dusk. Amber and rust are kept for warnings and errors, so they stand out when they appear.
+- **Small, springy motion.** Transitions are quick. Things that appear, like menus and dialogs, pop in with a slight bounce, and icons in buttons play a short animation on hover. All of it turns off when the operating system asks for reduced motion.
+
+If you want a name for the style, it's a soft take on neo-brutalism. Neo-brutalism is the web style of thick outlines, hard shadows and flat fills, usually paired with sharp corners and loud, saturated color. Keyline keeps the structure (the outlines and shadows that make every edge and every clickable thing obvious) and softens the rest: rounded shapes, gentle color and a lighter tone.
+
+## How it's built
+
+- **On the platform.** Keyline uses native elements wherever it can: buttons are `<button>`s, inputs are `<input>`s, and Modal is a `<dialog>`. Every form control works with a plain HTML `<form>`.
+- **Accessible by default.** Components handle keyboard access, focus and labeling, and every story is checked with axe, in dark mode too for components with colored fills. See Accessibility.
+- **A good guest.** Keyline doesn't reset or restyle your page. Its styles sit in their own cascade layer so yours always win, and its classes and tokens are prefixed `kl` so they can't collide with your app's.
+- **Themeable.** Colors, fonts, radii, shadows and motion are all CSS custom properties. Dark mode is one attribute, and rebranding is a few lines of CSS. See Theming.
+- **Composable.** Larger components are built from parts you put together, like a Card from a `CardImage`, `CardTitle` and `CardAction`, so you control the layout and the content.
 
 ## Installation
 
@@ -12,7 +32,9 @@ Keyline is a React component library built with Tailwind CSS 4 and Class Varianc
 npm install @keyline/ui
 ```
 
-Import the stylesheet once, at the root of your app:
+Keyline needs React 19 or later.
+
+Import the stylesheet once, at the root of your app. It includes Keyline's fonts:
 
 ```ts
 import "@keyline/ui/styles.css";
@@ -23,3 +45,12 @@ Keyline's styles live in the `keyline` cascade layer. To make sure your own styl
 ```css
 @layer keyline, theme, base, components, utilities;
 ```
+
+## Where to next
+
+- [Theming](?path=/docs/theming--docs): dark mode, tokens and changing the colors.
+- [Styling](?path=/docs/styling--docs): page setup, `className` and styling the parts inside a component.
+- [Forms](?path=/docs/forms-overview--docs): labels, validation and submitting values.
+- [Accessibility](?path=/docs/accessibility--docs): what Keyline handles and what's up to you.
+- [Foundations](?path=/story/foundations-colors--all): the colors, type, shapes and motion.
+- [Contributing](?path=/docs/contributing--docs) and [Testing](?path=/docs/testing--docs), for working on Keyline itself.

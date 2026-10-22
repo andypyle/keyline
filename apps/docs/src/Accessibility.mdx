@@ -1,0 +1,30 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Accessibility" />
+
+# Accessibility
+
+Keyline handles the accessibility of its components: how they work with a keyboard, what they announce, and how they look in each theme. What only you know, like what a control is for, is up to you.
+
+## What Keyline handles
+
+- **Native elements first.** Buttons are `<button>`s, form controls are `<input>`s where possible, and Modal is a native `<dialog>`. They come with the browser's built-in keyboard handling and semantics.
+- **Keyboard access.** Every interactive component can be reached and used with the keyboard. Custom controls like Select, Combobox and the date pickers follow the WAI-ARIA patterns for their kind of control, such as arrow keys to move through options and Escape to close.
+- **Focus.** Focused controls show a visible ring. Modal keeps focus inside while it's open and returns it to the trigger when it closes, and so does DropdownMenu.
+- **Labels and descriptions.** Inside a `Field`, the label, description and error are connected to the control for you (see Forms).
+- **Reduced motion.** With the operating system's reduce-motion setting on, transitions and animations are turned off.
+- **Tested.** Every story is checked with axe, in light mode and, for components with colored fills, in dark mode. A violation fails the build. Play functions test keyboard access and accessible names (see Testing).
+
+## What you need to do
+
+- **Name every control.** Wrap it in a `Field` with a `FieldLabel`, or give it an `aria-label`. A RadioGroup outside a Field needs `aria-labelledby` pointing at its heading.
+- **Name icon-only buttons.** Icons are hidden from assistive technology, so a Button with only an icon needs an `aria-label`:
+
+  ```tsx
+  <Button size="icon" aria-label="Close" startIcon={<CloseIcon />} />
+  ```
+
+- **Describe images.** `MediaImage` requires `alt`. Describe what the image shows, or pass `alt=""` if it's decorative.
+- **Title every Modal.** A `ModalTitle` becomes the dialog's accessible name.
+- **Write useful errors.** A `FieldError` is read out with its control, so say what's wrong and how to fix it: "Enter a full email address", not "Invalid".
+- **Check your colors.** If you change Keyline's colors (see Theming), check their contrast in both light and dark mode. Only Keyline's own colors are tested.

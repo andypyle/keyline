@@ -1,0 +1,66 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Forms/Overview" />
+
+# Forms
+
+Keyline's form controls work with ordinary HTML forms. Each one submits its value with the form, respects `required` and `disabled`, and goes back to its starting value when the form resets. You don't need a form library, though they work with one.
+
+## Labels, descriptions and errors
+
+Wrap a control in a `Field` to give it a label, a description and an error message:
+
+```tsx
+<Field required invalid={!emailValid}>
+  <FieldLabel>Email</FieldLabel>
+  <Input name="email" type="email" />
+  <FieldDescription>Use your work address.</FieldDescription>
+  <FieldError>Enter a full email address, like ada@example.com.</FieldError>
+</Field>
+```
+
+The Field connects them for you. The label points at the control, the control is described by the description and the error, and assistive technology announces them together. You don't need to set any ids.
+
+The Field also passes its settings down:
+
+- `required` makes the control required and marks the label with an asterisk.
+- `disabled` disables the control and dims the label.
+- `invalid` marks the control invalid and shows the `FieldError`. The error is hidden the rest of the time, so you can always render it.
+
+A Field holds one control: Input, Textarea, Select, Combobox, DatePicker, DateRangePicker, Checkbox, Switch, RadioGroup or Slider. Set `orientation="horizontal"` to put the label beside the control, and put the control first.
+
+## Validation
+
+Keyline doesn't decide when a value is invalid. You set `invalid` on the Field, from whatever does your validation: the browser's own checks, a schema library or a server response.
+
+`required` blocks submission the same way a native required field does, including Select, Combobox, DatePicker and DateRangePicker. The browser shows its message next to the control and focuses it. To show your own errors instead, listen for the form's `invalid` events and set `invalid` on those Fields. The Examples page does this.
+
+## Submitting values
+
+Give a control a `name` and its value is included in the form's data:
+
+- **Input and Textarea** submit their text, like the native elements.
+- **Checkbox and Switch** submit `on` (or their `value`) when checked, and nothing when not.
+- **RadioGroup** submits the chosen Radio's `value`.
+- **Select and Combobox** submit the chosen item's `value`.
+- **Slider** submits the number.
+- **DatePicker** submits the date as `YYYY-MM-DD`.
+- **DateRangePicker** submits the start and end dates as `YYYY-MM-DD`. It takes `startName` and `endName` instead of `name`.
+
+A disabled control submits nothing, as with native fields. A control outside the `<form>` element can join it through the `form` prop, set to the form's id.
+
+## Controlled and uncontrolled
+
+Input, Textarea, Checkbox and Switch are native inputs, so they take `value` or `checked` with `onChange`, exactly like the elements they render.
+
+The other controls follow one pattern. Leave out `value` and the control manages its own value, starting from `defaultValue`. Pass `value` together with `onValueChange` to control it from your state.
+
+```tsx
+const [role, setRole] = useState<string | null>(null);
+
+<Select name="role" value={role} onValueChange={setRole}>
+  …
+</Select>
+```
+
+When the form resets, uncontrolled controls go back to their `defaultValue`, like native fields do. A controlled control keeps the value you pass, so reset your state too.

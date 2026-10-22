@@ -1,5 +1,5 @@
 /*
- * Keyline design tokens, ported from the Loam theme on andypyle.dev.
+ * Keyline design tokens.
  *
  * Tokens are written unprefixed (--color-surface) and Tailwind's prefix(kl) emits them as
  * --kl-color-surface, with utilities like kl:bg-surface. Tailwind does NOT rewrite var()

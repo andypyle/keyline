@@ -1,0 +1,50 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Styling" />
+
+# Styling
+
+Keyline components come styled, but you can adjust any of them with your own CSS. This page covers how. To change the colors, fonts or radii everywhere at once, see Theming.
+
+## Page setup
+
+Keyline doesn't reset or style your page. It leaves out Tailwind's Preflight so it never changes your app's existing styles. Set the page's background, text color and font yourself, using the tokens so they follow dark mode:
+
+```css
+body {
+  background: var(--kl-color-page);
+  color: var(--kl-color-fg-1);
+  font-family: var(--kl-font-body);
+}
+```
+
+## Passing a className
+
+Every component takes a `className`, which is added to its root element:
+
+```tsx
+<Button className="w-full">Save</Button>
+<Card className="max-w-sm">…</Card>
+```
+
+Your classes win over Keyline's because Keyline's styles sit in the `keyline` cascade layer, which you declare first (see Introduction). This works with any styling approach: Tailwind, CSS Modules or plain stylesheets. Unlayered CSS always wins over layered CSS, so plain stylesheets work even without the declaration.
+
+Keyline's own classes all start with `kl:`, such as `kl:bg-surface`. Don't use them in your app: the stylesheet only includes the ones Keyline's components use, so most won't exist. Use your own classes and the `--kl-` tokens instead.
+
+## Styling the parts inside a component
+
+Each element a component renders has a `data-slot` attribute naming it, such as `field-label`, `card-title` or `icon`. Use these to style a part you can't pass a `className` to:
+
+```css
+.settings [data-slot="field-label"] {
+  text-transform: uppercase;
+}
+```
+
+Some components also mark their state with attributes, like `data-invalid` and `data-disabled` on a Field. Inspect a component in your browser's developer tools to see which attributes it sets.
+
+Parts of compound components, like `CardTitle` or `FieldError`, take a `className` too, so you only need `data-slot` for elements a component renders on its own.
+
+## Refs and native props
+
+Components pass every prop they don't use themselves on to their root element, so native attributes and event handlers work as usual: `id`, `aria-*`, `data-*`, `onKeyDown` and so on. `ref` is a regular prop, as in React 19, and points at the root element.

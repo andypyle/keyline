@@ -1,0 +1,93 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Testing" />
+
+# Testing
+
+Every story in Keyline is also a test. There are no separate test files: a component's stories show what it looks like and check how it behaves. Each one runs in headless Chromium through Storybook's Vitest addon.
+
+```sh
+pnpm test
+```
+
+When you change a component, each of its stories is checked four ways:
+
+1. **It renders.** A story that throws fails, even without a play function.
+2. **Its play function passes**, if it has one.
+3. **It has no accessibility violations**, checked with axe.
+4. **It looks the same as its baseline screenshot.** This check only runs in CI (see Visual regression).
+
+## Play functions
+
+A play function interacts with the story and asserts on the result, using `expect`, `fn`, `userEvent` and `step` from `storybook/test`. Put spies in `meta.args` so every story gets them, and group related assertions with `step()` so a failure points at the behavior that broke.
+
+```tsx
+const meta = {
+  title: "Buttons/Button",
+  component: Button,
+  args: { children: "Button", onClick: fn() },
+} satisfies Meta<typeof Button>;
+
+export const Default: Story = {
+  play: async ({ args, canvas, step }) => {
+    const button = canvas.getByRole("button", { name: "Button" });
+
+    await step("defaults to type=button, so it never submits a surrounding form", async () => {
+      await expect(button).toHaveAttribute("type", "button");
+    });
+
+    await step("is focusable and activates with Enter and Space", async () => {
+      await userEvent.tab();
+      await expect(button).toHaveFocus();
+      await userEvent.keyboard("{Enter}");
+      await userEvent.keyboard(" ");
+      await expect(args.onClick).toHaveBeenCalledTimes(2);
+    });
+  },
+};
+```
+
+Test the behavior a consumer relies on:
+
+- Keyboard access and focus
+- Event handlers firing, or not firing when the component is disabled
+- Accessible names and roles
+- Defaults that prevent bugs, like `type="button"`
+
+Don't assert on class names or computed styles. The screenshot comparison covers appearance.
+
+## Accessibility
+
+Every story is checked with axe (`@storybook/addon-a11y`), and a violation fails the test. Fix the violation rather than turning the rule off. If a rule must be turned off for one story, do it in that story's `parameters.a11y.config`, with a comment explaining why.
+
+Stories render in light mode by default. A component with colored fills needs a dark-mode story too, so that axe checks its contrast in dark mode. See `Variants (dark)` in the Button stories:
+
+```tsx
+export const VariantsDark: Story = {
+  name: "Variants (dark)",
+  globals: { theme: "dark" },
+  render: Variants.render,
+};
+```
+
+## Visual regression
+
+After a story's play function finishes, the page is screenshotted and compared with a baseline in `apps/docs/screenshots/`, named by story ID. Video stories are left out, because their frames depend on playback position. The list is `VISUAL_EXCLUDED_PREFIXES` in `.storybook/vitest.setup.ts`.
+
+Fonts and anti-aliasing render differently on each operating system, so baselines come from GitHub's Linux runners and the comparison only runs on Linux. `pnpm test` on macOS skips it, and CI enforces it. Never generate or commit baselines from macOS.
+
+When you add a component or change how one looks on purpose:
+
+1. Push your branch.
+2. Run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the new baselines into `apps/docs/screenshots/`.
+3. Review the changed images, then commit and push them yourself.
+
+If a comparison fails in CI, the actual and diff images are uploaded as the `screenshot-diffs` artifact. Renaming or deleting a story leaves its old baseline behind, so delete that file by hand.
+
+## The test environment
+
+A few things are fixed so that stories behave and render the same on every run:
+
+- **Reduced motion is on.** Transitions are turned off, so a play function never clicks an element mid-animation and a screenshot never catches one.
+- **The pointer starts away from the story.** Nothing begins in a hover state left over from the previous test.
+- **The date is frozen at 18 March 2026.** Only `Date` is faked; timers run in real time. In play functions, use `today()` from `src/lib/calendar-date.ts` rather than hard-coding a date.
