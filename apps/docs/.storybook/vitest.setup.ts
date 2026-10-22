@@ -38,5 +38,14 @@ afterEach(async ({ task }) => {
   // A story that already failed would only add a second, misleading screenshot failure.
   if (task.result?.state === "fail") return;
 
-  await expect.element(page.elementLocator(document.body)).toMatchScreenshot(storyId);
+  // Only the viewport is painted, so a page taller than it would come out blank below the fold.
+  // Stretch the viewport to the full page for the screenshot, then put it back.
+  const { innerWidth: width, innerHeight: height } = window;
+  const fullHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  if (fullHeight > height) await page.viewport(width, fullHeight);
+  try {
+    await expect.element(page.elementLocator(document.body)).toMatchScreenshot(storyId);
+  } finally {
+    if (fullHeight > height) await page.viewport(width, height);
+  }
 });
