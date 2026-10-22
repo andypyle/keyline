@@ -1,0 +1,73 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Contributing" />
+
+# Contributing
+
+Keyline is a pnpm and Turborepo monorepo:
+
+- `packages/ui` is `@keyline/ui`, the published library.
+- `apps/docs` is this Storybook. It loads stories from `packages/ui/src`, so each component's stories sit next to it.
+
+```sh
+pnpm install
+pnpm storybook   # Storybook on localhost:6006
+```
+
+## Adding a component
+
+Always create a component with the generator, never by hand. It's the source of truth for how a component is laid out. Pass the answers as arguments: the name, a one-line description, the root HTML element, whether it has variants (`y` or `n`), and its sidebar section.
+
+```sh
+pnpm gen component Button "Triggers an action." button y Buttons
+```
+
+This creates `packages/ui/src/components/Button/` and adds its exports to `src/index.ts`:
+
+- `Button.tsx`: the component, and nothing else.
+- `Button.types.ts`: `ButtonProps` and any other public types.
+- `Button.variants.ts`: its variants, with Class Variance Authority. Only created if it has variants.
+- `Button.stories.tsx`: its stories, which are also its tests.
+
+Keep each kind of code in its own file: no `cva()` calls or prop interfaces in the `.tsx` file. Don't add other files to the folder. Shared code goes in `packages/ui/src/lib/`.
+
+### Compound components
+
+A compound component is built from parts that consumers put together, like a Card from a `CardTitle`, `CardImage` and `CardAction`. Generate the parent first, then each part:
+
+```sh
+pnpm gen part Card CardTitle "Heading of a Card." h3 n
+```
+
+Parts go in the parent's `parts/` folder and have no stories of their own: the parent's stories test them together. A part reads the parent's settings through CSS custom properties set on the parent, or through React context in `src/lib/` when it needs more than styling.
+
+## Writing a component
+
+- Write a function component that takes `ref` as a regular prop. Don't use `forwardRef`.
+- Set `data-slot` on the root element, named after the component in kebab case.
+- Spread the remaining props onto the root element, so native attributes and handlers pass through.
+- Merge classes with `cn` from `@/lib/cn`, with the consumer's `className` last.
+- Import from other folders through the `@/` alias, such as `@/lib/cn`. Same-folder imports stay relative.
+
+## Styling
+
+- Every Tailwind class starts with the `kl:` prefix, like `kl:px-3`. Classes without it aren't generated.
+- Use the semantic color tokens (`surface`, `fg-1`, `line`), not the palette (`slate-200`). Semantic tokens are what dark mode swaps.
+- Outlines are 2px in `line` (3px on larger controls), and shadows are hard offsets with no blur.
+- Write class lists as arrays with one class per element, ordered by category: layout, flex and grid, sizing, spacing, typography, color, borders, effects, motion, interaction, then prefixed classes like `hover:`. The full order is in `CLAUDE.md` at the repo root.
+
+## Before opening a pull request
+
+1. Give the component a `Default` story, plus one for each meaningful variant or state, with play functions for its behavior (see Testing).
+2. Run the checks:
+
+   ```sh
+   pnpm typecheck
+   pnpm test
+   pnpm build
+   ```
+
+3. If the change affects people using `@keyline/ui`, record it with `pnpm changeset`.
+4. If any story looks different, push the branch and run `pnpm screenshots:update`, then review and commit the new baselines (see Testing).
+
+CI runs the same checks on every pull request, including the screenshot comparison, and it must pass before merging. Storybook only deploys once it passes.

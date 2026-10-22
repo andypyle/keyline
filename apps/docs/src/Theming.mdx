@@ -1,0 +1,86 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Theming" />
+
+# Theming
+
+Keyline's look comes from design tokens: CSS custom properties prefixed `--kl-`. Every token is emitted with the stylesheet, so you can use them in your own CSS and override them to change Keyline's look. The Foundations pages list them all.
+
+## Dark mode
+
+Dark mode is opt-in. Set `data-theme="dark"` on `<html>` to turn it on for the whole page:
+
+```html
+<html data-theme="dark">
+```
+
+You can also set it on any element to make just that part of the page dark, like a dark sidebar in a light app. The reverse doesn't work: a `data-theme="light"` element inside a dark page stays dark.
+
+Keyline never follows the operating system's setting on its own, since your app may only support light mode. To follow it, set the attribute yourself:
+
+```ts
+const query = window.matchMedia("(prefers-color-scheme: dark)");
+
+function applyTheme() {
+  if (query.matches) document.documentElement.setAttribute("data-theme", "dark");
+  else document.documentElement.removeAttribute("data-theme");
+}
+
+applyTheme();
+query.addEventListener("change", applyTheme);
+```
+
+## Semantic tokens and the palette
+
+There are two kinds of color token:
+
+- **The palette** holds the raw colors, like `--kl-color-sage-500` and `--kl-color-slate-200`.
+- **Semantic tokens** name a color by its job, like `--kl-color-surface`, `--kl-color-fg-1`, `--kl-color-line` and `--kl-color-accent`. Each one points at a palette color.
+
+Components only use semantic tokens. Dark mode works by swapping what they point at, so anything you build with semantic tokens gets dark mode for free:
+
+```css
+.sidebar {
+  background: var(--kl-color-surface);
+  color: var(--kl-color-fg-2);
+  border-right: 2px solid var(--kl-color-line);
+}
+```
+
+With Tailwind 4 in your app, use them through its CSS variable syntax, such as `bg-(--kl-color-surface)`.
+
+## Changing the colors
+
+To rebrand Keyline, override palette colors. The semantic tokens point at them in both light and dark mode, so the change reaches every component. For example, to replace the sage accent with a blue:
+
+```css
+:root {
+  --kl-color-sage-100: #dbe7f5;
+  --kl-color-sage-300: #a3c0e6;
+  --kl-color-sage-500: #5b8fd1;
+  --kl-color-sage-700: #2f5d99;
+}
+
+/* Dark mode redefines each 100-level tint as a deep, low-light version of its hue. */
+[data-theme="dark"] {
+  --kl-color-sage-100: #1e2a3a;
+}
+```
+
+For a narrower change, override a semantic token instead, such as `--kl-color-link`. That changes it in both modes. To give it a different value in dark mode, add a `[data-theme="dark"]` rule after the light one.
+
+Overrides have to win over Keyline's own definitions. They do if they're in unlayered CSS, or in a layer declared after `keyline` (see Introduction). Check the contrast of any colors you change. Keyline's own colors pass axe's contrast checks in both modes, but yours aren't tested.
+
+## Fonts, shape and motion
+
+The other tokens can be overridden the same way:
+
+```css
+:root {
+  --kl-font-body: "Inter", system-ui, sans-serif;
+  --kl-font-display: "Inter", system-ui, sans-serif;
+  --kl-radius-md: 4px;
+}
+```
+
+The stylesheet bundles Keyline's own fonts (Figtree, Fredoka and Geist Mono). If you replace them, load your fonts yourself.
