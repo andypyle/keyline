@@ -15,6 +15,7 @@ pnpm test            # every story as a test in headless Chromium (Storybook's V
 pnpm build           # all packages + Storybook
 pnpm storybook       # Storybook dev server on :6006
 pnpm changeset       # record a change to a published package
+pnpm screenshots:update  # regenerate visual regression baselines for the pushed branch (see Testing)
 ```
 
 ## Creating components
@@ -75,6 +76,16 @@ Apart from `parts/`, don't add other files or folders (`index.ts` barrels, `util
 Tests are `play` functions in the component's stories, using `expect`, `fn` and `userEvent` from `storybook/test`. There are no separate test files. Every story also runs as a smoke test (it must render without errors), even without a `play` function.
 
 Test behavior a consumer relies on, not styling: keyboard access and focus, event handlers firing (or not, when disabled), accessible names and roles, and defaults that prevent bugs (like `type="button"`). Don't assert on class names or computed styles. Put spies in `meta.args` (`onClick: fn()`) and group related assertions with `step()`.
+
+### Visual regression
+
+Stories in the components listed in `VISUAL_STORY_PREFIXES` (`apps/docs/.storybook/vitest.setup.ts`) are also screenshotted after their play function and compared with a baseline in `apps/docs/screenshots/`. Baselines are rendered on GitHub's Linux runners, so the comparison only runs on Linux: `pnpm test` on macOS skips it, and CI enforces it.
+
+- Changing a component's appearance on purpose: push the branch, then run `pnpm screenshots:update`. It runs the Update screenshots workflow on the pushed commit and downloads the regenerated baselines into `apps/docs/screenshots/`. Review the changed PNGs, then commit and push them yourself. (The workflow doesn't commit: GitHub holds PR checks on bot-pushed commits for manual approval.)
+- A failed comparison in CI uploads the actual and diff images as the `screenshot-diffs` artifact.
+- Baselines are named by story ID. Renaming or deleting a story leaves its old baseline behind; delete it by hand.
+- Never generate or commit baselines from macOS.
+- CI renders screenshots in Playwright's Docker image (`mcr.microsoft.com/playwright:v<version>-noble`). When upgrading `playwright`, bump that tag in both `.github/workflows/storybook.yml` and `update-screenshots.yml` to match, then run `pnpm screenshots:update`.
 
 Every story is also checked with axe (`@storybook/addon-a11y`), and violations fail `pnpm test`. Fix violations rather than disabling rules; if a rule must be turned off for one story, do it in that story's `parameters.a11y.config` with a comment explaining why. Stories render in light mode by default, so components with colored fills need a dark-mode story (`globals: { theme: "dark" }`) for contrast to be checked there too. See `Variants (dark)` in `Button.stories.tsx`.
 

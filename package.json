@@ -14,6 +14,7 @@
     "storybook": "turbo run dev --filter=docs",
     "gen": "pnpm --filter @keyline/ui gen",
     "changeset": "changeset",
+    "screenshots:update": "bash scripts/update-screenshots.sh",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=./packages/* && changeset publish"
   },

@@ -1,0 +1,46 @@
+name: Update screenshots
+
+# Regenerates the visual regression baselines on Linux and uploads them as the `screenshots`
+# artifact. It doesn't commit them: run `pnpm screenshots:update` locally, which starts this
+# workflow, downloads the result into apps/docs/screenshots, and leaves you to review and commit.
+on: workflow_dispatch
+
+concurrency:
+  group: update-screenshots-${{ github.ref }}
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    # The same image as the Storybook workflow's verify job, so baselines render as they'll be checked.
+    # Keep the tag in step with the playwright version in pnpm-lock.yaml.
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm turbo run build --filter=@keyline/ui
+
+      # --update writes missing baselines and replaces ones that no longer match; ones that still
+      # match (within the comparator's tolerance) are left alone, so rendering noise doesn't churn
+      # them. Other failures (a play function, axe) still fail the run, and nothing is uploaded.
+      - run: pnpm --filter docs exec vitest run --update
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: apps/docs/screenshots
+          if-no-files-found: error
+          retention-days: 7
