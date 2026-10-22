@@ -437,7 +437,7 @@ const REGIONS = [
  * matches hides, label and all, and separators hide too.
  */
 export const Groups: Story = {
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "region-country";
     return (
       <div style={field}>
@@ -504,7 +504,7 @@ export const Groups: Story = {
 export const CustomValue: Story = {
   name: "Custom value",
   args: { allowCustomValue: true },
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "city";
     return (
       <div style={field}>
@@ -577,7 +577,7 @@ function useCountrySearch(query: string) {
   return { results, loading };
 }
 
-function AsyncCountryCombobox(args: Partial<ComboboxStoryArgs>) {
+function AsyncCountryCombobox({ onFormSubmit: _, ...args }: Partial<ComboboxStoryArgs>) {
   const [query, setQuery] = useState("");
   const { results, loading } = useCountrySearch(query);
   return (
@@ -660,7 +660,7 @@ const LABELS = [
 export const WithIcons: Story = {
   name: "With icons",
   args: { defaultValue: "bug" },
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "issue-label";
     return (
       <div style={field}>

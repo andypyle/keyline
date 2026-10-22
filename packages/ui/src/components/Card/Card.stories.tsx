@@ -119,7 +119,8 @@ export const Default: Story = {
 
 /** With `href`, the action is a link and the whole card navigates. */
 export const Link: Story = {
-  render: (args) => (
+  // onAction is a story arg, not a Card prop, so it's kept off the Card.
+  render: ({ onAction: _, ...args }) => (
     <Card {...args} style={width}>
       <CardImage src={image} alt="" />
       <CardBody>
@@ -152,7 +153,8 @@ export const NoBorders: Story = {
 
 /** Without a CardAction the card is static: it doesn't lift, and nothing in it is focusable. */
 export const WithoutAction: Story = {
-  render: (args) => (
+  // onAction is a story arg, not a Card prop, so it's kept off the Card.
+  render: ({ onAction: _, ...args }) => (
     <Card {...args} style={width}>
       <CardImage src={image} alt="" />
       <CardBody>
@@ -233,7 +235,7 @@ function CheckIcon() {
 
 /** CardTags are Badges, neutral outlines by default. They take Badge's `variant`, `tone`, `size` and icons. */
 export const Tags: Story = {
-  render: (args) => (
+  render: ({ onAction: _, ...args }) => (
     <Card {...args} style={width}>
       <CardBody>
         <CardTitle>Keyline 0.5</CardTitle>

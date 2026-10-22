@@ -383,7 +383,7 @@ export const FormReset: Story = {
 /** Long lists cap their height and scroll, keeping the highlighted option in view. */
 export const LongList: Story = {
   name: "Long list",
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "time-zone";
     return (
       <div style={field}>
@@ -437,7 +437,7 @@ const STATUSES = [
 export const WithIcons: Story = {
   name: "With icons",
   args: { defaultValue: "in-progress" },
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "status";
     return (
       <div style={field}>
@@ -498,7 +498,7 @@ const PRODUCE = [
  * readers. SelectSeparator draws a line between groups; arrow keys and typeahead pass over both.
  */
 export const Groups: Story = {
-  render: (args) => {
+  render: ({ onFormSubmit: _, ...args }) => {
     const id = "produce";
     return (
       <div style={field}>
