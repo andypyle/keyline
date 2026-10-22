@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { expect, fn, userEvent } from "storybook/test";
-import { Button } from "../Button/Button";
-import { Field } from "../Field/Field";
-import { FieldDescription } from "../Field/parts/FieldDescription";
-import { FieldLabel } from "../Field/parts/FieldLabel";
+import { Button } from "@/components/Button/Button";
+import { Field } from "@/components/Field/Field";
+import { FieldDescription } from "@/components/Field/parts/FieldDescription";
+import { FieldLabel } from "@/components/Field/parts/FieldLabel";
 import { Slider } from "./Slider";
 
 // Stories are excluded from Tailwind's source scan, so layout here uses inline styles.

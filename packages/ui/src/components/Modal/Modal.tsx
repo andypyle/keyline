@@ -1,6 +1,6 @@
 import { useCallback, useId, useMemo, useRef, useState } from "react";
-import { cn } from "../../lib/cn";
-import { ModalContext } from "../../lib/modal-context";
+import { cn } from "@/lib/cn";
+import { ModalContext } from "@/lib/modal-context";
 import type { ModalProps } from "./Modal.types";
 
 /**

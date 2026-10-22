@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
-import { cn } from "../../lib/cn";
-import { useField, useFieldControlProps } from "../../lib/field-context";
-import { mergeRefs } from "../../lib/merge-refs";
+import { cn } from "@/lib/cn";
+import { useField, useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
 import type { CheckboxProps } from "./Checkbox.types";
 import { checkboxIndicatorVariants, checkboxVariants } from "./Checkbox.variants";
 

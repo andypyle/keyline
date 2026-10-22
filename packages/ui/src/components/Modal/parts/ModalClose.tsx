@@ -1,5 +1,5 @@
-import { useModal } from "../../../lib/modal-context";
-import { Button } from "../../Button/Button";
+import { useModal } from "@/lib/modal-context";
+import { Button } from "@/components/Button/Button";
 import type { ModalCloseProps } from "./ModalClose.types";
 
 /**

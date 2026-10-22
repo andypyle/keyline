@@ -1,5 +1,5 @@
-import { cn } from "../../../lib/cn";
-import { useDropdownMenu } from "../../../lib/dropdown-menu-context";
+import { cn } from "@/lib/cn";
+import { useDropdownMenu } from "@/lib/dropdown-menu-context";
 import type { DropdownMenuItemProps } from "./DropdownMenuItem.types";
 import { dropdownMenuItemVariants } from "./DropdownMenuItem.variants";
 

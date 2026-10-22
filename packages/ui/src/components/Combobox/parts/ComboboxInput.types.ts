@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { InputVariantProps } from "../../Input/Input.variants";
+import type { InputVariantProps } from "@/components/Input/Input.variants";
 
 /**
  * Takes every native input prop except the ones the Combobox owns: `value`, `defaultValue` and

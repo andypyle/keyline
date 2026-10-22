@@ -1,5 +1,5 @@
-import { cn } from "../../lib/cn";
-import { useRadioGroup } from "../../lib/radio-group-context";
+import { cn } from "@/lib/cn";
+import { useRadioGroup } from "@/lib/radio-group-context";
 import type { RadioProps } from "./Radio.types";
 import { radioIndicatorVariants, radioVariants } from "./Radio.variants";
 

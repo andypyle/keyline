@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
-import { cn } from "../../lib/cn";
-import { useField } from "../../lib/field-context";
-import { FormValueInput } from "../../lib/form-value-input";
-import { useItemRegistry, type ListboxActive } from "../../lib/listbox";
-import { SelectContext } from "../../lib/select-context";
-import { useFormReset } from "../../lib/use-form-reset";
+import { cn } from "@/lib/cn";
+import { useField } from "@/lib/field-context";
+import { FormValueInput } from "@/lib/form-value-input";
+import { useItemRegistry, type ListboxActive } from "@/lib/listbox";
+import { SelectContext } from "@/lib/select-context";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { SelectProps } from "./Select.types";
 
 /**

@@ -1,5 +1,5 @@
-import { useModal } from "../../../lib/modal-context";
-import { Button } from "../../Button/Button";
+import { useModal } from "@/lib/modal-context";
+import { Button } from "@/components/Button/Button";
 import type { ModalTriggerProps } from "./ModalTrigger.types";
 
 /** Button that opens a Modal. It is a Button, so it takes the same `variant`, `size`, `radius` and icons. */

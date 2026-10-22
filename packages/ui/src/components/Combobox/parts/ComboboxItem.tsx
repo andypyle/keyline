@@ -1,8 +1,8 @@
 import { useId, useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { useCombobox } from "../../../lib/combobox-context";
-import { getText } from "../../../lib/listbox";
-import { selectItemVariants } from "../../Select/parts/SelectItem.variants";
+import { cn } from "@/lib/cn";
+import { useCombobox } from "@/lib/combobox-context";
+import { getText } from "@/lib/listbox";
+import { selectItemVariants } from "@/components/Select/parts/SelectItem.variants";
 import type { ComboboxItemProps } from "./ComboboxItem.types";
 
 /**

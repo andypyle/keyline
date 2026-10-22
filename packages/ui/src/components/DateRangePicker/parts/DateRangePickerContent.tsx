@@ -1,11 +1,11 @@
 import { useId, useMemo, useState } from "react";
-import { clampDate, today } from "../../../lib/calendar-date";
-import { CalendarGrid, type CalendarDayState } from "../../../lib/calendar-grid";
-import { cn } from "../../../lib/cn";
-import { useDateRangePicker } from "../../../lib/date-range-picker-context";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { useCalendarPopover } from "../../../lib/use-calendar-popover";
-import { datePickerContentVariants } from "../../DatePicker/parts/DatePickerContent.variants";
+import { clampDate, today } from "@/lib/calendar-date";
+import { CalendarGrid, type CalendarDayState } from "@/lib/calendar-grid";
+import { cn } from "@/lib/cn";
+import { useDateRangePicker } from "@/lib/date-range-picker-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useCalendarPopover } from "@/lib/use-calendar-popover";
+import { datePickerContentVariants } from "@/components/DatePicker/parts/DatePickerContent.variants";
 import type { DateRangePickerContentProps } from "./DateRangePickerContent.types";
 
 /**

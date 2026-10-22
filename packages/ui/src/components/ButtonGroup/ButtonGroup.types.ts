@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { ButtonVariantProps } from "../Button/Button.variants";
+import type { ButtonVariantProps } from "@/components/Button/Button.variants";
 import type { ButtonGroupVariantProps } from "./ButtonGroup.variants";
 
 // `raised` is derived from `variant`, not set directly.

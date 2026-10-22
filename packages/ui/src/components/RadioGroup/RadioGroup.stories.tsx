@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent } from "storybook/test";
-import { Button } from "../Button/Button";
-import { Radio } from "../Radio/Radio";
+import { Button } from "@/components/Button/Button";
+import { Radio } from "@/components/Radio/Radio";
 import { RadioGroup } from "./RadioGroup";
 import type { RadioGroupProps } from "./RadioGroup.types";
 

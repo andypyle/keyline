@@ -1,7 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    // Same alias as packages/ui: the stories there are type-checked as part of this project too,
+    // and docs imports the library's source through it.
+    "paths": {
+      "@/*": ["../../packages/ui/src/*"]
+    }
   },
   "include": [".storybook/*.ts", "src"]
 }

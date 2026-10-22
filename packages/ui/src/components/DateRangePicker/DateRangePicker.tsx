@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
-import { getReachableSpan, getWeekStart } from "../../lib/calendar-date";
-import { cn } from "../../lib/cn";
-import { DateRangePickerContext } from "../../lib/date-range-picker-context";
-import { useField } from "../../lib/field-context";
-import { FormValueInput } from "../../lib/form-value-input";
-import { mergeRefs } from "../../lib/merge-refs";
-import { useFormReset } from "../../lib/use-form-reset";
+import { getReachableSpan, getWeekStart } from "@/lib/calendar-date";
+import { cn } from "@/lib/cn";
+import { DateRangePickerContext } from "@/lib/date-range-picker-context";
+import { useField } from "@/lib/field-context";
+import { FormValueInput } from "@/lib/form-value-input";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { DateRange, DateRangePickerProps } from "./DateRangePicker.types";
 
 const sameRange = (a: DateRange | null, b: DateRange | null) => a?.start === b?.start && a?.end === b?.end;

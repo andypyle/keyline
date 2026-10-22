@@ -1,9 +1,9 @@
 import { useId, useMemo, useRef, useState } from "react";
-import { cn } from "../../lib/cn";
-import { useField, useFieldControlProps } from "../../lib/field-context";
-import { mergeRefs } from "../../lib/merge-refs";
-import { RadioGroupContext } from "../../lib/radio-group-context";
-import { useFormReset } from "../../lib/use-form-reset";
+import { cn } from "@/lib/cn";
+import { useField, useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { RadioGroupContext } from "@/lib/radio-group-context";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { RadioGroupProps } from "./RadioGroup.types";
 import { radioGroupVariants } from "./RadioGroup.variants";
 

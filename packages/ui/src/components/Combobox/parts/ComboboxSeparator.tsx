@@ -1,5 +1,5 @@
-import { cn } from "../../../lib/cn";
-import { useCombobox } from "../../../lib/combobox-context";
+import { cn } from "@/lib/cn";
+import { useCombobox } from "@/lib/combobox-context";
 import type { ComboboxSeparatorProps } from "./ComboboxSeparator.types";
 
 /**

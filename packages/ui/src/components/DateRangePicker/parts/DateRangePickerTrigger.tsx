@@ -1,11 +1,11 @@
 import { useMemo, useRef } from "react";
-import { formatDateRange } from "../../../lib/calendar-date";
-import { CalendarIcon } from "../../../lib/calendar-icons";
-import { cn } from "../../../lib/cn";
-import { useDateRangePicker } from "../../../lib/date-range-picker-context";
-import { useFieldControlProps } from "../../../lib/field-context";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { datePickerTriggerVariants } from "../../DatePicker/parts/DatePickerTrigger.variants";
+import { formatDateRange } from "@/lib/calendar-date";
+import { CalendarIcon } from "@/lib/calendar-icons";
+import { cn } from "@/lib/cn";
+import { useDateRangePicker } from "@/lib/date-range-picker-context";
+import { useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { datePickerTriggerVariants } from "@/components/DatePicker/parts/DatePickerTrigger.variants";
 import type { DateRangePickerTriggerProps } from "./DateRangePickerTrigger.types";
 
 const DEFAULT_FORMAT: Intl.DateTimeFormatOptions = { dateStyle: "medium" };

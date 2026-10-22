@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { InputVariantProps } from "../../Input/Input.variants";
+import type { InputVariantProps } from "@/components/Input/Input.variants";
 
 // The input holds the typed text, so its value, type and native size aren't the consumer's to set.
 export interface DatePickerInputProps

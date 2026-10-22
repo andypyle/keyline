@@ -1,6 +1,6 @@
 import { useId, useMemo, useState } from "react";
-import { cn } from "../../../lib/cn";
-import { ListboxGroupContext } from "../../../lib/listbox";
+import { cn } from "@/lib/cn";
+import { ListboxGroupContext } from "@/lib/listbox";
 import type { SelectGroupProps } from "./SelectGroup.types";
 
 /** Groups related options in a Select. Put a SelectLabel first to name it; screen readers announce the name with its options. */

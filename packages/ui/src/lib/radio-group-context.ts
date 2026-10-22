@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { RadioVariantProps } from "../components/Radio/Radio.variants";
+import type { RadioVariantProps } from "@/components/Radio/Radio.variants";
 
 /** What a RadioGroup shares with the Radios inside it. */
 export interface RadioGroupContextValue {

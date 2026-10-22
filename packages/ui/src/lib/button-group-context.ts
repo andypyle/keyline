@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { ButtonVariantProps } from "../components/Button/Button.variants";
+import type { ButtonVariantProps } from "@/components/Button/Button.variants";
 
 /** What a ButtonGroup shares with the Buttons inside it. */
 export interface ButtonGroupContextValue {

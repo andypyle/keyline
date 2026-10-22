@@ -1,14 +1,14 @@
 import { useMemo, useRef, type KeyboardEvent } from "react";
 import { flushSync } from "react-dom";
-import { formatDateField, getDateFieldPattern } from "../../../lib/calendar-date";
-import { CalendarIcon, RangeArrowIcon } from "../../../lib/calendar-icons";
-import { cn } from "../../../lib/cn";
-import { useDateRangePicker } from "../../../lib/date-range-picker-context";
-import { useField, useFieldControlProps } from "../../../lib/field-context";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { useDateText } from "../../../lib/use-date-text";
-import { useFormReset } from "../../../lib/use-form-reset";
-import { datePickerToggleVariants } from "../../DatePicker/parts/DatePickerInput.variants";
+import { formatDateField, getDateFieldPattern } from "@/lib/calendar-date";
+import { CalendarIcon, RangeArrowIcon } from "@/lib/calendar-icons";
+import { cn } from "@/lib/cn";
+import { useDateRangePicker } from "@/lib/date-range-picker-context";
+import { useField, useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useDateText } from "@/lib/use-date-text";
+import { useFormReset } from "@/lib/use-form-reset";
+import { datePickerToggleVariants } from "@/components/DatePicker/parts/DatePickerInput.variants";
 import type { DateRangePickerInputProps } from "./DateRangePickerInput.types";
 import {
   dateRangePickerFieldSizerVariants,

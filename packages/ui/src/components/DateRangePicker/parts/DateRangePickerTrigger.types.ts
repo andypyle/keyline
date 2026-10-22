@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { DatePickerTriggerVariantProps } from "../../DatePicker/parts/DatePickerTrigger.variants";
+import type { DatePickerTriggerVariantProps } from "@/components/DatePicker/parts/DatePickerTrigger.variants";
 
 /** The trigger shows the selected range, so it takes no children. */
 export interface DateRangePickerTriggerProps

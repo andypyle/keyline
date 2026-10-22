@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
-import { Button } from "../Button/Button";
-import { VideoPlayerControls } from "../VideoPlayer/parts/VideoPlayerControls";
-import { VideoPlayerVideo } from "../VideoPlayer/parts/VideoPlayerVideo";
+import { Button } from "@/components/Button/Button";
+import { VideoPlayerControls } from "@/components/VideoPlayer/parts/VideoPlayerControls";
+import { VideoPlayerVideo } from "@/components/VideoPlayer/parts/VideoPlayerVideo";
 import { VideoModalContent } from "./parts/VideoModalContent";
 import { VideoModalTitle } from "./parts/VideoModalTitle";
 import { VideoModalTrigger } from "./parts/VideoModalTrigger";

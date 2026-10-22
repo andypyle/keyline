@@ -1,10 +1,10 @@
 import { useCallback, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { cn } from "../../lib/cn";
-import { ComboboxContext, defaultComboboxFilter, namesOption } from "../../lib/combobox-context";
-import { useField } from "../../lib/field-context";
-import { FormValueInput } from "../../lib/form-value-input";
-import { useItemRegistry, type ListboxActive, type ListboxItemRecord } from "../../lib/listbox";
-import { useFormReset } from "../../lib/use-form-reset";
+import { cn } from "@/lib/cn";
+import { ComboboxContext, defaultComboboxFilter, namesOption } from "@/lib/combobox-context";
+import { useField } from "@/lib/field-context";
+import { FormValueInput } from "@/lib/form-value-input";
+import { useItemRegistry, type ListboxActive, type ListboxItemRecord } from "@/lib/listbox";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { ComboboxProps } from "./Combobox.types";
 
 /**

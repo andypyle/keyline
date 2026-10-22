@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import { cn } from "../../../lib/cn";
-import { useCombobox } from "../../../lib/combobox-context";
-import { useFieldControlProps } from "../../../lib/field-context";
-import { getInitialOption, getOptionValues } from "../../../lib/listbox";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { inputVariants } from "../../Input/Input.variants";
+import { cn } from "@/lib/cn";
+import { useCombobox } from "@/lib/combobox-context";
+import { useFieldControlProps } from "@/lib/field-context";
+import { getInitialOption, getOptionValues } from "@/lib/listbox";
+import { mergeRefs } from "@/lib/merge-refs";
+import { inputVariants } from "@/components/Input/Input.variants";
 import type { ComboboxInputProps } from "./ComboboxInput.types";
 import { comboboxIconVariants, comboboxInputVariants, comboboxToggleVariants } from "./ComboboxInput.variants";
 

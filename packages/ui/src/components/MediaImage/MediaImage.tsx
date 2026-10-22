@@ -1,4 +1,4 @@
-import { cn } from "../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { MediaImageProps } from "./MediaImage.types";
 import { mediaImageVariants } from "./MediaImage.variants";
 

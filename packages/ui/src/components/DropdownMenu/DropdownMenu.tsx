@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
-import { cn } from "../../lib/cn";
-import { DropdownMenuContext } from "../../lib/dropdown-menu-context";
+import { cn } from "@/lib/cn";
+import { DropdownMenuContext } from "@/lib/dropdown-menu-context";
 import type { DropdownMenuProps } from "./DropdownMenu.types";
 
 /**

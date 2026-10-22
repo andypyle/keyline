@@ -1,10 +1,10 @@
 import { useMemo, useRef } from "react";
-import { formatDate } from "../../../lib/calendar-date";
-import { CalendarIcon } from "../../../lib/calendar-icons";
-import { cn } from "../../../lib/cn";
-import { useDatePicker } from "../../../lib/date-picker-context";
-import { useFieldControlProps } from "../../../lib/field-context";
-import { mergeRefs } from "../../../lib/merge-refs";
+import { formatDate } from "@/lib/calendar-date";
+import { CalendarIcon } from "@/lib/calendar-icons";
+import { cn } from "@/lib/cn";
+import { useDatePicker } from "@/lib/date-picker-context";
+import { useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
 import type { DatePickerTriggerProps } from "./DatePickerTrigger.types";
 import { datePickerTriggerVariants } from "./DatePickerTrigger.variants";
 

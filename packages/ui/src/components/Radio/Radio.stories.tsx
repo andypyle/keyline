@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent } from "storybook/test";
-import { RadioGroup } from "../RadioGroup/RadioGroup";
+import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
 import { Radio } from "./Radio";
 
 // Stories are excluded from Tailwind's source scan, so layout here uses inline styles.

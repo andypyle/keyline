@@ -1,4 +1,4 @@
-import { cn } from "../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { MediaVideoProps } from "./MediaVideo.types";
 import { mediaVideoVariants } from "./MediaVideo.variants";
 

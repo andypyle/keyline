@@ -1,7 +1,7 @@
 import { useId, useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { getText } from "../../../lib/listbox";
-import { useSelect } from "../../../lib/select-context";
+import { cn } from "@/lib/cn";
+import { getText } from "@/lib/listbox";
+import { useSelect } from "@/lib/select-context";
 import type { SelectItemProps } from "./SelectItem.types";
 import { selectItemVariants } from "./SelectItem.variants";
 

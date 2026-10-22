@@ -1,8 +1,8 @@
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { cn } from "../../../lib/cn";
-import { useCombobox } from "../../../lib/combobox-context";
-import { getControlLabel, getInitialOption, getOptionValues } from "../../../lib/listbox";
-import { mergeRefs } from "../../../lib/merge-refs";
+import { cn } from "@/lib/cn";
+import { useCombobox } from "@/lib/combobox-context";
+import { getControlLabel, getInitialOption, getOptionValues } from "@/lib/listbox";
+import { mergeRefs } from "@/lib/merge-refs";
 import type { ComboboxContentProps } from "./ComboboxContent.types";
 import { comboboxContentVariants } from "./ComboboxContent.variants";
 

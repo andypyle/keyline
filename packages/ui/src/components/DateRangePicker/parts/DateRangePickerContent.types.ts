@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { DatePickerContentVariantProps } from "../../DatePicker/parts/DatePickerContent.variants";
+import type { DatePickerContentVariantProps } from "@/components/DatePicker/parts/DatePickerContent.variants";
 
 /** The content draws the calendar itself, so it takes no children. */
 export interface DateRangePickerContentProps

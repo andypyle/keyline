@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useEffect, useId, useState } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
-import { Button } from "../Button/Button";
-import { Modal } from "../Modal/Modal";
-import { ModalContent } from "../Modal/parts/ModalContent";
-import { ModalTitle } from "../Modal/parts/ModalTitle";
-import { ModalTrigger } from "../Modal/parts/ModalTrigger";
+import { Button } from "@/components/Button/Button";
+import { Modal } from "@/components/Modal/Modal";
+import { ModalContent } from "@/components/Modal/parts/ModalContent";
+import { ModalTitle } from "@/components/Modal/parts/ModalTitle";
+import { ModalTrigger } from "@/components/Modal/parts/ModalTrigger";
 import { Combobox } from "./Combobox";
 import type { ComboboxProps } from "./Combobox.types";
 import { ComboboxContent } from "./parts/ComboboxContent";

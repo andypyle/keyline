@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent } from "storybook/test";
-import { Button } from "../Button/Button";
+import { Button } from "@/components/Button/Button";
 import { ButtonGroup } from "./ButtonGroup";
 
 // Stories are excluded from Tailwind's source scan, so layout here uses inline styles.

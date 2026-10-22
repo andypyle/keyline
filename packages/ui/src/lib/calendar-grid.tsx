@@ -1,10 +1,10 @@
 import { useEffect, useRef, type KeyboardEvent } from "react";
-import { Button } from "../components/Button/Button";
+import { Button } from "@/components/Button/Button";
 import {
   datePickerDayCellVariants,
   datePickerDayVariants,
   datePickerNavVariants,
-} from "../components/DatePicker/parts/DatePickerContent.variants";
+} from "@/components/DatePicker/parts/DatePickerContent.variants";
 import { addDays, addMonths, clampDate, dayOfWeek, formatDate, getMonthWeeks, startOfMonth, today } from "./calendar-date";
 import { cn } from "./cn";
 

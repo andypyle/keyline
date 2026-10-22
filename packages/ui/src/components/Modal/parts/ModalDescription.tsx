@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { useModal } from "../../../lib/modal-context";
+import { cn } from "@/lib/cn";
+import { useModal } from "@/lib/modal-context";
 import type { ModalDescriptionProps } from "./ModalDescription.types";
 
 /** Supporting text under a ModalTitle. The dialog takes it as its accessible description. */

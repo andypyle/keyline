@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { CardDescriptionProps } from "./CardDescription.types";
 
 /** Supporting text under a CardTitle. */

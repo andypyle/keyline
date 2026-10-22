@@ -1,8 +1,8 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { cn } from "../../lib/cn";
-import { useField, useFieldControlProps } from "../../lib/field-context";
-import { mergeRefs } from "../../lib/merge-refs";
-import { useFormReset } from "../../lib/use-form-reset";
+import { cn } from "@/lib/cn";
+import { useField, useFieldControlProps } from "@/lib/field-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { SliderProps } from "./Slider.types";
 import { sliderRangeVariants, sliderThumbVariants, sliderTrackVariants, sliderVariants } from "./Slider.variants";
 

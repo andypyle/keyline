@@ -1,6 +1,6 @@
-import { useButtonGroup } from "../../lib/button-group-context";
-import { cn } from "../../lib/cn";
-import { buttonGroupItemVariants } from "../ButtonGroup/ButtonGroup.variants";
+import { useButtonGroup } from "@/lib/button-group-context";
+import { cn } from "@/lib/cn";
+import { buttonGroupItemVariants } from "@/components/ButtonGroup/ButtonGroup.variants";
 import type { ButtonProps } from "./Button.types";
 import { buttonIconVariants, buttonVariants } from "./Button.variants";
 
