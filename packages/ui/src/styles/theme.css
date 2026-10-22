@@ -84,6 +84,9 @@
   --color-accent-hover: var(--kl-color-sage-300);
   --color-accent-strong: var(--kl-color-sage-700);
   --color-accent-soft: var(--kl-color-sage-100);
+  --color-control: var(--kl-color-mist-500); /* checked Checkbox, Radio and Switch fills */
+  --color-control-hover: var(--kl-color-mist-300);
+  --color-on-control: var(--kl-color-on-fill); /* check marks and radio dots on control fills */
   --color-neutral: var(--kl-color-slate-700); /* slate fills */
   --color-neutral-hover: var(--kl-color-slate-500);
   --color-on-neutral: var(--kl-color-slate-50); /* text/icons on neutral fills */
@@ -398,6 +401,9 @@
     --kl-color-accent: var(--kl-color-sage-500);
     --kl-color-accent-hover: var(--kl-color-sage-300);
     --kl-color-accent-soft: var(--kl-color-sage-100);
+    --kl-color-control: var(--kl-color-mist-500);
+    --kl-color-control-hover: var(--kl-color-mist-300);
+    --kl-color-on-control: var(--kl-color-on-fill);
     --kl-color-neutral: var(--kl-color-slate-700);
     --kl-color-neutral-hover: var(--kl-color-slate-500);
     --kl-color-on-neutral: var(--kl-color-slate-50);

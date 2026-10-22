@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 // A native checkbox with role="switch" and its look cleared, so labels, forms and Space work as
 // usual. The input is the track; the thumb is an overlay (an input can't hold children) on the
 // same grid cell, sliding across through peer-checked. Off, the track is sunken; on, it fills
-// with the accent, as Checkbox does.
+// with the control color, as Checkbox does.
 export const switchVariants = cva(
   [
     "kl:peer",
@@ -22,8 +22,8 @@ export const switchVariants = cva(
     "kl:ease-out",
     "kl:cursor-pointer",
     "kl:enabled:hover:bg-surface-hover",
-    "kl:checked:bg-accent",
-    "kl:enabled:checked:hover:bg-accent-hover",
+    "kl:checked:bg-control",
+    "kl:enabled:checked:hover:bg-control-hover",
     "kl:focus-visible:outline-3",
     "kl:focus-visible:outline-offset-2",
     "kl:focus-visible:outline-focus",
