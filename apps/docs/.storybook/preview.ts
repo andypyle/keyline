@@ -3,8 +3,8 @@ import type { Decorator, Preview } from "@storybook/react-vite";
 import { createElement } from "react";
 
 // Load the library's source stylesheets so Tailwind rebuilds as components change.
-import "../../../packages/ui/src/styles/fonts.css";
-import "../../../packages/ui/src/styles/index.css";
+import "@/styles/fonts.css";
+import "@/styles/index.css";
 import "./preview.css";
 import { lightTheme } from "./theme";
 

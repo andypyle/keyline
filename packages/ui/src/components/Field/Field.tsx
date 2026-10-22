@@ -1,6 +1,6 @@
 import { useId, useMemo, useState } from "react";
-import { cn } from "../../lib/cn";
-import { FieldContext } from "../../lib/field-context";
+import { cn } from "@/lib/cn";
+import { FieldContext } from "@/lib/field-context";
 import type { FieldProps } from "./Field.types";
 import { fieldVariants } from "./Field.variants";
 

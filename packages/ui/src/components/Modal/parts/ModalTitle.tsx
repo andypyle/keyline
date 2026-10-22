@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { useModal } from "../../../lib/modal-context";
+import { cn } from "@/lib/cn";
+import { useModal } from "@/lib/modal-context";
 import type { ModalTitleProps } from "./ModalTitle.types";
 
 /** Heading that names a Modal: the dialog takes it as its accessible name. Renders an h2. */

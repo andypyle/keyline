@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { DropdownMenuSeparatorProps } from "./DropdownMenuSeparator.types";
 
 /** Divider between groups of DropdownMenu items. Arrow keys skip over it. */

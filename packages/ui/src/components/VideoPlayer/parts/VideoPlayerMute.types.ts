@@ -1,4 +1,4 @@
-import type { ButtonProps } from "../../Button/Button.types";
+import type { ButtonProps } from "@/components/Button/Button.types";
 
 /** Takes every Button prop except `children`: the button shows an icon and is named by its label. */
 export interface VideoPlayerMuteProps extends Omit<ButtonProps, "children"> {

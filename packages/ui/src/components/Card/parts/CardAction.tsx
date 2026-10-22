@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { CardActionButtonProps, CardActionProps } from "./CardAction.types";
 import { cardActionFaceVariants, cardActionVariants } from "./CardAction.variants";
 

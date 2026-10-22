@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, type MouseEvent } from "react";
-import { cn } from "../../../lib/cn";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { useModal } from "../../../lib/modal-context";
-import { lockScroll } from "../../../lib/scroll-lock";
-import { Button } from "../../Button/Button";
+import { cn } from "@/lib/cn";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useModal } from "@/lib/modal-context";
+import { lockScroll } from "@/lib/scroll-lock";
+import { Button } from "@/components/Button/Button";
 import type { ModalContentProps } from "./ModalContent.types";
 import { modalContentVariants } from "./ModalContent.variants";
 

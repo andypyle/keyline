@@ -1,6 +1,6 @@
-import { cn } from "../../../lib/cn";
-import { useVideoPlayer } from "../../../lib/video-player-context";
-import { Slider } from "../../Slider/Slider";
+import { cn } from "@/lib/cn";
+import { useVideoPlayer } from "@/lib/video-player-context";
+import { Slider } from "@/components/Slider/Slider";
 import type { VideoPlayerVolumeProps } from "./VideoPlayerVolume.types";
 
 /**

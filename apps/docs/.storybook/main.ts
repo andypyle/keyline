@@ -14,7 +14,8 @@ const config: StorybookConfig = {
   staticDirs: ["../public"],
   addons: ["@storybook/addon-docs", "@storybook/addon-themes", "@storybook/addon-vitest", "@storybook/addon-a11y"],
   framework: "@storybook/react-vite",
-  viteFinal: (config) => mergeConfig(config, { plugins: [tailwindcss()] }),
+  // tsconfigPaths resolves the `@/` alias from each file's nearest tsconfig.json.
+  viteFinal: (config) => mergeConfig(config, { plugins: [tailwindcss()], resolve: { tsconfigPaths: true } }),
 };
 
 export default config;

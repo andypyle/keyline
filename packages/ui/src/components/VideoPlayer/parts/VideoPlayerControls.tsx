@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import { VideoPlayerCaptions } from "./VideoPlayerCaptions";
 import type { VideoPlayerControlsProps } from "./VideoPlayerControls.types";
 import { VideoPlayerFullscreen } from "./VideoPlayerFullscreen";

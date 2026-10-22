@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { useModal } from "../../../lib/modal-context";
-import { ModalContent } from "../../Modal/parts/ModalContent";
-import { VideoPlayer } from "../../VideoPlayer/VideoPlayer";
+import { cn } from "@/lib/cn";
+import { useModal } from "@/lib/modal-context";
+import { ModalContent } from "@/components/Modal/parts/ModalContent";
+import { VideoPlayer } from "@/components/VideoPlayer/VideoPlayer";
 import type { VideoModalContentProps } from "./VideoModalContent.types";
 
 /**

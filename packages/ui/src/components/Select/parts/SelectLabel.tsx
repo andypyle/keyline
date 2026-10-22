@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { ListboxGroupContext } from "../../../lib/listbox";
+import { cn } from "@/lib/cn";
+import { ListboxGroupContext } from "@/lib/listbox";
 import type { SelectLabelProps } from "./SelectLabel.types";
 
 /** Heading that names a SelectGroup. Arrow keys and typeahead pass over it, and clicking it does nothing. */

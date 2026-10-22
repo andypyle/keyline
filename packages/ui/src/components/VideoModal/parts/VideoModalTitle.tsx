@@ -1,5 +1,5 @@
-import { cn } from "../../../lib/cn";
-import { ModalTitle } from "../../Modal/parts/ModalTitle";
+import { cn } from "@/lib/cn";
+import { ModalTitle } from "@/components/Modal/parts/ModalTitle";
 import type { VideoModalTitleProps } from "./VideoModalTitle.types";
 
 /**

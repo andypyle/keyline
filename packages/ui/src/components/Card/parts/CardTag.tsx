@@ -1,5 +1,5 @@
-import { cn } from "../../../lib/cn";
-import { Badge } from "../../Badge/Badge";
+import { cn } from "@/lib/cn";
+import { Badge } from "@/components/Badge/Badge";
 import type { CardTagProps } from "./CardTag.types";
 
 /** A short, non-interactive label in CardTags. */

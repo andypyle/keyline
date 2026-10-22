@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
-import { getWeekStart } from "../../lib/calendar-date";
-import { cn } from "../../lib/cn";
-import { DatePickerContext } from "../../lib/date-picker-context";
-import { useField } from "../../lib/field-context";
-import { FormValueInput } from "../../lib/form-value-input";
-import { mergeRefs } from "../../lib/merge-refs";
-import { useFormReset } from "../../lib/use-form-reset";
+import { getWeekStart } from "@/lib/calendar-date";
+import { cn } from "@/lib/cn";
+import { DatePickerContext } from "@/lib/date-picker-context";
+import { useField } from "@/lib/field-context";
+import { FormValueInput } from "@/lib/form-value-input";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useFormReset } from "@/lib/use-form-reset";
 import type { DatePickerProps } from "./DatePicker.types";
 
 /**

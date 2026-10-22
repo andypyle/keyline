@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
-import { cn } from "../../../lib/cn";
-import { getMenuItems, useDropdownMenu } from "../../../lib/dropdown-menu-context";
-import { mergeRefs } from "../../../lib/merge-refs";
+import { cn } from "@/lib/cn";
+import { getMenuItems, useDropdownMenu } from "@/lib/dropdown-menu-context";
+import { mergeRefs } from "@/lib/merge-refs";
 import type { DropdownMenuContentProps } from "./DropdownMenuContent.types";
 import { dropdownMenuContentVariants } from "./DropdownMenuContent.variants";
 

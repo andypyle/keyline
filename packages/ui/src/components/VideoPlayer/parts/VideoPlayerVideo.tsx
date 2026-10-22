@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { cn } from "../../../lib/cn";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { useVideoPlayer } from "../../../lib/video-player-context";
+import { cn } from "@/lib/cn";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useVideoPlayer } from "@/lib/video-player-context";
 import type { VideoPlayerVideoProps } from "./VideoPlayerVideo.types";
 
 /**

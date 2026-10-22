@@ -1,7 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { cn } from "../../lib/cn";
-import { mergeRefs } from "../../lib/merge-refs";
-import { VideoPlayerContext } from "../../lib/video-player-context";
+import { cn } from "@/lib/cn";
+import { mergeRefs } from "@/lib/merge-refs";
+import { VideoPlayerContext } from "@/lib/video-player-context";
 import type { VideoPlayerProps } from "./VideoPlayer.types";
 import { videoPlayerVariants } from "./VideoPlayer.variants";
 

@@ -1,6 +1,6 @@
 import { Children, isValidElement } from "react";
-import { CardGridItemContext, type CardGridItemContextValue } from "../../lib/card-grid-context";
-import { cn } from "../../lib/cn";
+import { CardGridItemContext, type CardGridItemContextValue } from "@/lib/card-grid-context";
+import { cn } from "@/lib/cn";
 import type { CardGridProps } from "./CardGrid.types";
 import { cardGridItemsVariants, cardGridVariants } from "./CardGrid.variants";
 

@@ -4,7 +4,7 @@ import {
   mediaFrameCompoundVariants,
   mediaFrameDefaultVariants,
   mediaFrameVariants,
-} from "../../lib/media-frame";
+} from "@/lib/media-frame";
 
 // The video itself can take focus (with tabIndex, or in browsers that focus it for its controls), so
 // it gets the same focus ring as Button.

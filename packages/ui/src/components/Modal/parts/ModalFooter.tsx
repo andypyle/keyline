@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { ModalFooterProps } from "./ModalFooter.types";
 
 /** Row of actions at the bottom of a Modal, aligned to the end. Put the main action last. */

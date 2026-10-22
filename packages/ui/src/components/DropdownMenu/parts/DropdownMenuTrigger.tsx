@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import { cn } from "../../../lib/cn";
-import { getMenuItems, useDropdownMenu } from "../../../lib/dropdown-menu-context";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { Button } from "../../Button/Button";
+import { cn } from "@/lib/cn";
+import { getMenuItems, useDropdownMenu } from "@/lib/dropdown-menu-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { Button } from "@/components/Button/Button";
 import type { DropdownMenuTriggerProps } from "./DropdownMenuTrigger.types";
 
 /**

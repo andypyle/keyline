@@ -4,7 +4,7 @@ import {
   mediaFrameCompoundVariants,
   mediaFrameDefaultVariants,
   mediaFrameVariants,
-} from "../../lib/media-frame";
+} from "@/lib/media-frame";
 
 // Exported for framework image components too: <NextImage className={mediaImageVariants({ ratio: "16/9" })} />.
 export const mediaImageVariants = cva(mediaFrameBase, {

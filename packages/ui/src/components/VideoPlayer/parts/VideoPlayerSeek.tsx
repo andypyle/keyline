@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
-import { cn } from "../../../lib/cn";
-import { formatSpokenTime } from "../../../lib/media-time";
-import { useVideoPlayer } from "../../../lib/video-player-context";
-import { Slider } from "../../Slider/Slider";
+import { cn } from "@/lib/cn";
+import { formatSpokenTime } from "@/lib/media-time";
+import { useVideoPlayer } from "@/lib/video-player-context";
+import { Slider } from "@/components/Slider/Slider";
 import type { VideoPlayerSeekProps } from "./VideoPlayerSeek.types";
 
 /**

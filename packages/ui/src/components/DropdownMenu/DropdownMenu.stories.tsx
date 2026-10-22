@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
-import type { ButtonProps } from "../Button/Button.types";
+import type { ButtonProps } from "@/components/Button/Button.types";
 import { DropdownMenu } from "./DropdownMenu";
 import type { DropdownMenuProps } from "./DropdownMenu.types";
 import { DropdownMenuContent } from "./parts/DropdownMenuContent";

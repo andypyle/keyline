@@ -1,6 +1,6 @@
-import { useVideoPlayer } from "../../../lib/video-player-context";
-import { CaptionsIcon } from "../../../lib/video-player-icons";
-import { Button } from "../../Button/Button";
+import { useVideoPlayer } from "@/lib/video-player-context";
+import { CaptionsIcon } from "@/lib/video-player-icons";
+import { Button } from "@/components/Button/Button";
 import type { VideoPlayerCaptionsProps } from "./VideoPlayerCaptions.types";
 
 /**

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { BadgeProps } from "../../Badge/Badge.types";
+import type { BadgeProps } from "@/components/Badge/Badge.types";
 
 /**
  * `className`, `ref` and other attributes go to the `li`. The Badge options style the tag inside it,

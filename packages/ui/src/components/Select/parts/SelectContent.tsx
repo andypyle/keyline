@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { cn } from "../../../lib/cn";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { getControlLabel, getInitialOption } from "../../../lib/listbox";
-import { useSelect } from "../../../lib/select-context";
+import { cn } from "@/lib/cn";
+import { mergeRefs } from "@/lib/merge-refs";
+import { getControlLabel, getInitialOption } from "@/lib/listbox";
+import { useSelect } from "@/lib/select-context";
 import type { SelectContentProps } from "./SelectContent.types";
 import { selectContentVariants } from "./SelectContent.variants";
 

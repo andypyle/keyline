@@ -1,5 +1,5 @@
-import type { ModalContentProps } from "../../Modal/parts/ModalContent.types";
-import type { VideoPlayerProps } from "../../VideoPlayer/VideoPlayer.types";
+import type { ModalContentProps } from "@/components/Modal/parts/ModalContent.types";
+import type { VideoPlayerProps } from "@/components/VideoPlayer/VideoPlayer.types";
 
 /**
  * Takes every ModalContent prop except `size` (the panel is sized for video) and `noCloseButton`

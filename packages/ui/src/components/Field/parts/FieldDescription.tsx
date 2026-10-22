@@ -1,5 +1,5 @@
-import { cn } from "../../../lib/cn";
-import { useField, useFieldPart } from "../../../lib/field-context";
+import { cn } from "@/lib/cn";
+import { useField, useFieldPart } from "@/lib/field-context";
 import type { FieldDescriptionProps } from "./FieldDescription.types";
 
 /**

@@ -1,5 +1,5 @@
 import { createContext, useContext, type RefObject } from "react";
-import type { DateRange } from "../components/DateRangePicker/DateRangePicker.types";
+import type { DateRange } from "@/components/DateRangePicker/DateRangePicker.types";
 
 /** What a DateRangePicker shares with its trigger or input, and its content. */
 export interface DateRangePickerContextValue {

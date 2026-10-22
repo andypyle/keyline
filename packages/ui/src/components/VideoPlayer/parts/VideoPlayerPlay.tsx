@@ -1,6 +1,6 @@
-import { useVideoPlayer } from "../../../lib/video-player-context";
-import { PauseIcon, PlayIcon } from "../../../lib/video-player-icons";
-import { Button } from "../../Button/Button";
+import { useVideoPlayer } from "@/lib/video-player-context";
+import { PauseIcon, PlayIcon } from "@/lib/video-player-icons";
+import { Button } from "@/components/Button/Button";
 import type { VideoPlayerPlayProps } from "./VideoPlayerPlay.types";
 
 /** Button that plays or pauses a VideoPlayer. Its name says what pressing it does: "Play" or "Pause". */

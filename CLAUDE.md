@@ -66,6 +66,7 @@ Apart from `parts/`, don't add other files or folders (`index.ts` barrels, `util
 ## Component conventions
 
 - Function components with `ref` as a regular prop (React 19). No `forwardRef`.
+- Import from another folder through the `@/` alias for `packages/ui/src` (`@/lib/cn`, `@/components/Button/Button`), never `../`. Same-folder imports stay relative (`./Button.types`).
 - Merge classes with `cn` from `src/lib/cn.ts`, with the consumer's `className` last.
 - Set `data-slot="<kebab-name>"` on the root element.
 - Spread remaining props onto the root element so native attributes and handlers pass through.

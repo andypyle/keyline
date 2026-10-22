@@ -1,10 +1,10 @@
 import { useId, useMemo, useState } from "react";
-import { clampDate, today } from "../../../lib/calendar-date";
-import { CalendarGrid } from "../../../lib/calendar-grid";
-import { cn } from "../../../lib/cn";
-import { useDatePicker } from "../../../lib/date-picker-context";
-import { mergeRefs } from "../../../lib/merge-refs";
-import { useCalendarPopover } from "../../../lib/use-calendar-popover";
+import { clampDate, today } from "@/lib/calendar-date";
+import { CalendarGrid } from "@/lib/calendar-grid";
+import { cn } from "@/lib/cn";
+import { useDatePicker } from "@/lib/date-picker-context";
+import { mergeRefs } from "@/lib/merge-refs";
+import { useCalendarPopover } from "@/lib/use-calendar-popover";
 import type { DatePickerContentProps } from "./DatePickerContent.types";
 import { datePickerContentVariants } from "./DatePickerContent.variants";
 

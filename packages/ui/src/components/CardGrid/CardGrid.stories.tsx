@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent } from "storybook/test";
-import { Card } from "../Card/Card";
-import { CardAction } from "../Card/parts/CardAction";
-import { CardBody } from "../Card/parts/CardBody";
-import { CardDescription } from "../Card/parts/CardDescription";
-import { CardImage } from "../Card/parts/CardImage";
-import { CardTitle } from "../Card/parts/CardTitle";
+import { Card } from "@/components/Card/Card";
+import { CardAction } from "@/components/Card/parts/CardAction";
+import { CardBody } from "@/components/Card/parts/CardBody";
+import { CardDescription } from "@/components/Card/parts/CardDescription";
+import { CardImage } from "@/components/Card/parts/CardImage";
+import { CardTitle } from "@/components/Card/parts/CardTitle";
 import { CardGrid } from "./CardGrid";
 
 const image = `data:image/svg+xml,${encodeURIComponent(

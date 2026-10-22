@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect } from "react";
-import { cn } from "../../../lib/cn";
-import { ListboxGroupContext } from "../../../lib/listbox";
+import { cn } from "@/lib/cn";
+import { ListboxGroupContext } from "@/lib/listbox";
 import type { ComboboxLabelProps } from "./ComboboxLabel.types";
 
 /** Heading that names a ComboboxGroup, styled like a SelectLabel. Arrow keys pass over it, and the filter never matches it. */

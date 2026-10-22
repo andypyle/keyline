@@ -31,7 +31,7 @@ import {
   SelectTrigger,
   Switch,
   Textarea,
-} from "../../../../packages/ui/src";
+} from "@/index";
 
 // The docs app isn't in Tailwind's source scan, so layout here uses inline styles.
 const stack = { display: "grid", gap: 20 } as const;

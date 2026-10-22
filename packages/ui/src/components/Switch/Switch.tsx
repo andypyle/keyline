@@ -1,5 +1,5 @@
-import { cn } from "../../lib/cn";
-import { useField, useFieldControlProps } from "../../lib/field-context";
+import { cn } from "@/lib/cn";
+import { useField, useFieldControlProps } from "@/lib/field-context";
 import type { SwitchProps } from "./Switch.types";
 import { switchThumbVariants, switchVariants } from "./Switch.variants";
 

@@ -1,8 +1,8 @@
 import type { MouseEvent } from "react";
-import { cn } from "../../../lib/cn";
-import { useModal } from "../../../lib/modal-context";
-import { Slot } from "../../../lib/slot";
-import { PlayIcon } from "../../../lib/video-player-icons";
+import { cn } from "@/lib/cn";
+import { useModal } from "@/lib/modal-context";
+import { Slot } from "@/lib/slot";
+import { PlayIcon } from "@/lib/video-player-icons";
 import type { VideoModalTriggerProps } from "./VideoModalTrigger.types";
 
 /**

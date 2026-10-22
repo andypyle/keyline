@@ -2,8 +2,8 @@
 // from the theme. Names are unprefixed as written in theme.css; cssVar() gives the emitted
 // --kl- name.
 import { useEffect, useState } from "react";
-import fontsCss from "../../../../packages/ui/src/styles/fonts.css?raw";
-import themeCss from "../../../../packages/ui/src/styles/theme.css?raw";
+import fontsCss from "@/styles/fonts.css?raw";
+import themeCss from "@/styles/theme.css?raw";
 
 export interface Token {
   name: string;

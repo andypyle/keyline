@@ -1,6 +1,6 @@
-import { cn } from "../../../lib/cn";
-import { formatClock } from "../../../lib/media-time";
-import { useVideoPlayer } from "../../../lib/video-player-context";
+import { cn } from "@/lib/cn";
+import { formatClock } from "@/lib/media-time";
+import { useVideoPlayer } from "@/lib/video-player-context";
 import type { VideoPlayerTimeProps } from "./VideoPlayerTime.types";
 
 /**

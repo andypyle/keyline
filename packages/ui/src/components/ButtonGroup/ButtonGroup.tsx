@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { ButtonGroupContext } from "../../lib/button-group-context";
-import { cn } from "../../lib/cn";
+import { ButtonGroupContext } from "@/lib/button-group-context";
+import { cn } from "@/lib/cn";
 import type { ButtonGroupProps } from "./ButtonGroup.types";
 import { buttonGroupVariants } from "./ButtonGroup.variants";
 

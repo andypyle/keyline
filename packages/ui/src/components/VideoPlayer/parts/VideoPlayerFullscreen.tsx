@@ -1,6 +1,6 @@
-import { useVideoPlayer } from "../../../lib/video-player-context";
-import { ExitFullscreenIcon, FullscreenIcon } from "../../../lib/video-player-icons";
-import { Button } from "../../Button/Button";
+import { useVideoPlayer } from "@/lib/video-player-context";
+import { ExitFullscreenIcon, FullscreenIcon } from "@/lib/video-player-icons";
+import { Button } from "@/components/Button/Button";
 import type { VideoPlayerFullscreenProps } from "./VideoPlayerFullscreen.types";
 
 /**

@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/cn";
+import { cn } from "@/lib/cn";
 import type { CardTagsProps } from "./CardTags.types";
 
 /** List of CardTags. */

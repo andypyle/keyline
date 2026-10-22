@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
-import { Button } from "../Button/Button";
+import { Button } from "@/components/Button/Button";
 import { Modal } from "./Modal";
 import type { ModalProps } from "./Modal.types";
 import { ModalClose } from "./parts/ModalClose";

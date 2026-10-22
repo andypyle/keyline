@@ -1,5 +1,5 @@
-import { useCardGridItem } from "../../lib/card-grid-context";
-import { cn } from "../../lib/cn";
+import { useCardGridItem } from "@/lib/card-grid-context";
+import { cn } from "@/lib/cn";
 import type { CardProps } from "./Card.types";
 import { cardLayoutVariants, cardVariants } from "./Card.variants";
 

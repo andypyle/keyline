@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef } from "react";
-import type { RadioVariantProps } from "../Radio/Radio.variants";
+import type { RadioVariantProps } from "@/components/Radio/Radio.variants";
 import type { RadioGroupVariantProps } from "./RadioGroup.variants";
 
 export interface RadioGroupProps
