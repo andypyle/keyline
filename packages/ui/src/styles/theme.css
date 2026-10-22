@@ -87,6 +87,8 @@
   --color-control: var(--kl-color-mist-500); /* checked Checkbox, Radio and Switch fills */
   --color-control-hover: var(--kl-color-mist-300);
   --color-on-control: var(--kl-color-on-fill); /* check marks and radio dots on control fills */
+  --color-thumb: var(--kl-color-slate-50); /* Slider and Switch thumbs; stays light in dark mode */
+  --color-thumb-hover: var(--kl-color-mist-100);
   --color-neutral: var(--kl-color-slate-700); /* slate fills */
   --color-neutral-hover: var(--kl-color-slate-500);
   --color-on-neutral: var(--kl-color-slate-50); /* text/icons on neutral fills */
@@ -387,6 +389,8 @@
     --kl-color-focus: var(--kl-color-dusk-300);
     --kl-color-danger-text: var(--kl-color-rust-300);
     --kl-color-selection: var(--kl-color-mist-500);
+    --kl-color-thumb: var(--kl-color-slate-200);
+    --kl-color-thumb-hover: var(--kl-color-mist-300);
 
     --kl-color-code: #0c0f12;
     --kl-color-code-fg: #dfe3e7;

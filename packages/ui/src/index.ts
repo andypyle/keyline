@@ -198,3 +198,18 @@ export { MediaVideo } from "./components/MediaVideo/MediaVideo";
 export type { MediaVideoProps } from "./components/MediaVideo/MediaVideo.types";
 export { mediaVideoVariants } from "./components/MediaVideo/MediaVideo.variants";
 export type { MediaVideoVariantProps } from "./components/MediaVideo/MediaVideo.variants";
+
+export { Slider } from "./components/Slider/Slider";
+export type { SliderProps } from "./components/Slider/Slider.types";
+export {
+  sliderVariants,
+  sliderTrackVariants,
+  sliderRangeVariants,
+  sliderThumbVariants,
+} from "./components/Slider/Slider.variants";
+export type {
+  SliderVariantProps,
+  SliderTrackVariantProps,
+  SliderRangeVariantProps,
+  SliderThumbVariantProps,
+} from "./components/Slider/Slider.variants";

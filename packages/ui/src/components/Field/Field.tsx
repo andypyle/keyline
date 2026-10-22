@@ -6,9 +6,10 @@ import { fieldVariants } from "./Field.variants";
 
 /**
  * Ties a form control to its label, description and error message. Compose it from a FieldLabel,
- * one control (Input, Textarea, Select, Combobox, Checkbox, Switch or RadioGroup), and optionally a
- * FieldDescription and a FieldError. The Field gives the control an id for the label to point at,
- * describes it by the description and error, and passes down `invalid`, `disabled` and `required`.
+ * one control (Input, Textarea, Select, Combobox, Checkbox, Switch, RadioGroup or Slider), and
+ * optionally a FieldDescription and a FieldError. The Field gives the control an id for the label
+ * to point at, describes it by the description and error, and passes down `invalid`, `disabled` and
+ * `required`.
  *
  * With `orientation="horizontal"`, put the control first: it sits beside the label, with the
  * description and error under the label.
