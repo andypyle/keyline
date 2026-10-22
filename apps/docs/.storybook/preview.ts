@@ -49,6 +49,7 @@ const preview: Preview = {
           "Foundations",
           ["Colors", "Typography", "Shape & Layout", "Motion"],
           "Buttons",
+          "Display",
           "Forms",
           ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch", "Slider", "Examples"],
           "Layout",

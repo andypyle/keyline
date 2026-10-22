@@ -257,3 +257,8 @@ export type { VideoModalContentProps } from "./components/VideoModal/parts/Video
 
 export { VideoModalTitle } from "./components/VideoModal/parts/VideoModalTitle";
 export type { VideoModalTitleProps } from "./components/VideoModal/parts/VideoModalTitle.types";
+
+export { Badge } from "./components/Badge/Badge";
+export type { BadgeProps } from "./components/Badge/Badge.types";
+export { badgeVariants } from "./components/Badge/Badge.variants";
+export type { BadgeVariantProps } from "./components/Badge/Badge.variants";

@@ -59,7 +59,7 @@ function Colors() {
       <Section title="Semantic" note="Surfaces, text, lines and accents. Prefer these in components.">
         <Grid tokens={baseTokens} />
       </Section>
-      <Section title="Status" note="Feedback colors, each with a soft tint for backgrounds.">
+      <Section title="Status" note="Feedback colors, each with a soft tint for backgrounds and a text color that passes AA on page and surface.">
         <Grid tokens={statusTokens} />
       </Section>
       {Object.entries(scales).map(([hue, tokens]) => (

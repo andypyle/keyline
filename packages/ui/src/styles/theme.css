@@ -59,6 +59,7 @@
   --color-amber-100: #f5e4bc;
   --color-amber-300: #ebc273;
   --color-amber-500: #d9a13b;
+  --color-amber-700: #865a0a;
 
   /* Rust — errors only */
   --color-rust-100: #f3d3cb;
@@ -102,14 +103,18 @@
 
   --color-success: var(--kl-color-moss-500);
   --color-success-soft: var(--kl-color-moss-100);
+  --color-success-fill: var(--kl-color-moss-300); /* fills behind on-fill text; success is too dark for it */
+  --color-success-text: var(--kl-color-moss-700); /* status text and outlines; lightens in dark mode */
   --color-warning: var(--kl-color-amber-500);
   --color-warning-soft: var(--kl-color-amber-100);
+  --color-warning-text: var(--kl-color-amber-700);
   --color-danger: var(--kl-color-rust-500);
   --color-danger-hover: var(--kl-color-rust-700); /* darker, not lighter: white text needs the contrast */
   --color-danger-soft: var(--kl-color-rust-100);
   --color-danger-text: var(--kl-color-rust-500); /* error messages; lightens in dark mode, where rust-500 is too dim */
   --color-info: var(--kl-color-dusk-500);
   --color-info-soft: var(--kl-color-dusk-100);
+  --color-info-text: var(--kl-color-dusk-700);
 
   /* Type */
   --font-*: initial;
@@ -388,6 +393,9 @@
     --kl-color-link-hover: #e9edf0;
     --kl-color-focus: var(--kl-color-dusk-300);
     --kl-color-danger-text: var(--kl-color-rust-300);
+    --kl-color-success-text: var(--kl-color-moss-300);
+    --kl-color-warning-text: var(--kl-color-amber-300);
+    --kl-color-info-text: var(--kl-color-dusk-300);
     --kl-color-selection: var(--kl-color-mist-500);
     --kl-color-thumb: var(--kl-color-slate-200);
     --kl-color-thumb-hover: var(--kl-color-mist-300);
@@ -413,6 +421,7 @@
     --kl-color-on-neutral: var(--kl-color-slate-50);
     --kl-color-success: var(--kl-color-moss-500);
     --kl-color-success-soft: var(--kl-color-moss-100);
+    --kl-color-success-fill: var(--kl-color-moss-300);
     --kl-color-warning: var(--kl-color-amber-500);
     --kl-color-warning-soft: var(--kl-color-amber-100);
     --kl-color-danger: var(--kl-color-rust-500);
