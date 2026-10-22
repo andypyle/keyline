@@ -188,3 +188,13 @@ export type { FieldDescriptionProps } from "./components/Field/parts/FieldDescri
 
 export { FieldError } from "./components/Field/parts/FieldError";
 export type { FieldErrorProps } from "./components/Field/parts/FieldError.types";
+
+export { MediaImage } from "./components/MediaImage/MediaImage";
+export type { MediaImageProps } from "./components/MediaImage/MediaImage.types";
+export { mediaImageVariants } from "./components/MediaImage/MediaImage.variants";
+export type { MediaImageVariantProps } from "./components/MediaImage/MediaImage.variants";
+
+export { MediaVideo } from "./components/MediaVideo/MediaVideo";
+export type { MediaVideoProps } from "./components/MediaVideo/MediaVideo.types";
+export { mediaVideoVariants } from "./components/MediaVideo/MediaVideo.variants";
+export type { MediaVideoVariantProps } from "./components/MediaVideo/MediaVideo.variants";

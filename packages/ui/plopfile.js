@@ -7,7 +7,7 @@ const componentsDir = path.join(root, "src/components");
 
 // Storybook sidebar sections, each a top-level story title. Keep in step with storySort in
 // apps/docs/.storybook/preview.ts.
-const SECTIONS = ["Buttons", "Forms", "Layout", "Overlays"];
+const SECTIONS = ["Buttons", "Forms", "Layout", "Media", "Overlays"];
 
 // Elements that can't take children, so their stories shouldn't pass any.
 const VOID_ELEMENTS = new Set(["area", "br", "col", "hr", "img", "input", "meta", "source", "track", "wbr"]);

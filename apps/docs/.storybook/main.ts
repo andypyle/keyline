@@ -10,6 +10,8 @@ const config: StorybookConfig = {
     "../../../packages/*/src/**/*.mdx",
     "../../../packages/*/src/**/*.stories.@(ts|tsx)",
   ],
+  // Sample media for the Media stories, served from the root of the preview.
+  staticDirs: ["../public"],
   addons: ["@storybook/addon-docs", "@storybook/addon-themes", "@storybook/addon-vitest", "@storybook/addon-a11y"],
   framework: "@storybook/react-vite",
   viteFinal: (config) => mergeConfig(config, { plugins: [tailwindcss()] }),

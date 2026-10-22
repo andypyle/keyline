@@ -49,6 +49,7 @@ const preview: Preview = {
           "Forms",
           ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch", "Examples"],
           "Layout",
+          "Media",
           "Overlays",
         ],
       },
