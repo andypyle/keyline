@@ -245,3 +245,15 @@ export type { VideoPlayerCaptionsProps } from "./components/VideoPlayer/parts/Vi
 
 export { VideoPlayerFullscreen } from "./components/VideoPlayer/parts/VideoPlayerFullscreen";
 export type { VideoPlayerFullscreenProps } from "./components/VideoPlayer/parts/VideoPlayerFullscreen.types";
+
+export { VideoModal } from "./components/VideoModal/VideoModal";
+export type { VideoModalProps } from "./components/VideoModal/VideoModal.types";
+
+export { VideoModalTrigger } from "./components/VideoModal/parts/VideoModalTrigger";
+export type { VideoModalTriggerProps } from "./components/VideoModal/parts/VideoModalTrigger.types";
+
+export { VideoModalContent } from "./components/VideoModal/parts/VideoModalContent";
+export type { VideoModalContentProps } from "./components/VideoModal/parts/VideoModalContent.types";
+
+export { VideoModalTitle } from "./components/VideoModal/parts/VideoModalTitle";
+export type { VideoModalTitleProps } from "./components/VideoModal/parts/VideoModalTitle.types";
