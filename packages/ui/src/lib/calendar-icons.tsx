@@ -14,3 +14,21 @@ export function CalendarIcon() {
     </svg>
   );
 }
+
+/** The arrow from a range's start to its end. Hidden from assistive tech; the fields it sits between are named. */
+export function RangeArrowIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+    >
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}

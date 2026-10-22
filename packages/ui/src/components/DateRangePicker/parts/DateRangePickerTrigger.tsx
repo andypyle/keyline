@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import { formatDateRange } from "../../../lib/calendar-date";
-import { CalendarIcon } from "../../../lib/calendar-icon";
+import { CalendarIcon } from "../../../lib/calendar-icons";
 import { cn } from "../../../lib/cn";
 import { useDateRangePicker } from "../../../lib/date-range-picker-context";
 import { useFieldControlProps } from "../../../lib/field-context";

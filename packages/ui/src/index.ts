@@ -300,5 +300,10 @@ export type { DateRangePickerContentProps } from "./components/DateRangePicker/p
 
 export { DateRangePickerInput } from "./components/DateRangePicker/parts/DateRangePickerInput";
 export type { DateRangePickerInputProps } from "./components/DateRangePicker/parts/DateRangePickerInput.types";
-export { dateRangePickerInputVariants, dateRangePickerFieldVariants } from "./components/DateRangePicker/parts/DateRangePickerInput.variants";
+export {
+  dateRangePickerInputVariants,
+  dateRangePickerFieldVariants,
+  dateRangePickerFieldSlotVariants,
+  dateRangePickerFieldSizerVariants,
+} from "./components/DateRangePicker/parts/DateRangePickerInput.variants";
 export type { DateRangePickerInputVariantProps } from "./components/DateRangePicker/parts/DateRangePickerInput.variants";

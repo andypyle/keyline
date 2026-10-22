@@ -1,7 +1,7 @@
 import { useMemo, useRef } from "react";
 import { flushSync } from "react-dom";
 import { getDateFieldPattern } from "../../../lib/calendar-date";
-import { CalendarIcon } from "../../../lib/calendar-icon";
+import { CalendarIcon } from "../../../lib/calendar-icons";
 import { cn } from "../../../lib/cn";
 import { useDatePicker } from "../../../lib/date-picker-context";
 import { useFieldControlProps } from "../../../lib/field-context";

@@ -1,7 +1,7 @@
 import { useMemo, useRef, type KeyboardEvent } from "react";
 import { flushSync } from "react-dom";
-import { getDateFieldPattern } from "../../../lib/calendar-date";
-import { CalendarIcon } from "../../../lib/calendar-icon";
+import { formatDateField, getDateFieldPattern } from "../../../lib/calendar-date";
+import { CalendarIcon, RangeArrowIcon } from "../../../lib/calendar-icons";
 import { cn } from "../../../lib/cn";
 import { useDateRangePicker } from "../../../lib/date-range-picker-context";
 import { useField, useFieldControlProps } from "../../../lib/field-context";
@@ -10,7 +10,12 @@ import { useDateText } from "../../../lib/use-date-text";
 import { useFormReset } from "../../../lib/use-form-reset";
 import { datePickerToggleVariants } from "../../DatePicker/parts/DatePickerInput.variants";
 import type { DateRangePickerInputProps } from "./DateRangePickerInput.types";
-import { dateRangePickerFieldVariants, dateRangePickerInputVariants } from "./DateRangePickerInput.variants";
+import {
+  dateRangePickerFieldSizerVariants,
+  dateRangePickerFieldSlotVariants,
+  dateRangePickerFieldVariants,
+  dateRangePickerInputVariants,
+} from "./DateRangePickerInput.variants";
 
 /**
  * Pair of text fields for typing a DateRangePicker's start and end dates, in one box with a button
@@ -88,14 +93,18 @@ export function DateRangePickerInput({
       }
     },
   };
-  const pattern = getDateFieldPattern(picker.locale);
+  const placeholderText = placeholder ?? getDateFieldPattern(picker.locale);
+  // Invisible copies of the widest text a field shows, which size its slot: see the variants.
+  const sizers = [placeholderText, formatDateField("2026-12-28", picker.locale)].map((text, index) => (
+    <span key={index} aria-hidden className={dateRangePickerFieldSizerVariants()}>
+      {text}
+    </span>
+  ));
   const shared = {
     type: "text",
     autoComplete: "off",
     spellCheck: false,
-    placeholder: placeholder ?? pattern,
-    // Wide enough for a date in the locale's form, with room for the placeholder's wider letters.
-    style: { width: `${pattern.length + 1}ch` },
+    placeholder: placeholderText,
     disabled: picker.disabled,
     required: picker.required,
     "aria-describedby": fieldProps["aria-describedby"],
@@ -112,28 +121,33 @@ export function DateRangePickerInput({
       {...props}
       ref={ref}
     >
-      <input
-        data-slot="date-range-picker-start"
-        {...shared}
-        aria-label={startLabel}
-        aria-invalid={fieldProps["aria-invalid"] ?? (start.invalid || undefined)}
-        value={start.text}
-        onChange={(event) => start.setText(event.target.value)}
-        id={fieldProps.id ?? picker.triggerId}
-        ref={mergedStartRef}
-      />
-      <span aria-hidden className={cn(["kl:text-fg-3"])}>
-        –
+      <span className={dateRangePickerFieldSlotVariants()}>
+        {sizers}
+        <input
+          data-slot="date-range-picker-start"
+          {...shared}
+          aria-label={startLabel}
+          aria-invalid={fieldProps["aria-invalid"] ?? (start.invalid || undefined)}
+          value={start.text}
+          onChange={(event) => start.setText(event.target.value)}
+          id={fieldProps.id ?? picker.triggerId}
+          ref={mergedStartRef}
+        />
       </span>
-      <input
-        data-slot="date-range-picker-end"
-        {...shared}
-        aria-label={endLabel}
-        aria-invalid={fieldProps["aria-invalid"] ?? (end.invalid || undefined)}
-        value={end.text}
-        onChange={(event) => end.setText(event.target.value)}
-        ref={endRef}
-      />
+      {/* Sized to the text, so it scales with the box; it points the other way in right-to-left text. */}
+      <RangeArrowIcon className={cn(["kl:shrink-0", "kl:size-[1em]", "kl:text-fg-3", "kl:rtl:-scale-x-100"])} />
+      <span className={dateRangePickerFieldSlotVariants({ position: "end" })}>
+        {sizers}
+        <input
+          data-slot="date-range-picker-end"
+          {...shared}
+          aria-label={endLabel}
+          aria-invalid={fieldProps["aria-invalid"] ?? (end.invalid || undefined)}
+          value={end.text}
+          onChange={(event) => end.setText(event.target.value)}
+          ref={endRef}
+        />
+      </span>
       <button
         data-slot="date-range-picker-toggle"
         type="button"

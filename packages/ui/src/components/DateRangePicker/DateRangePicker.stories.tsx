@@ -306,6 +306,12 @@ export const Typing: Story = {
       await expect(toggle).toHaveAttribute("aria-haspopup", "dialog");
     });
 
+    await step("puts the box's space after the end date in the end field, so a click there focuses it", async () => {
+      const box = toggle.getBoundingClientRect();
+      const beforeToggle = document.elementFromPoint(box.left - 4, box.top + box.height / 2);
+      await expect(beforeToggle).toBe(end);
+    });
+
     await step("keeps a typed start until the end is typed too", async () => {
       await userEvent.type(start, "3/10/2026");
       await userEvent.tab();

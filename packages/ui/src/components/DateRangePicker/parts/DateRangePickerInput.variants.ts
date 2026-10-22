@@ -50,13 +50,44 @@ export const dateRangePickerInputVariants = cva(
 
 export type DateRangePickerInputVariantProps = VariantProps<typeof dateRangePickerInputVariants>;
 
-// One of the two text fields inside the box. Its width is set to fit the locale's date format, so
-// the dates sit together around the dash; it shrinks in a narrow box. Inputs don't inherit their
-// font, so it's set here, with even digits so every date fits the same width.
+// Holds one of the two fields, sized to fit its widest text. The field and two invisible copies of
+// that text (the placeholder and a full date) share the one grid cell, so the cell takes the
+// width of the wider copy and the field fills it. Each date then sits as close to the arrow as the
+// other, with no slack beyond what the placeholder's wider letters need, in any locale, font or
+// size. It shrinks in a narrow box.
+//
+// The box is full width like other form controls, so the end field's slot grows into the space
+// left after it: a click anywhere up to the calendar button lands in the end field.
+export const dateRangePickerFieldSlotVariants = cva(["kl:inline-grid", "kl:min-w-0", "kl:h-full", "kl:tabular-nums"], {
+  variants: {
+    position: {
+      start: ["kl:flex-initial"],
+      end: ["kl:flex-1"],
+    },
+  },
+  defaultVariants: {
+    position: "start",
+  },
+});
+
+// One of the invisible copies that size a field's slot. It takes no height, so only its width counts.
+export const dateRangePickerFieldSizerVariants = cva([
+  "kl:invisible",
+  "kl:[grid-area:1/1]",
+  "kl:h-0",
+  "kl:overflow-hidden",
+  "kl:whitespace-pre",
+]);
+
+// One of the two text fields, filling its slot. An input is about 20 characters wide by default,
+// which would widen the slot past its text, so it takes no width of its own and stretches to the
+// slot's. Inputs don't inherit their font, so it's set here, with even digits so every date is
+// the same width as the copy that sizes it.
 export const dateRangePickerFieldVariants = cva([
   "kl:box-border",
-  "kl:flex-initial",
-  "kl:min-w-0",
+  "kl:[grid-area:1/1]",
+  "kl:w-0",
+  "kl:min-w-full",
   "kl:h-full",
   "kl:m-0",
   "kl:p-0",
