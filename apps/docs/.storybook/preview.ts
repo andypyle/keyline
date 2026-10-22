@@ -51,7 +51,7 @@ const preview: Preview = {
           "Buttons",
           "Display",
           "Forms",
-          ["Field", "Input", "Textarea", "Select", "Combobox", "Checkbox", "RadioGroup", "Radio", "Switch", "Slider", "Examples"],
+          ["Field", "Input", "Textarea", "Select", "Combobox", "DatePicker", "DateRangePicker", "Checkbox", "RadioGroup", "Radio", "Switch", "Slider", "Examples"],
           "Layout",
           "Media",
           "Overlays",

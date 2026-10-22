@@ -87,9 +87,9 @@ export function getText(node: ReactNode): string {
 
 /**
  * A control's label as text, so its listbox can carry the same name. It reads `aria-labelledby`,
- * then any `<label for>`, then `aria-label`.
+ * then any `<label for>`, then `aria-label`. A control can be any element, like a group of fields.
  */
-export function getControlLabel(control: HTMLInputElement | HTMLButtonElement) {
+export function getControlLabel(control: HTMLElement) {
   const labelledBy = control.getAttribute("aria-labelledby");
   const fromIds = labelledBy
     ?.split(/\s+/)
@@ -97,7 +97,8 @@ export function getControlLabel(control: HTMLInputElement | HTMLButtonElement) {
     .filter(Boolean)
     .join(" ");
   if (fromIds) return fromIds;
-  const fromLabels = Array.from(control.labels ?? [], (label) => label.textContent?.trim())
+  const labels = "labels" in control ? (control as HTMLInputElement).labels : null;
+  const fromLabels = Array.from(labels ?? [], (label) => label.textContent?.trim())
     .filter(Boolean)
     .join(" ");
   return fromLabels || control.getAttribute("aria-label") || undefined;

@@ -6,7 +6,7 @@ import { fieldVariants } from "./Field.variants";
 
 /**
  * Ties a form control to its label, description and error message. Compose it from a FieldLabel,
- * one control (Input, Textarea, Select, Combobox, Checkbox, Switch, RadioGroup or Slider), and
+ * one control (Input, Textarea, Select, Combobox, DatePicker, DateRangePicker, Checkbox, Switch, RadioGroup or Slider), and
  * optionally a FieldDescription and a FieldError. The Field gives the control an id for the label
  * to point at, describes it by the description and error, and passes down `invalid`, `disabled` and
  * `required`.

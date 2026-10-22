@@ -11,7 +11,7 @@ interface FormValueInputProps {
 }
 
 /**
- * Carries a custom control's value into form submission and validation, for Select and Combobox.
+ * Carries a custom control's value into form submission and validation, for Select, Combobox, DatePicker and DateRangePicker.
  * It isn't type="hidden" or read-only, since browsers skip those when validating `required`, so
  * it's made invisible and unreachable instead. It sits at the parent's bottom-left corner, which
  * must be positioned, so the browser's validation bubble points at the control.
