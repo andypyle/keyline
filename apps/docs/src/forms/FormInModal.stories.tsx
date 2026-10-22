@@ -8,6 +8,9 @@ import {
   ComboboxContent,
   ComboboxInput,
   ComboboxItem,
+  DateRangePicker,
+  DateRangePickerContent,
+  DateRangePickerInput,
   Field,
   FieldDescription,
   FieldError,
@@ -135,6 +138,14 @@ function InviteModal({ onOpenChange, onInvite }: InviteArgs) {
             </RadioGroup>
           </Field>
           <Field>
+            <FieldLabel>Access dates</FieldLabel>
+            <DateRangePicker startName="accessFrom" endName="accessUntil">
+              <DateRangePickerInput />
+              <DateRangePickerContent />
+            </DateRangePicker>
+            <FieldDescription>Optional. Leave empty for access with no end date.</FieldDescription>
+          </Field>
+          <Field>
             <FieldLabel>Message</FieldLabel>
             <Textarea name="message" size="sm" />
             <FieldDescription>Added to the invite email.</FieldDescription>
@@ -166,8 +177,8 @@ function getDialog(canvasElement: HTMLElement) {
 /**
  * Every Keyline form control, in a Field, inside a Modal. A `<form method="dialog">` closes the
  * modal when it submits, and the browser's own `required` validation keeps it open until the
- * form is complete. Select and Combobox lists open above the modal, and Escape closes the list
- * before the modal.
+ * form is complete. Select and Combobox lists and the DateRangePicker's calendar open above the
+ * modal, and Escape closes them before the modal.
  */
 const meta = {
   title: "Forms/Examples/Form in a modal",
@@ -238,6 +249,27 @@ export const Default: Story = {
       await expect(canvas.getByRole("combobox", { name: "Team" })).toHaveValue("Engineering");
     });
 
+    await step("types a range into a DateRangePicker inside the modal", async () => {
+      const start = canvas.getByRole("textbox", { name: "Start date" });
+      await expect(canvas.getByRole("group", { name: "Access dates" })).toContainElement(start);
+      await expect(start).toHaveAccessibleDescription("Optional. Leave empty for access with no end date.");
+      await userEvent.type(canvas.getByRole("textbox", { name: "Start date" }), "3/10/2026");
+      await userEvent.type(canvas.getByRole("textbox", { name: "End date" }), "3/14/2026");
+      await userEvent.tab();
+      await expect(canvas.getByRole("textbox", { name: "End date" })).toHaveValue("03/14/2026");
+    });
+
+    await step("opens the calendar above the modal, and Escape closes the calendar, not the modal", async () => {
+      await userEvent.click(canvas.getByRole("button", { name: "Choose dates" }));
+      const calendar = canvas.getByRole("dialog", { name: "Access dates" });
+      await expect(calendar.matches(":popover-open")).toBe(true);
+      await expect(canvas.getByRole("button", { name: "Tuesday, March 10, 2026" })).toHaveFocus();
+      await userEvent.keyboard("{Escape}");
+      await expect(calendar.matches(":popover-open")).toBe(false);
+      await expect(dialog.open).toBe(true);
+      await expect(canvas.getByRole("textbox", { name: "Start date" })).toHaveFocus();
+    });
+
     await step("sets the rest by keyboard and label", async () => {
       await userEvent.click(canvas.getByRole("radio", { name: "Their team's projects only" }));
       await userEvent.type(canvas.getByRole("textbox", { name: "Message" }), "Welcome aboard!");
@@ -254,6 +286,8 @@ export const Default: Story = {
         role: "editor",
         team: "engineering",
         access: "team",
+        accessFrom: "2026-03-10",
+        accessUntil: "2026-03-14",
         message: "Welcome aboard!",
         twoFactor: "on",
         copyMe: "on",
@@ -269,6 +303,8 @@ export const Default: Story = {
       await expect(canvas.getByRole("combobox", { name: "Role" })).toHaveTextContent("Pick a role");
       await expect(canvas.getByRole("combobox", { name: "Team" })).toHaveValue("");
       await expect(canvas.getByRole("radio", { name: "All projects" })).toBeChecked();
+      await expect(canvas.getByRole("textbox", { name: "Start date" })).toHaveValue("");
+      await expect(canvas.getByRole("textbox", { name: "End date" })).toHaveValue("");
       await expect(canvas.getByRole("textbox", { name: "Message" })).toHaveValue("");
       await expect(canvas.getByRole("switch", { name: "Require two-factor sign-in" })).toBeChecked();
       await expect(canvas.getByRole("checkbox", { name: "Send me a copy" })).not.toBeChecked();
