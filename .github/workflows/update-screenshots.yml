@@ -41,7 +41,7 @@ jobs:
 
       # --update writes missing baselines and replaces ones that no longer match. Other failures
       # (a play function, axe) still fail the run, and nothing is committed.
-      - run: pnpm --filter docs exec vitest run --update
+      - run: pnpm --filter docs exec vitest run --update --no-file-parallelism
 
       - name: Commit changed baselines
         id: commit
