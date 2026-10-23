@@ -84,6 +84,9 @@ const meta = {
   title: "Forms/Combobox",
   component: Combobox,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=12-19" },
+  },
   args: { onValueChange: fn(), onOpenChange: fn(), onFormSubmit: fn() },
   argTypes: {
     value: { control: false },

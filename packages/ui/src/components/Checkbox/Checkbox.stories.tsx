@@ -16,6 +16,9 @@ const meta = {
   title: "Forms/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-179" },
+  },
   args: { onChange: fn(), onFormSubmit: fn() },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

@@ -68,6 +68,9 @@ const meta = {
   title: "Forms/DatePicker",
   component: DatePicker,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=27-79" },
+  },
   // A fixed locale keeps the day names the tests look for, and the first day of the week, the same
   // on every machine.
   args: { locale: "en-US", onValueChange: fn(), onOpenChange: fn(), onFormSubmit: fn() },

@@ -14,6 +14,9 @@ const meta = {
   title: "Media/MediaVideo",
   component: MediaVideo,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=27-83" },
+  },
   args: { src, poster, style: width, "aria-label": "Light drifting across a field" },
   argTypes: {
     ratio: { control: "select", options: ["auto", "1/1", "4/3", "3/2", "16/9", "21/9", "3/4", "9/16"] },

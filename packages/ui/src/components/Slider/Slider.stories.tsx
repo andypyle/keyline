@@ -32,6 +32,9 @@ const meta = {
   title: "Forms/Slider",
   component: Slider,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=12-21" },
+  },
   args: { "aria-label": "Volume", defaultValue: 40, onValueChange: fn(), onValueCommit: fn() },
   argTypes: {
     orientation: { control: "inline-radio", options: ["horizontal", "vertical"] },

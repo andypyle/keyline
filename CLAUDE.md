@@ -44,7 +44,7 @@ This creates `packages/ui/src/components/<Name>/` with:
 | `<Name>.variants.ts` | CVA config (`<name>Variants`) and `<Name>VariantProps`; only if it has variants |
 | `<Name>.stories.tsx` | Stories, titled `<Section>/<Name>` |
 
-It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`. Its stories need screenshot baselines before CI passes: push the branch and run `pnpm screenshots:update` (see Visual regression).
+It also appends the exports to `packages/ui/src/index.ts`. After generating, edit the generated files to build the component out, and set `parameters.design.url` in the stories' meta to the component's page in the Figma file (right-click the page, Copy link); the Storybook toolbar links there. Keep each kind of code in its own file: no CVA calls in `.tsx`, no prop interfaces in `.tsx`. If a component needs variants later, add `<Name>.variants.ts` following the template, then export it from `index.ts`. Its stories need screenshot baselines before CI passes: push the branch and run `pnpm screenshots:update` (see Visual regression).
 
 ### Compound components
 

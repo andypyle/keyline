@@ -12,6 +12,9 @@ const meta = {
   title: "Forms/Radio",
   component: Radio,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-180" },
+  },
   args: { value: "standard", onChange: fn() },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

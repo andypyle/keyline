@@ -18,6 +18,9 @@ const meta = {
   title: "Buttons/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-175" },
+  },
   args: {
     "aria-label": "Date range",
     variant: "secondary",

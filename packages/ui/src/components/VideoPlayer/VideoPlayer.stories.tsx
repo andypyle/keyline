@@ -39,6 +39,9 @@ const meta = {
   title: "Media/VideoPlayer",
   component: VideoPlayer,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=27-84" },
+  },
   argTypes: {
     ratio: { control: "select", options: ["auto", "1/1", "4/3", "16/9", "21/9", "9/16"] },
     radius: { control: "inline-radio", options: ["none", "sm", "md", "lg", "xl"] },

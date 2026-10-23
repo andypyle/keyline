@@ -25,6 +25,9 @@ const meta = {
   title: "Buttons/Button",
   component: Button,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-174" },
+  },
   args: { children: "Button", onClick: fn() },
   argTypes: {
     variant: { control: "inline-radio", options: ["primary", "secondary", "neutral", "inverse", "danger", "ghost"] },
@@ -138,6 +141,9 @@ export const Radius: Story = {
 };
 
 export const WithIcon: Story = {
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=47-108" },
+  },
   render: (args) => (
     <div style={row}>
       <Button {...args} size="sm" startIcon={<PlusIcon />}>

@@ -24,6 +24,9 @@ const meta = {
   title: "Display/Badge",
   component: Badge,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-176" },
+  },
   args: { children: "Badge" },
   argTypes: {
     variant: { control: "inline-radio", options: ["filled", "outline"] },

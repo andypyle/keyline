@@ -11,6 +11,9 @@ const meta = {
   title: "Forms/Input",
   component: Input,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-177" },
+  },
   args: { onChange: fn() },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

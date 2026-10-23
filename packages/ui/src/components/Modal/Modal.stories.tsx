@@ -78,6 +78,9 @@ const meta = {
   title: "Overlays/Modal",
   component: Modal,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=20-30" },
+  },
   args: { onOpenChange: fn(), onAction: fn() },
   argTypes: {
     open: { control: false },

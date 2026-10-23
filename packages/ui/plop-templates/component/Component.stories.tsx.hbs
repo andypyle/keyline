@@ -5,6 +5,10 @@ const meta = {
   title: "{{section}}/{{name}}",
   component: {{name}},
   tags: ["autodocs"],
+  // The component's page in the Figma file, for the toolbar's Figma link. Empty hides the link.
+  parameters: {
+    design: { type: "figma", url: "" },
+  },
 {{#unless (isVoid element)}}
   args: { children: "{{name}}" },
 {{/unless}}

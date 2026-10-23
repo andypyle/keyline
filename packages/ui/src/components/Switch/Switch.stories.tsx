@@ -10,6 +10,9 @@ const meta = {
   title: "Forms/Switch",
   component: Switch,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-181" },
+  },
   args: { onChange: fn() },
   argTypes: {
     size: { control: "inline-radio", options: ["sm", "md", "lg"] },

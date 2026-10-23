@@ -91,6 +91,9 @@ const meta = {
   title: "Forms/Select",
   component: Select,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=12-18" },
+  },
   args: { onValueChange: fn(), onOpenChange: fn(), onFormSubmit: fn() },
   argTypes: {
     value: { control: false },

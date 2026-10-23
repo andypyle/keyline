@@ -70,6 +70,9 @@ const meta = {
   title: "Layout/Card",
   component: Card,
   tags: ["autodocs"],
+  parameters: {
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-183" },
+  },
   args: { flat: false, noBorders: false, orientation: "vertical", reversed: false, onAction: fn() },
   argTypes: {
     onAction: { table: { disable: true } },

@@ -52,7 +52,10 @@ const meta = {
   title: "Layout/CardGrid",
   component: CardGrid,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: {
+    layout: "padded",
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=27-81" },
+  },
   args: { columns: 4, featured: false },
   argTypes: {
     columns: { control: "inline-radio", options: [1, 2, 3, 4] },
