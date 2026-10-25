@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
@@ -60,8 +60,13 @@ type ComboboxStoryArgs = ComboboxProps & {
   onFormSubmit: (data: Record<string, FormDataEntryValue>) => void;
 };
 
-function CountryCombobox({ label = "Country", input, onFormSubmit: _, ...args }: Partial<ComboboxStoryArgs>) {
-  const id = useId();
+// Called as a function, not rendered as <CountryCombobox>, so a story returns the Combobox itself and
+// the docs' "Show code" snippet shows how it's composed rather than a helper component. The label's
+// id comes from the story's, so it stays unique when the docs page renders every story at once.
+function countryCombobox(
+  { label = "Country", input, onFormSubmit: _, ...args }: Partial<ComboboxStoryArgs>,
+  id: string,
+) {
   return (
     <div style={field}>
       <label htmlFor={id}>{label}</label>
@@ -98,7 +103,7 @@ const meta = {
     input: { table: { disable: true } },
     onFormSubmit: { table: { disable: true } },
   },
-  render: (args) => <CountryCombobox {...args} />,
+  render: (args, { id }) => countryCombobox(args, id),
 } satisfies Meta<ComboboxStoryArgs>;
 
 export default meta;
@@ -304,20 +309,20 @@ export const Toggle: Story = {
 };
 
 export const Sizes: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <CountryCombobox {...args} label="Small" input={{ size: "sm" }} />
-      <CountryCombobox {...args} label="Medium" input={{ size: "md" }} />
-      <CountryCombobox {...args} label="Large" input={{ size: "lg" }} />
+      {countryCombobox({ ...args, label: "Small", input: { size: "sm" } }, `${id}-sm`)}
+      {countryCombobox({ ...args, label: "Medium", input: { size: "md" } }, `${id}-md`)}
+      {countryCombobox({ ...args, label: "Large", input: { size: "lg" } }, `${id}-lg`)}
     </div>
   ),
 };
 
 /** Pair `aria-invalid` with `aria-describedby` pointing at the message, so the error is announced with the field. */
 export const Invalid: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={field}>
-      <CountryCombobox {...args} input={{ "aria-invalid": true, "aria-describedby": "country-error" }} />
+      {countryCombobox({ ...args, input: { "aria-invalid": true, "aria-describedby": "country-error" } }, id)}
       <span id="country-error" style={hint}>
         Pick the country you live in.
       </span>
@@ -346,7 +351,7 @@ export const Disabled: Story = {
 export const InForm: Story = {
   name: "In a form",
   args: { name: "country", required: true },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -354,7 +359,7 @@ export const InForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <CountryCombobox {...args} />
+      {countryCombobox(args, id)}
       <div>
         <Button type="submit">Submit</Button>
       </div>
@@ -391,7 +396,7 @@ export const InForm: Story = {
 export const FormReset: Story = {
   name: "Form reset",
   args: { name: "country", defaultValue: "canada" },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -399,8 +404,8 @@ export const FormReset: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <CountryCombobox {...args} />
-      <CountryCombobox {...args} label="Second country" name="second" defaultValue={undefined} />
+      {countryCombobox(args, id)}
+      {countryCombobox({ ...args, label: "Second country", name: "second", defaultValue: undefined }, `${id}-second`)}
       <div style={{ display: "flex", gap: 12 }}>
         <Button type="reset" variant="secondary">
           Reset
@@ -580,26 +585,6 @@ function useCountrySearch(query: string) {
   return { results, loading };
 }
 
-function AsyncCountryCombobox({ onFormSubmit: _, ...args }: Partial<ComboboxStoryArgs>) {
-  const [query, setQuery] = useState("");
-  const { results, loading } = useCountrySearch(query);
-  return (
-    <div style={field}>
-      <label htmlFor="async-country">Country</label>
-      <Combobox {...args} filter={false} onQueryChange={setQuery}>
-        <ComboboxInput id="async-country" placeholder="Search countries…" />
-        <ComboboxContent loading={loading}>
-          {results.map((country) => (
-            <ComboboxItem key={country} value={toValue(country)} disabled={country === "Antarctica"}>
-              {country}
-            </ComboboxItem>
-          ))}
-        </ComboboxContent>
-      </Combobox>
-    </div>
-  );
-}
-
 /**
  * To load options as the user types, pass `filter={false}` and fetch in `onQueryChange`, showing
  * `loading` on ComboboxContent meanwhile. The selected option's text is remembered after it drops
@@ -607,7 +592,25 @@ function AsyncCountryCombobox({ onFormSubmit: _, ...args }: Partial<ComboboxStor
  */
 export const LoadingOptions: Story = {
   name: "Loading options",
-  render: (args) => <AsyncCountryCombobox {...args} />,
+  render: function Render({ onFormSubmit: _, ...args }) {
+    const [query, setQuery] = useState("");
+    const { results, loading } = useCountrySearch(query);
+    return (
+      <div style={field}>
+        <label htmlFor="async-country">Country</label>
+        <Combobox {...args} filter={false} onQueryChange={setQuery}>
+          <ComboboxInput id="async-country" placeholder="Search countries…" />
+          <ComboboxContent loading={loading}>
+            {results.map((country) => (
+              <ComboboxItem key={country} value={toValue(country)} disabled={country === "Antarctica"}>
+                {country}
+              </ComboboxItem>
+            ))}
+          </ComboboxContent>
+        </Combobox>
+      </div>
+    );
+  },
   play: async ({ args, canvas, step }) => {
     const input = canvas.getByRole("combobox", { name: "Country" });
     const options = () => canvas.queryAllByRole("option").map((option) => option.textContent);
@@ -715,12 +718,12 @@ export const WithIcons: Story = {
 /** Inside a Modal, Escape closes the open list first and leaves the Modal open. */
 export const InModal: Story = {
   name: "In a modal",
-  render: (args) => (
+  render: (args, { id }) => (
     <Modal>
       <ModalTrigger>Edit address</ModalTrigger>
       <ModalContent>
         <ModalTitle>Edit address</ModalTitle>
-        <CountryCombobox {...args} />
+        {countryCombobox(args, id)}
       </ModalContent>
     </Modal>
   ),

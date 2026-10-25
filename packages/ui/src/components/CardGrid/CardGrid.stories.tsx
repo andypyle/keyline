@@ -34,10 +34,12 @@ interface ProjectCardProps {
   reversed?: boolean;
 }
 
-function ProjectCard({ title, description, horizontal, reversed }: ProjectCardProps) {
+// Called as a function, not rendered as <ProjectCard>, so a story returns the CardGrid's Cards
+// themselves and the docs' "Show code" snippet shows how they're composed.
+function projectCard({ title, description, horizontal, reversed }: ProjectCardProps) {
   return (
     // Left undefined unless set, so a one-column grid can choose.
-    <Card orientation={horizontal ? "horizontal" : undefined} reversed={reversed}>
+    <Card key={title} orientation={horizontal ? "horizontal" : undefined} reversed={reversed}>
       <CardImage src={image} alt="" />
       <CardBody>
         <CardTitle>{title}</CardTitle>
@@ -56,16 +58,13 @@ const meta = {
     layout: "padded",
     design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=27-81" },
   },
-  args: { columns: 4, featured: false },
   argTypes: {
     columns: { control: "inline-radio", options: [1, 2, 3, 4] },
     children: { table: { disable: true } },
   },
   render: (args) => (
     <CardGrid {...args}>
-      {projects.map((project) => (
-        <ProjectCard key={project.title} {...project} />
-      ))}
+      {projects.map((project) => projectCard(project))}
     </CardGrid>
   ),
 } satisfies Meta<typeof CardGrid>;
@@ -103,14 +102,9 @@ export const Featured: Story = {
   args: { columns: 3, featured: true },
   render: (args) => (
     <CardGrid {...args}>
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={project.title}
-          {...project}
-          horizontal={(index + 1) % 4 === 0}
-          reversed={(index + 1) % 8 === 0}
-        />
-      ))}
+      {projects.map((project, index) =>
+        projectCard({ ...project, horizontal: (index + 1) % 4 === 0, reversed: (index + 1) % 8 === 0 }),
+      )}
     </CardGrid>
   ),
 };
@@ -123,9 +117,7 @@ export const Alternating: Story = {
   args: { columns: 1 },
   render: (args) => (
     <CardGrid {...args}>
-      {projects.slice(0, 4).map((project) => (
-        <ProjectCard key={project.title} {...project} />
-      ))}
+      {projects.slice(0, 4).map((project) => projectCard(project))}
     </CardGrid>
   ),
   play: async ({ canvasElement }) => {

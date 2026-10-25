@@ -30,7 +30,9 @@ type ModalStoryArgs = ModalProps & {
   onAction: (action: string) => void;
 };
 
-function PublishModal({ size, noCloseButton, onAction, ...args }: ModalStoryArgs) {
+// Called as functions, not rendered as <PublishModal>, so a story returns the Modal itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component.
+function publishModal({ size, noCloseButton, onAction, ...args }: ModalStoryArgs) {
   return (
     <Modal {...args}>
       <ModalTrigger>Publish changes</ModalTrigger>
@@ -50,7 +52,7 @@ function PublishModal({ size, noCloseButton, onAction, ...args }: ModalStoryArgs
   );
 }
 
-function DiscardDraftModal({ size, onAction, ...args }: ModalStoryArgs) {
+function discardDraftModal({ size, onAction, ...args }: ModalStoryArgs) {
   return (
     <Modal {...args}>
       <ModalTrigger variant="secondary">Discard draft</ModalTrigger>
@@ -89,7 +91,7 @@ const meta = {
     noCloseButton: { control: "boolean" },
     onAction: { table: { disable: true } },
   },
-  render: (args) => <PublishModal {...args} />,
+  render: (args) => publishModal(args),
 } satisfies Meta<ModalStoryArgs>;
 
 export default meta;
@@ -203,7 +205,7 @@ export const DarkSection: Story = {
   name: "Dark section",
   render: (args) => (
     <div data-theme="dark" style={{ padding: 16, background: "var(--kl-color-page)" }}>
-      <PublishModal {...args} />
+      {publishModal(args)}
     </div>
   ),
   play: Open.play,
@@ -254,8 +256,8 @@ export const MultipleModals: Story = {
   name: "Multiple modals",
   render: (args) => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
-      <PublishModal {...args} />
-      <DiscardDraftModal {...args} />
+      {publishModal(args)}
+      {discardDraftModal(args)}
     </div>
   ),
   play: async ({ args, canvas, canvasElement, step }) => {

@@ -17,7 +17,9 @@ const row = { display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 
 const src = "media/sample.webm";
 const poster = "media/sample-poster.jpg";
 
-function Sample({ captions = true, ...args }: VideoPlayerProps & { captions?: boolean }) {
+// Called as a function, not rendered as <Sample>, so a story returns the VideoPlayer itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component.
+function sample({ captions = true, ...args }: VideoPlayerProps & { captions?: boolean }) {
   return (
     <VideoPlayer style={{ width: 560 }} {...args}>
       <VideoPlayerVideo src={src} poster={poster}>
@@ -46,7 +48,7 @@ const meta = {
     ratio: { control: "select", options: ["auto", "1/1", "4/3", "16/9", "21/9", "9/16"] },
     radius: { control: "inline-radio", options: ["none", "sm", "md", "lg", "xl"] },
   },
-  render: (args) => <Sample {...args} />,
+  render: (args) => sample(args),
 } satisfies Meta<typeof VideoPlayer>;
 
 export default meta;
@@ -220,14 +222,17 @@ export const WithoutKeyboardShortcuts: Story = {
 /** Pass VideoPlayerControls the parts you want, in the order you want them. */
 export const CustomControls: Story = {
   render: (args) => (
-    <Sample {...args}>
-      <VideoPlayerControls>
-        <VideoPlayerPlay />
-        <VideoPlayerTime />
-        <VideoPlayerSeek />
-        <VideoPlayerFullscreen />
-      </VideoPlayerControls>
-    </Sample>
+    sample({
+      ...args,
+      children: (
+        <VideoPlayerControls>
+          <VideoPlayerPlay />
+          <VideoPlayerTime />
+          <VideoPlayerSeek />
+          <VideoPlayerFullscreen />
+        </VideoPlayerControls>
+      ),
+    })
   ),
   play: async ({ canvas }) => {
     await expect(canvas.getByRole("button", { name: "Play" })).toBeInTheDocument();
@@ -238,7 +243,7 @@ export const CustomControls: Story = {
 
 /** Without a captions or subtitles track, there's no captions button. */
 export const WithoutCaptions: Story = {
-  render: (args) => <Sample {...args} captions={false} />,
+  render: (args) => sample({ ...args, captions: false }),
   play: async ({ canvas, canvasElement }) => {
     await loaded(canvasElement);
     await expect(canvas.queryByRole("button", { name: /captions/ })).not.toBeInTheDocument();
@@ -252,9 +257,9 @@ export const WithoutCaptions: Story = {
 export const Narrow: Story = {
   render: (args) => (
     <div style={row}>
-      <Sample {...args} style={{ width: 400 }} />
-      <Sample {...args} style={{ width: 320 }} />
-      <Sample {...args} style={{ width: 240 }} />
+      {sample({ ...args, style: { width: 400 } })}
+      {sample({ ...args, style: { width: 320 } })}
+      {sample({ ...args, style: { width: 240 } })}
     </div>
   ),
   play: async ({ canvas }) => {
@@ -274,8 +279,8 @@ export const Narrow: Story = {
 export const Ratios: Story = {
   render: (args) => (
     <div style={row}>
-      <Sample {...args} ratio="1/1" style={{ width: 320 }} />
-      <Sample {...args} ratio="9/16" style={{ width: 240 }} />
+      {sample({ ...args, ratio: "1/1", style: { width: 320 } })}
+      {sample({ ...args, ratio: "9/16", style: { width: 240 } })}
     </div>
   ),
 };
@@ -283,9 +288,9 @@ export const Ratios: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div style={{ display: "grid", gap: 24 }}>
-      <Sample {...args} />
-      <Sample {...args} flat />
-      <Sample {...args} noBorders />
+      {sample(args)}
+      {sample({ ...args, flat: true })}
+      {sample({ ...args, noBorders: true })}
     </div>
   ),
 };

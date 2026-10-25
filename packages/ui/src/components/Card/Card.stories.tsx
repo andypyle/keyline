@@ -31,7 +31,9 @@ function hitAt(element: Element, x: number, y: number) {
 
 type CardStoryArgs = CardProps & { onAction: () => void };
 
-function ProjectCard({ onAction, ...args }: CardStoryArgs) {
+// Called as functions, not rendered as <ProjectCard>, so a story returns the Card itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component.
+function projectCard({ onAction, ...args }: CardStoryArgs) {
   return (
     <Card style={width} {...args}>
       <CardImage src={image} alt="" />
@@ -49,7 +51,7 @@ function ProjectCard({ onAction, ...args }: CardStoryArgs) {
   );
 }
 
-function NotesCard({ onAction, ...args }: CardStoryArgs) {
+function notesCard({ onAction, ...args }: CardStoryArgs) {
   return (
     <Card {...args} style={width}>
       <CardBody>
@@ -73,11 +75,11 @@ const meta = {
   parameters: {
     design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=2-183" },
   },
-  args: { flat: false, noBorders: false, orientation: "vertical", reversed: false, onAction: fn() },
+  args: { onAction: fn() },
   argTypes: {
     onAction: { table: { disable: true } },
   },
-  render: (args) => <ProjectCard {...args} />,
+  render: (args) => projectCard(args),
 } satisfies Meta<CardStoryArgs>;
 
 export default meta;
@@ -141,7 +143,7 @@ export const Link: Story = {
 };
 
 export const WithoutImage: Story = {
-  render: (args) => <NotesCard {...args} />,
+  render: (args) => notesCard(args),
 };
 
 /** `flat` keeps the outline but drops the shadow and the hover lift. */
@@ -180,8 +182,8 @@ export const Horizontal: Story = {
   args: { orientation: "horizontal" },
   render: (args) => (
     <div style={{ display: "grid", gap: 24 }}>
-      <ProjectCard {...args} style={{ maxWidth: 760 }} />
-      <ProjectCard {...args} style={width} />
+      {projectCard({ ...args, style: { maxWidth: 760 } })}
+      {projectCard({ ...args, style: width })}
     </div>
   ),
   play: async ({ canvas }) => {
@@ -284,10 +286,10 @@ export const TagsDark: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div style={row}>
-      <ProjectCard {...args} />
-      <ProjectCard {...args} flat />
-      <ProjectCard {...args} noBorders />
-      <NotesCard {...args} />
+      {projectCard(args)}
+      {projectCard({ ...args, flat: true })}
+      {projectCard({ ...args, noBorders: true })}
+      {notesCard(args)}
     </div>
   ),
 };

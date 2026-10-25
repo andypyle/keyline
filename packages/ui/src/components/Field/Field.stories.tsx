@@ -110,22 +110,20 @@ export const Disabled: Story = {
   },
 };
 
-function ValidatedEmail() {
-  const [value, setValue] = useState("");
-  const [touched, setTouched] = useState(false);
-  const invalid = touched && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
-  return (
-    <Field invalid={invalid} required style={{ maxWidth: 360 }}>
-      <FieldLabel>Email</FieldLabel>
-      <Input type="email" value={value} onChange={(event) => setValue(event.target.value)} onBlur={() => setTouched(true)} />
-      <FieldError>Enter a full email address, like ada@example.com.</FieldError>
-    </Field>
-  );
-}
-
 /** The error comes and goes with `invalid`, here checked when the input loses focus. */
 export const Validation: Story = {
-  render: () => <ValidatedEmail />,
+  render: function Render() {
+    const [value, setValue] = useState("");
+    const [touched, setTouched] = useState(false);
+    const invalid = touched && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
+    return (
+      <Field invalid={invalid} required style={{ maxWidth: 360 }}>
+        <FieldLabel>Email</FieldLabel>
+        <Input type="email" value={value} onChange={(event) => setValue(event.target.value)} onBlur={() => setTouched(true)} />
+        <FieldError>Enter a full email address, like ada@example.com.</FieldError>
+      </Field>
+    );
+  },
   play: async ({ canvas, step }) => {
     const input = canvas.getByRole("textbox", { name: "Email" });
 

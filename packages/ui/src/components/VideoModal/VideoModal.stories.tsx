@@ -15,7 +15,9 @@ const row = { display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 
 const src = "media/sample.webm";
 const poster = "media/sample-poster.jpg";
 
-function Content() {
+// Called as a function, not rendered as <Content>, so a story returns the VideoModal's parts
+// themselves and the docs' "Show code" snippet shows how they're composed.
+function content() {
   return (
     <VideoModalContent>
       <VideoModalTitle>Light across the field</VideoModalTitle>
@@ -39,7 +41,7 @@ const meta = {
       <VideoModalTrigger poster={poster} style={{ width: 320 }}>
         Watch “Light across the field”
       </VideoModalTrigger>
-      <Content />
+      {content()}
     </VideoModal>
   ),
 } satisfies Meta<typeof VideoModal>;
@@ -114,7 +116,7 @@ export const AsChild: Story = {
       <VideoModalTrigger asChild>
         <Button variant="secondary">Watch the clip</Button>
       </VideoModalTrigger>
-      <Content />
+      {content()}
     </VideoModal>
   ),
   play: async ({ args, canvas, canvasElement }) => {
@@ -177,13 +179,13 @@ export const Triggers: Story = {
         <VideoModalTrigger poster={poster} style={{ width: 320 }}>
           Watch “Light across the field”
         </VideoModalTrigger>
-        <Content />
+        {content()}
       </VideoModal>
       <VideoModal {...args}>
         <VideoModalTrigger asChild>
           <Button variant="secondary">Watch the clip</Button>
         </VideoModalTrigger>
-        <Content />
+        {content()}
       </VideoModal>
     </div>
   ),

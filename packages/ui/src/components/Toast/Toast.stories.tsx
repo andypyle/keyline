@@ -21,7 +21,9 @@ const toneCopy = {
 
 type ToastStoryArgs = ToastProps & { onUndo: () => void };
 
-function TonesStack(args: ToastStoryArgs) {
+// Called as a function, not rendered as <TonesStack>, so a story returns the Toasts themselves and
+// the docs' "Show code" snippet shows how they're composed rather than a helper component.
+function tonesStack(args: ToastStoryArgs) {
   const { onUndo: _onUndo, ...props } = args;
   return (
     <div style={stack}>
@@ -84,7 +86,7 @@ export const Default: Story = {
 };
 
 export const Tones: Story = {
-  render: (args) => <TonesStack {...args} />,
+  render: (args) => tonesStack(args),
   play: async ({ canvas, step }) => {
     await step("shows one toast per tone, each a status", async () => {
       await expect(canvas.getAllByRole("status")).toHaveLength(tones.length);
@@ -101,11 +103,10 @@ export const Tones: Story = {
 export const TonesDark: Story = {
   name: "Tones (dark)",
   globals: { theme: "dark" },
-  render: (args) => <TonesStack {...args} />,
+  render: (args) => tonesStack(args),
 };
 
 export const WithAction: Story = {
-  args: { tone: "neutral" },
   render: ({ onUndo, ...args }) => (
     <Toast {...args}>
       <ToastTitle>Page moved to trash</ToastTitle>
@@ -165,20 +166,21 @@ export const Dismissing: Story = {
 
 // Ends with no toast on screen: the timer closes it.
 export const AutoDismiss: Story = {
-  args: { tone: "success", duration: 400 },
+  args: { tone: "success", duration: 3000 },
   play: async ({ args, canvas, step }) => {
     const status = canvas.getByRole("status");
 
     await step("stays while the pointer is over it, past its duration", async () => {
       await userEvent.hover(status);
-      await new Promise((resolve) => setTimeout(resolve, 700));
+      await new Promise((resolve) => setTimeout(resolve, 3500));
       await expect(status).toBeInTheDocument();
       await expect(args.onOpenChange).not.toHaveBeenCalled();
     });
 
     await step("closes itself once the pointer leaves and its time runs out", async () => {
       await userEvent.unhover(status);
-      await waitFor(() => expect(canvas.queryByRole("status")).not.toBeInTheDocument());
+      // The timer resumes with the time left, nearly all of it, since the pointer arrived at once.
+      await waitFor(() => expect(canvas.queryByRole("status")).not.toBeInTheDocument(), { timeout: 4500 });
       await expect(args.onOpenChange).toHaveBeenCalledOnce();
       await expect(args.onOpenChange).toHaveBeenCalledWith(false);
     });
