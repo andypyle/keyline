@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useId } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
@@ -65,8 +64,10 @@ type SelectStoryArgs = SelectProps & {
   onFormSubmit: (data: Record<string, FormDataEntryValue>) => void;
 };
 
-function FruitSelect({ label = "Fruit", trigger, onFormSubmit: _, ...args }: Partial<SelectStoryArgs>) {
-  const id = useId();
+// Called as a function, not rendered as <FruitSelect>, so a story returns the Select itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component. The label's id
+// comes from the story's, so it stays unique when the docs page renders every story at once.
+function fruitSelect({ label = "Fruit", trigger, onFormSubmit: _, ...args }: Partial<SelectStoryArgs>, id: string) {
   return (
     <div style={field}>
       <label htmlFor={id}>{label}</label>
@@ -104,7 +105,7 @@ const meta = {
     trigger: { table: { disable: true } },
     onFormSubmit: { table: { disable: true } },
   },
-  render: (args) => <FruitSelect {...args} />,
+  render: (args, { id }) => fruitSelect(args, id),
 } satisfies Meta<SelectStoryArgs>;
 
 export default meta;
@@ -264,20 +265,20 @@ export const Keyboard: Story = {
 };
 
 export const Sizes: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <FruitSelect {...args} label="Small" trigger={{ size: "sm" }} />
-      <FruitSelect {...args} label="Medium" trigger={{ size: "md" }} />
-      <FruitSelect {...args} label="Large" trigger={{ size: "lg" }} />
+      {fruitSelect({ ...args, label: "Small", trigger: { size: "sm" } }, `${id}-small`)}
+      {fruitSelect({ ...args, label: "Medium", trigger: { size: "md" } }, `${id}-medium`)}
+      {fruitSelect({ ...args, label: "Large", trigger: { size: "lg" } }, `${id}-large`)}
     </div>
   ),
 };
 
 /** Pair `aria-invalid` with `aria-describedby` pointing at the message, so the error is announced with the field. */
 export const Invalid: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={field}>
-      <FruitSelect {...args} trigger={{ "aria-invalid": true, "aria-describedby": "fruit-error" }} />
+      {fruitSelect({ ...args, trigger: { "aria-invalid": true, "aria-describedby": "fruit-error" } }, id)}
       <span id="fruit-error" style={hint}>
         Pick a fruit to continue.
       </span>
@@ -313,7 +314,7 @@ export const Disabled: Story = {
 export const InForm: Story = {
   name: "In a form",
   args: { name: "fruit", required: true },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -321,7 +322,7 @@ export const InForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <FruitSelect {...args} />
+      {fruitSelect(args, id)}
       <div>
         <Button type="submit">Submit</Button>
       </div>
@@ -351,7 +352,7 @@ export const InForm: Story = {
 export const FormReset: Story = {
   name: "Form reset",
   args: { name: "fruit", defaultValue: "banana" },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -359,7 +360,7 @@ export const FormReset: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <FruitSelect {...args} />
+      {fruitSelect(args, id)}
       <div style={{ display: "flex", gap: 12 }}>
         <Button type="reset" variant="secondary">
           Reset
@@ -577,12 +578,12 @@ export const GroupsDark: Story = {
 /** Inside a Modal, Escape closes the open list first and leaves the Modal open. */
 export const InModal: Story = {
   name: "In a modal",
-  render: (args) => (
+  render: (args, { id }) => (
     <Modal>
       <ModalTrigger>Edit order</ModalTrigger>
       <ModalContent>
         <ModalTitle>Edit order</ModalTitle>
-        <FruitSelect {...args} />
+        {fruitSelect(args, id)}
       </ModalContent>
     </Modal>
   ),

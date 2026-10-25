@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useId } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
 import { dayOfWeek, formatDate, today } from "@/lib/calendar-date";
 import { Button } from "@/components/Button/Button";
@@ -30,8 +29,13 @@ type DatePickerStoryArgs = DatePickerProps & {
   onFormSubmit: (data: Record<string, FormDataEntryValue>) => void;
 };
 
-function DateField({ label = "Date", trigger, input: _input, onFormSubmit: _, ...args }: Partial<DatePickerStoryArgs>) {
-  const id = useId();
+// Called as functions, not rendered as <DateField>, so a story returns the DatePicker itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component. The label's id
+// comes from the story's, so it stays unique when the docs page renders every story at once.
+function dateField(
+  { label = "Date", trigger, input: _input, onFormSubmit: _, ...args }: Partial<DatePickerStoryArgs>,
+  id: string,
+) {
   return (
     <div style={field}>
       <label htmlFor={id}>{label}</label>
@@ -44,8 +48,10 @@ function DateField({ label = "Date", trigger, input: _input, onFormSubmit: _, ..
 }
 
 // The same field with a DatePickerInput, for typing the date.
-function DateInputField({ label = "Date", input, trigger: _trigger, onFormSubmit: _, ...args }: Partial<DatePickerStoryArgs>) {
-  const id = useId();
+function dateInputField(
+  { label = "Date", input, trigger: _trigger, onFormSubmit: _, ...args }: Partial<DatePickerStoryArgs>,
+  id: string,
+) {
   return (
     <div style={field}>
       <label htmlFor={id}>{label}</label>
@@ -87,7 +93,7 @@ const meta = {
     input: { table: { disable: true } },
     onFormSubmit: { table: { disable: true } },
   },
-  render: (args) => <DateField {...args} />,
+  render: (args, { id }) => dateField(args, id),
 } satisfies Meta<DatePickerStoryArgs>;
 
 export default meta;
@@ -381,20 +387,20 @@ export const DateFormat: Story = {
 
 export const Sizes: Story = {
   args: { defaultValue: "2026-03-14" },
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <DateField {...args} label="Small" trigger={{ size: "sm" }} />
-      <DateField {...args} label="Medium" trigger={{ size: "md" }} />
-      <DateField {...args} label="Large" trigger={{ size: "lg" }} />
+      {dateField({ ...args, label: "Small", trigger: { size: "sm" } }, `${id}-small`)}
+      {dateField({ ...args, label: "Medium", trigger: { size: "md" } }, `${id}-medium`)}
+      {dateField({ ...args, label: "Large", trigger: { size: "lg" } }, `${id}-large`)}
     </div>
   ),
 };
 
 /** Pair `aria-invalid` with `aria-describedby` pointing at the message, so the error is announced with the field. */
 export const Invalid: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={field}>
-      <DateField {...args} trigger={{ "aria-invalid": true, "aria-describedby": "date-error" }} />
+      {dateField({ ...args, trigger: { "aria-invalid": true, "aria-describedby": "date-error" } }, id)}
       <span id="date-error" style={hint}>
         Pick a date to continue.
       </span>
@@ -452,7 +458,7 @@ export const InField: Story = {
 export const InForm: Story = {
   name: "In a form",
   args: { name: "date", required: true },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -460,7 +466,7 @@ export const InForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <DateField {...args} />
+      {dateField(args, id)}
       <div>
         <Button type="submit">Submit</Button>
       </div>
@@ -490,7 +496,7 @@ export const InForm: Story = {
 export const FormReset: Story = {
   name: "Form reset",
   args: { name: "date", defaultValue: "2026-03-14" },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -498,7 +504,7 @@ export const FormReset: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <DateField {...args} />
+      {dateField(args, id)}
       <div style={{ display: "flex", gap: 12 }}>
         <Button type="reset" variant="secondary">
           Reset
@@ -525,12 +531,12 @@ export const FormReset: Story = {
 /** Inside a Modal, Escape closes the open calendar first and leaves the Modal open. */
 export const InModal: Story = {
   name: "In a modal",
-  render: (args) => (
+  render: (args, { id }) => (
     <Modal>
       <ModalTrigger>Book a visit</ModalTrigger>
       <ModalContent>
         <ModalTitle>Book a visit</ModalTitle>
-        <DateField {...args} />
+        {dateField(args, id)}
       </ModalContent>
     </Modal>
   ),
@@ -577,7 +583,7 @@ export const OpenDark: Story = {
  * date. What's typed takes effect when the field loses focus, or on Enter.
  */
 export const Typing: Story = {
-  render: (args) => <DateInputField {...args} />,
+  render: (args, { id }) => dateInputField(args, id),
   play: async ({ args, canvas, step }) => {
     const input = canvas.getByRole("textbox", { name: "Date" });
     const toggle = canvas.getByRole("button", { name: "Choose date" });
@@ -647,7 +653,7 @@ export const Typing: Story = {
 export const TypingOutOfRange: Story = {
   name: "Typing, out of range",
   args: { min: "2026-03-10", max: "2026-03-31" },
-  render: (args) => <DateInputField {...args} />,
+  render: (args, { id }) => dateInputField(args, id),
   play: async ({ args, canvas }) => {
     const input = canvas.getByRole("textbox", { name: "Date" });
     await userEvent.type(input, "03/05/2026");
@@ -667,7 +673,7 @@ export const TypingOutOfRange: Story = {
 export const TypingInForm: Story = {
   name: "Typing, in a form",
   args: { name: "date", required: true },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -675,7 +681,7 @@ export const TypingInForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <DateInputField {...args} />
+      {dateInputField(args, id)}
       <div>
         <Button type="submit">Submit</Button>
       </div>
@@ -709,9 +715,9 @@ export const TypingInForm: Story = {
 export const TypingFormReset: Story = {
   name: "Typing, form reset",
   args: { defaultValue: "2026-03-14" },
-  render: (args) => (
+  render: (args, { id }) => (
     <form style={stack}>
-      <DateInputField {...args} />
+      {dateInputField(args, id)}
       <div>
         <Button type="reset" variant="secondary">
           Reset
@@ -737,7 +743,7 @@ export const TypingFormReset: Story = {
 export const TypingLocale: Story = {
   name: "Typing, locale",
   args: { locale: "de-DE", label: "Datum" },
-  render: (args) => <DateInputField {...args} />,
+  render: (args, { id }) => dateInputField(args, id),
   play: async ({ args, canvas }) => {
     const input = canvas.getByRole("textbox", { name: "Datum" });
     await expect(input).toHaveAttribute("placeholder", "dd.mm.yyyy");
@@ -751,11 +757,11 @@ export const TypingLocale: Story = {
 export const TypingSizes: Story = {
   name: "Typing, sizes",
   args: { defaultValue: "2026-03-14" },
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <DateInputField {...args} label="Small" input={{ size: "sm" }} />
-      <DateInputField {...args} label="Medium" input={{ size: "md" }} />
-      <DateInputField {...args} label="Large" input={{ size: "lg" }} />
+      {dateInputField({ ...args, label: "Small", input: { size: "sm" } }, `${id}-small`)}
+      {dateInputField({ ...args, label: "Medium", input: { size: "md" } }, `${id}-medium`)}
+      {dateInputField({ ...args, label: "Large", input: { size: "lg" } }, `${id}-large`)}
     </div>
   ),
 };

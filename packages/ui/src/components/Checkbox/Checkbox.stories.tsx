@@ -67,41 +67,39 @@ export const Default: Story = {
 
 const TOPPINGS = ["Mushrooms", "Olives", "Peppers"];
 
-function SelectAll(args: CheckboxProps) {
-  const [checked, setChecked] = useState<string[]>(["Olives"]);
-  const all = checked.length === TOPPINGS.length;
-  return (
-    <div style={stack}>
-      <label style={option}>
-        <Checkbox
-          {...args}
-          checked={all}
-          indeterminate={checked.length > 0 && !all}
-          onChange={() => setChecked(all ? [] : TOPPINGS)}
-        />
-        All toppings
-      </label>
-      <div style={{ ...stack, paddingLeft: 30 }}>
-        {TOPPINGS.map((topping) => (
-          <label key={topping} style={option}>
-            <Checkbox
-              {...args}
-              checked={checked.includes(topping)}
-              onChange={(event) =>
-                setChecked((prev) => (event.target.checked ? [...prev, topping] : prev.filter((t) => t !== topping)))
-              }
-            />
-            {topping}
-          </label>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /** `indeterminate` shows a dash and is announced as "mixed", for a checkbox that stands for a set where only some are checked. */
 export const Indeterminate: Story = {
-  render: ({ onFormSubmit: _, ...args }) => <SelectAll {...args} />,
+  render: function Render({ onFormSubmit: _, ...args }) {
+    const [checked, setChecked] = useState<string[]>(["Olives"]);
+    const all = checked.length === TOPPINGS.length;
+    return (
+      <div style={stack}>
+        <label style={option}>
+          <Checkbox
+            {...args}
+            checked={all}
+            indeterminate={checked.length > 0 && !all}
+            onChange={() => setChecked(all ? [] : TOPPINGS)}
+          />
+          All toppings
+        </label>
+        <div style={{ ...stack, paddingLeft: 30 }}>
+          {TOPPINGS.map((topping) => (
+            <label key={topping} style={option}>
+              <Checkbox
+                {...args}
+                checked={checked.includes(topping)}
+                onChange={(event) =>
+                  setChecked((prev) => (event.target.checked ? [...prev, topping] : prev.filter((t) => t !== topping)))
+                }
+              />
+              {topping}
+            </label>
+          ))}
+        </div>
+      </div>
+    );
+  },
   play: async ({ canvas, step }) => {
     const all = canvas.getByRole("checkbox", { name: "All toppings" });
     const olives = canvas.getByRole("checkbox", { name: "Olives" });

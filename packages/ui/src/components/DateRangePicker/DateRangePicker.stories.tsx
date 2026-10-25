@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useId } from "react";
 import { expect, fn, userEvent, waitFor } from "storybook/test";
 import { dayOfWeek, formatDate, formatDateRange, today } from "@/lib/calendar-date";
 import { Button } from "@/components/Button/Button";
@@ -29,8 +28,13 @@ type DateRangePickerStoryArgs = DateRangePickerProps & {
   onFormSubmit: (data: Record<string, FormDataEntryValue>) => void;
 };
 
-function RangeField({ label = "Dates", trigger, input: _input, onFormSubmit: _, ...args }: Partial<DateRangePickerStoryArgs>) {
-  const id = useId();
+// Called as functions, not rendered as <RangeField>, so a story returns the DateRangePicker itself
+// and the docs' "Show code" snippet shows how it's composed rather than a helper component. The
+// label's id comes from the story's, so it stays unique when the docs page renders every story at once.
+function rangeField(
+  { label = "Dates", trigger, input: _input, onFormSubmit: _, ...args }: Partial<DateRangePickerStoryArgs>,
+  id: string,
+) {
   return (
     <div style={field}>
       <label htmlFor={id}>{label}</label>
@@ -44,8 +48,10 @@ function RangeField({ label = "Dates", trigger, input: _input, onFormSubmit: _, 
 
 // The same field with a DateRangePickerInput, for typing the dates. The visible label names the
 // group of fields; the fields are named "Start date" and "End date".
-function RangeInputField({ label = "Dates", input, trigger: _trigger, onFormSubmit: _, ...args }: Partial<DateRangePickerStoryArgs>) {
-  const labelId = useId();
+function rangeInputField(
+  { label = "Dates", input, trigger: _trigger, onFormSubmit: _, ...args }: Partial<DateRangePickerStoryArgs>,
+  labelId: string,
+) {
   return (
     <div style={field}>
       <span id={labelId}>{label}</span>
@@ -88,7 +94,7 @@ const meta = {
     input: { table: { disable: true } },
     onFormSubmit: { table: { disable: true } },
   },
-  render: (args) => <RangeField {...args} />,
+  render: (args, { id }) => rangeField(args, id),
 } satisfies Meta<DateRangePickerStoryArgs>;
 
 export default meta;
@@ -270,7 +276,7 @@ export const AcrossUnavailableDates: Story = {
 export const TypingUnavailableDates: Story = {
   name: "Typing, unavailable dates",
   args: { isDateUnavailable: isWeekend },
-  render: (args) => <RangeInputField {...args} />,
+  render: (args, { id }) => rangeInputField(args, id),
   play: async ({ args, canvas }) => {
     const start = canvas.getByRole("textbox", { name: "Start date" });
     const end = canvas.getByRole("textbox", { name: "End date" });
@@ -295,7 +301,7 @@ export const TypingUnavailableDates: Story = {
  * dates.
  */
 export const Typing: Story = {
-  render: (args) => <RangeInputField {...args} />,
+  render: (args, { id }) => rangeInputField(args, id),
   play: async ({ args, canvas, step }) => {
     const group = canvas.getByRole("group", { name: "Dates" });
     const start = canvas.getByRole("textbox", { name: "Start date" });
@@ -385,7 +391,7 @@ export const TypingInField: Story = {
 export const InForm: Story = {
   name: "In a form",
   args: { startName: "checkIn", endName: "checkOut", required: true },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -393,7 +399,7 @@ export const InForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <RangeField {...args} />
+      {rangeField(args, id)}
       <div>
         <Button type="submit">Submit</Button>
       </div>
@@ -423,7 +429,7 @@ export const InForm: Story = {
 export const TypingInForm: Story = {
   name: "Typing, in a form",
   args: { startName: "checkIn", endName: "checkOut", defaultValue: { start: "2026-03-10", end: "2026-03-14" } },
-  render: (args) => (
+  render: (args, { id }) => (
     <form
       style={stack}
       onSubmit={(event) => {
@@ -431,7 +437,7 @@ export const TypingInForm: Story = {
         args.onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <RangeInputField {...args} />
+      {rangeInputField(args, id)}
       <div style={{ display: "flex", gap: 12 }}>
         <Button type="reset" variant="secondary">
           Reset
@@ -465,24 +471,24 @@ export const TypingInForm: Story = {
 
 export const Sizes: Story = {
   args: { defaultValue: { start: "2026-03-10", end: "2026-03-14" } },
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <RangeField {...args} label="Small" trigger={{ size: "sm" }} />
-      <RangeInputField {...args} label="Small, typed" input={{ size: "sm" }} />
-      <RangeField {...args} label="Medium" trigger={{ size: "md" }} />
-      <RangeInputField {...args} label="Medium, typed" input={{ size: "md" }} />
-      <RangeField {...args} label="Large" trigger={{ size: "lg" }} />
-      <RangeInputField {...args} label="Large, typed" input={{ size: "lg" }} />
+      {rangeField({ ...args, label: "Small", trigger: { size: "sm" } }, `${id}-small`)}
+      {rangeInputField({ ...args, label: "Small, typed", input: { size: "sm" } }, `${id}-small-typed`)}
+      {rangeField({ ...args, label: "Medium", trigger: { size: "md" } }, `${id}-medium`)}
+      {rangeInputField({ ...args, label: "Medium, typed", input: { size: "md" } }, `${id}-medium-typed`)}
+      {rangeField({ ...args, label: "Large", trigger: { size: "lg" } }, `${id}-large`)}
+      {rangeInputField({ ...args, label: "Large, typed", input: { size: "lg" } }, `${id}-large-typed`)}
     </div>
   ),
 };
 
 export const Disabled: Story = {
   args: { disabled: true, defaultValue: { start: "2026-03-10", end: "2026-03-14" } },
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={stack}>
-      <RangeField {...args} />
-      <RangeInputField {...args} label="Typed" />
+      {rangeField(args, id)}
+      {rangeInputField({ ...args, label: "Typed" }, `${id}-typed`)}
     </div>
   ),
   play: async ({ args, canvas }) => {
@@ -498,12 +504,12 @@ export const Disabled: Story = {
 /** Inside a Modal, Escape closes the open calendar first and leaves the Modal open. */
 export const InModal: Story = {
   name: "In a modal",
-  render: (args) => (
+  render: (args, { id }) => (
     <Modal>
       <ModalTrigger>Book a stay</ModalTrigger>
       <ModalContent>
         <ModalTitle>Book a stay</ModalTitle>
-        <RangeField {...args} />
+        {rangeField(args, id)}
       </ModalContent>
     </Modal>
   ),
@@ -525,7 +531,7 @@ export const InModal: Story = {
 /** Open on a range, so axe checks the band and its ends in light mode. */
 export const Open: Story = {
   args: { defaultValue: { start: "2026-03-10", end: "2026-03-18" } },
-  render: (args) => <RangeInputField {...args} />,
+  render: (args, { id }) => rangeInputField(args, id),
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Choose dates" }));
     await expect(canvas.getByRole("dialog")).toBeInTheDocument();

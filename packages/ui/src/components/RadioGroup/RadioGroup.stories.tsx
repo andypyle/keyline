@@ -19,13 +19,16 @@ const SHIPPING = [
 
 type RadioGroupStoryArgs = RadioGroupProps & { onFormSubmit: (data: Record<string, FormDataEntryValue>) => void };
 
-function Shipping({ onFormSubmit: _, ...args }: Partial<RadioGroupStoryArgs>) {
+// Called as a function, not rendered as <Shipping>, so a story returns the RadioGroup itself and the
+// docs' "Show code" snippet shows how it's composed rather than a helper component. The label's id
+// comes from the story's, so it stays unique when the docs page renders every story at once.
+function shipping({ onFormSubmit: _, ...args }: Partial<RadioGroupStoryArgs>, labelId: string) {
   return (
     <div style={field}>
-      <span id="shipping-label" style={legend}>
+      <span id={labelId} style={legend}>
         Shipping
       </span>
-      <RadioGroup aria-labelledby="shipping-label" {...args}>
+      <RadioGroup aria-labelledby={labelId} {...args}>
         {SHIPPING.map((choice) => (
           <label key={choice.value} style={option}>
             <Radio value={choice.value} disabled={choice.disabled} />
@@ -52,7 +55,7 @@ const meta = {
     disabled: { control: "boolean" },
     onFormSubmit: { table: { disable: true } },
   },
-  render: (args) => <Shipping {...args} />,
+  render: (args, { id }) => shipping(args, id),
 } satisfies Meta<RadioGroupStoryArgs>;
 
 export default meta;
@@ -116,10 +119,10 @@ export const Horizontal: Story = {
 
 /** `size` sets every Radio's size. */
 export const Sizes: Story = {
-  render: (args) => (
+  render: (args, { id }) => (
     <div style={{ display: "grid", gap: 28 }}>
-      <Shipping {...args} size="sm" defaultValue="standard" />
-      <Shipping {...args} size="lg" defaultValue="standard" />
+      {shipping({ ...args, size: "sm", defaultValue: "standard" }, `${id}-sm`)}
+      {shipping({ ...args, size: "lg", defaultValue: "standard" }, `${id}-lg`)}
     </div>
   ),
 };
@@ -144,7 +147,7 @@ export const Disabled: Story = {
 export const InForm: Story = {
   name: "In a form",
   args: { name: "shipping", required: true },
-  render: ({ onFormSubmit, ...args }) => (
+  render: ({ onFormSubmit, ...args }, { id }) => (
     <form
       style={field}
       onSubmit={(event) => {
@@ -152,7 +155,7 @@ export const InForm: Story = {
         onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <Shipping {...args} />
+      {shipping(args, id)}
       <Button type="submit">Submit</Button>
     </form>
   ),
@@ -178,7 +181,7 @@ export const InForm: Story = {
 export const FormReset: Story = {
   name: "Form reset",
   args: { name: "shipping", defaultValue: "standard" },
-  render: ({ onFormSubmit, ...args }) => (
+  render: ({ onFormSubmit, ...args }, { id }) => (
     <form
       style={field}
       onSubmit={(event) => {
@@ -186,7 +189,7 @@ export const FormReset: Story = {
         onFormSubmit(Object.fromEntries(new FormData(event.currentTarget)));
       }}
     >
-      <Shipping {...args} />
+      {shipping(args, id)}
       <div style={{ display: "flex", gap: 12 }}>
         <Button type="reset" variant="secondary">
           Reset

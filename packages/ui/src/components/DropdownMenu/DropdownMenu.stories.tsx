@@ -32,9 +32,11 @@ type DropdownMenuStoryArgs = DropdownMenuProps & {
   onAction: (action: string) => void;
 };
 
-function ProjectMenu({ label = "Options", trigger, align, onAction, ...args }: DropdownMenuStoryArgs) {
+// Called as a function, not rendered as <ProjectMenu>, so a story returns the DropdownMenu itself and
+// the docs' "Show code" snippet shows how it's composed rather than a helper component.
+function projectMenu({ label = "Options", trigger, align, onAction, ...args }: DropdownMenuStoryArgs) {
   return (
-    <DropdownMenu {...args}>
+    <DropdownMenu key={label} {...args}>
       <DropdownMenuTrigger {...trigger}>{label}</DropdownMenuTrigger>
       <DropdownMenuContent align={align}>
         <DropdownMenuItem onClick={() => onAction("edit")}>
@@ -75,7 +77,7 @@ const meta = {
     align: { table: { disable: true } },
     onAction: { table: { disable: true } },
   },
-  render: (args) => <ProjectMenu {...args} />,
+  render: (args) => projectMenu(args),
 } satisfies Meta<DropdownMenuStoryArgs>;
 
 export default meta;
@@ -177,7 +179,7 @@ export const Variants: Story = {
   render: (args) => (
     <div style={row}>
       {(["primary", "secondary", "neutral", "inverse", "danger", "ghost"] as const).map((variant) => (
-        <ProjectMenu key={variant} {...args} label={variant[0]!.toUpperCase() + variant.slice(1)} trigger={{ variant }} />
+        projectMenu({ ...args, label: variant[0]!.toUpperCase() + variant.slice(1), trigger: { variant } })
       ))}
     </div>
   ),
@@ -200,9 +202,9 @@ export const VariantsDark: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div style={row}>
-      <ProjectMenu {...args} label="Small" trigger={{ size: "sm" }} />
-      <ProjectMenu {...args} label="Medium" trigger={{ size: "md" }} />
-      <ProjectMenu {...args} label="Large" trigger={{ size: "lg" }} />
+      {projectMenu({ ...args, label: "Small", trigger: { size: "sm" } })}
+      {projectMenu({ ...args, label: "Medium", trigger: { size: "md" } })}
+      {projectMenu({ ...args, label: "Large", trigger: { size: "lg" } })}
     </div>
   ),
 };
@@ -236,7 +238,7 @@ export const DarkSection: Story = {
   name: "Dark section",
   render: (args) => (
     <div data-theme="dark" style={{ padding: 16, background: "var(--kl-color-page)" }}>
-      <ProjectMenu {...args} />
+      {projectMenu(args)}
     </div>
   ),
   play: Open.play,
@@ -247,7 +249,7 @@ export const AlignEnd: Story = {
   args: { align: "end" },
   render: (args) => (
     <div style={{ display: "flex", justifyContent: "flex-end" }}>
-      <ProjectMenu {...args} />
+      {projectMenu(args)}
     </div>
   ),
   play: async ({ canvas }) => {

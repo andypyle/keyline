@@ -44,12 +44,38 @@ function Demo({ onUndo }: { onUndo: () => void }) {
   );
 }
 
+// Demo has to be a component, since useToast reads the Toaster above it, so the docs' "Show code"
+// snippet would only show <Demo />. Show the pattern instead, with the story's Toaster props.
+function usage(props: Partial<ToasterStoryArgs>) {
+  const attributes = Object.entries(props)
+    .filter(([name, value]) => value !== undefined && name !== "onUndo" && name !== "children")
+    .map(([name, value]) => (typeof value === "string" ? ` ${name}="${value}"` : ` ${name}={${value}}`))
+    .join("");
+  return `function PublishButton() {
+  const { toast } = useToast();
+  return (
+    <Button
+      onClick={() =>
+        toast({ title: "Changes published", description: "3 pages are live on the docs site.", tone: "success" })
+      }
+    >
+      Publish
+    </Button>
+  );
+}
+
+<Toaster${attributes}>
+  <PublishButton />
+</Toaster>`;
+}
+
 const meta = {
   title: "Overlays/Toaster",
   component: Toaster,
   tags: ["autodocs"],
   parameters: {
     design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=78-18" },
+    docs: { source: { transform: (_code: string, { args }: { args: Partial<ToasterStoryArgs> }) => usage(args) } },
   },
   args: { onUndo: fn() },
   argTypes: {
@@ -190,10 +216,11 @@ export const Keyboard: Story = {
 
 // Ends with no toasts on screen: the timer closes it.
 export const AutoDismiss: Story = {
-  args: { duration: 400 },
+  args: { duration: 3000 },
   play: async ({ canvas }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Publish" }));
-    await expect(canvas.getByRole("status")).toBeVisible();
-    await waitFor(() => expect(canvas.queryByRole("status")).not.toBeInTheDocument());
+    // Outside the test runner motion isn't reduced, and the toast slides in from transparent.
+    await waitFor(() => expect(canvas.getByRole("status")).toBeVisible());
+    await waitFor(() => expect(canvas.queryByRole("status")).not.toBeInTheDocument(), { timeout: 4500 });
   },
 };
