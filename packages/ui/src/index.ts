@@ -328,3 +328,33 @@ export type { ToasterContextValue } from "./lib/toaster-context";
 export type { ToasterProps, ToastOptions } from "./components/Toaster/Toaster.types";
 export { toasterVariants, toasterListVariants } from "./components/Toaster/Toaster.variants";
 export type { ToasterVariantProps } from "./components/Toaster/Toaster.variants";
+
+export { Table } from "./components/Table/Table";
+export type { TableProps } from "./components/Table/Table.types";
+export { tableContainerVariants, tableVariants } from "./components/Table/Table.variants";
+export type { TableVariantProps } from "./components/Table/Table.variants";
+
+export { TableCaption } from "./components/Table/parts/TableCaption";
+export type { TableCaptionProps } from "./components/Table/parts/TableCaption.types";
+
+export { TableHeader } from "./components/Table/parts/TableHeader";
+export type { TableHeaderProps } from "./components/Table/parts/TableHeader.types";
+
+export { TableBody } from "./components/Table/parts/TableBody";
+export type { TableBodyProps } from "./components/Table/parts/TableBody.types";
+
+export { TableFooter } from "./components/Table/parts/TableFooter";
+export type { TableFooterProps } from "./components/Table/parts/TableFooter.types";
+
+export { TableRow } from "./components/Table/parts/TableRow";
+export type { TableRowProps } from "./components/Table/parts/TableRow.types";
+
+export { TableHead } from "./components/Table/parts/TableHead";
+export type { TableHeadProps } from "./components/Table/parts/TableHead.types";
+export { tableHeadVariants } from "./components/Table/parts/TableHead.variants";
+export type { TableHeadVariantProps } from "./components/Table/parts/TableHead.variants";
+
+export { TableCell } from "./components/Table/parts/TableCell";
+export type { TableCellProps } from "./components/Table/parts/TableCell.types";
+export { tableCellVariants } from "./components/Table/parts/TableCell.variants";
+export type { TableCellVariantProps } from "./components/Table/parts/TableCell.variants";
