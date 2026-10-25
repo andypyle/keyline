@@ -2,6 +2,7 @@ import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useSta
 import { cn } from "@/lib/cn";
 import { mergeRefs } from "@/lib/merge-refs";
 import { ToasterContext } from "@/lib/toaster-context";
+import { useReflowAnimation } from "@/lib/use-reflow-animation";
 import { Toast } from "@/components/Toast/Toast";
 import { ToastAction } from "@/components/Toast/parts/ToastAction";
 import { ToastDescription } from "@/components/Toast/parts/ToastDescription";
@@ -98,6 +99,11 @@ export function Toaster({
     if (!region.matches(":popover-open")) region.showPopover();
   }, [hasItems, newest]);
 
+  // Toasts already shown glide aside for a new one, on the same timing as its slide-in (ease-bounce),
+  // and close up when one leaves.
+  const listRef = useRef<HTMLOListElement>(null);
+  useReflowAnimation(listRef, { duration: 320, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" });
+
   useEffect(() => {
     if (!hotkey) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -128,9 +134,9 @@ export function Toaster({
         {...props}
         ref={mergedRef}
       >
-        <ol data-slot="toaster-list" className={toasterListVariants({ position })}>
+        <ol ref={listRef} data-slot="toaster-list" className={toasterListVariants({ position })}>
           {items.map(({ id, options, open }) => (
-            <li key={id}>
+            <li key={id} data-reflow-id={id}>
               <Toast
                 tone={options.tone}
                 open={open}
