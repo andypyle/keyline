@@ -88,9 +88,8 @@ const meta = {
   title: "Overlays/Popover",
   component: Popover,
   tags: ["autodocs"],
-  // The component's page in the Figma file, for the toolbar's Figma link. Empty hides the link.
   parameters: {
-    design: { type: "figma", url: "" },
+    design: { type: "figma", url: "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline?node-id=169-19" },
   },
   args: { onOpenChange: fn(), onAction: fn() },
   argTypes: {
