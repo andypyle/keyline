@@ -147,6 +147,10 @@ export const KeyboardFocus: Story = {
     await expect(canvas.getByRole("tooltip")).toBeInTheDocument();
     await userEvent.tab();
     await expectHidden(trigger);
+
+    // Focused again, so the screenshot shows a tooltip shown by keyboard focus.
+    await userEvent.tab({ shift: true });
+    await expect(trigger).toHaveAttribute("data-state", "open");
   },
 };
 
@@ -336,8 +340,9 @@ export const InModal: Story = {
     </Modal>
   ),
   play: async ({ canvas, canvasElement }) => {
-    await userEvent.click(canvas.getByRole("button", { name: "Share project" }));
+    const modalTrigger = canvas.getByRole("button", { name: "Share project" });
     const dialog = canvasElement.querySelector("dialog")!;
+    await userEvent.click(modalTrigger);
     const trigger = canvas.getByRole("button", { name: "Copy link" });
     await userEvent.hover(trigger);
     await waitFor(() => expect(canvas.getByRole("tooltip")).toBeInTheDocument());
@@ -348,5 +353,12 @@ export const InModal: Story = {
 
     await userEvent.keyboard("{Escape}");
     await expect(dialog).not.toHaveAttribute("open");
+
+    // Reopened, so the screenshot shows the tooltip over the modal.
+    await userEvent.unhover(trigger);
+    await userEvent.click(modalTrigger);
+    await userEvent.hover(trigger);
+    await waitFor(() => expect(canvas.getByRole("tooltip")).toBeInTheDocument());
+    await expectPlaced(trigger, "top", "center");
   },
 };
