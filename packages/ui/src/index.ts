@@ -358,3 +358,21 @@ export { TableCell } from "./components/Table/parts/TableCell";
 export type { TableCellProps } from "./components/Table/parts/TableCell.types";
 export { tableCellVariants } from "./components/Table/parts/TableCell.variants";
 export type { TableCellVariantProps } from "./components/Table/parts/TableCell.variants";
+
+export { Accordion } from "./components/Accordion/Accordion";
+export type { AccordionProps } from "./components/Accordion/Accordion.types";
+export { accordionVariants } from "./components/Accordion/Accordion.variants";
+export type { AccordionVariantProps } from "./components/Accordion/Accordion.variants";
+
+export { AccordionItem } from "./components/Accordion/parts/AccordionItem";
+export type { AccordionItemProps } from "./components/Accordion/parts/AccordionItem.types";
+export { accordionItemVariants } from "./components/Accordion/parts/AccordionItem.variants";
+export type { AccordionItemVariantProps } from "./components/Accordion/parts/AccordionItem.variants";
+
+export { AccordionTrigger } from "./components/Accordion/parts/AccordionTrigger";
+export type { AccordionTriggerProps } from "./components/Accordion/parts/AccordionTrigger.types";
+export { accordionTriggerVariants, accordionTriggerIconVariants } from "./components/Accordion/parts/AccordionTrigger.variants";
+export type { AccordionTriggerVariantProps } from "./components/Accordion/parts/AccordionTrigger.variants";
+
+export { AccordionContent } from "./components/Accordion/parts/AccordionContent";
+export type { AccordionContentProps } from "./components/Accordion/parts/AccordionContent.types";
