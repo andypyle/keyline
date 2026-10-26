@@ -1,4 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import { placementCompoundVariants } from "@/lib/anchor-placement";
 
 // Shares DropdownMenuContent's look and motion: a manual popover in the top layer, so no overflow
 // or stacking context can clip it, tethered to the Popover by its anchor name. The browser hides
@@ -100,21 +101,7 @@ export const popoverContentVariants = cva(
         end: [],
       },
     },
-    // position-area takes both axes at once, so each side and alignment pairs up here.
-    compoundVariants: [
-      { side: "bottom", align: "start", class: ["kl:[position-area:block-end_span-inline-end]"] },
-      { side: "bottom", align: "center", class: ["kl:[position-area:block-end]"] },
-      { side: "bottom", align: "end", class: ["kl:[position-area:block-end_span-inline-start]"] },
-      { side: "top", align: "start", class: ["kl:[position-area:block-start_span-inline-end]"] },
-      { side: "top", align: "center", class: ["kl:[position-area:block-start]"] },
-      { side: "top", align: "end", class: ["kl:[position-area:block-start_span-inline-start]"] },
-      { side: "left", align: "start", class: ["kl:[position-area:inline-start_span-block-end]"] },
-      { side: "left", align: "center", class: ["kl:[position-area:inline-start]"] },
-      { side: "left", align: "end", class: ["kl:[position-area:inline-start_span-block-start]"] },
-      { side: "right", align: "start", class: ["kl:[position-area:inline-end_span-block-end]"] },
-      { side: "right", align: "center", class: ["kl:[position-area:inline-end]"] },
-      { side: "right", align: "end", class: ["kl:[position-area:inline-end_span-block-start]"] },
-    ],
+    compoundVariants: placementCompoundVariants,
     defaultVariants: {
       tone: "neutral",
       side: "bottom",

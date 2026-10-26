@@ -390,3 +390,14 @@ export type { PopoverContentVariantProps } from "./components/Popover/parts/Popo
 
 export { PopoverClose } from "./components/Popover/parts/PopoverClose";
 export type { PopoverCloseProps } from "./components/Popover/parts/PopoverClose.types";
+
+export { Tooltip } from "./components/Tooltip/Tooltip";
+export type { TooltipProps } from "./components/Tooltip/Tooltip.types";
+
+export { TooltipTrigger } from "./components/Tooltip/parts/TooltipTrigger";
+export type { TooltipTriggerProps } from "./components/Tooltip/parts/TooltipTrigger.types";
+
+export { TooltipContent } from "./components/Tooltip/parts/TooltipContent";
+export type { TooltipContentProps } from "./components/Tooltip/parts/TooltipContent.types";
+export { tooltipContentVariants } from "./components/Tooltip/parts/TooltipContent.variants";
+export type { TooltipContentVariantProps } from "./components/Tooltip/parts/TooltipContent.variants";

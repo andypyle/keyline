@@ -1,0 +1,5 @@
+---
+"@keyline/ui": minor
+---
+
+Add `Tooltip`, composed from `TooltipTrigger` and `TooltipContent`. The trigger is described by the tooltip's text (`aria-describedby`), so screen readers read it even while it's hidden; the content is `role="tooltip"`. It shows after the pointer rests on the trigger for `delay` (300ms by default; `0` shows it straight away), or straight away on keyboard focus, and follows WCAG 1.4.13: the pointer can move onto the tooltip without it closing, it stays while hovered or focused, and Escape hides it without closing an enclosing `Modal` or `Popover`. Pressing the trigger hides it, and touch never shows it. Only one tooltip shows at a time, and moving between triggers skips the delay. `TooltipTrigger` is a `Button`, or with `asChild` makes its one child the trigger, like a link. `TooltipContent` is a small label on the surface, with a line outline and hard offset shadow like the other overlays, in the top layer, tethered with CSS anchor positioning, with `side` (`top` by default) and `align` (`center` by default) like `PopoverContent`. `open`, `defaultOpen` and `onOpenChange` support controlled and uncontrolled use.
