@@ -401,3 +401,13 @@ export { TooltipContent } from "./components/Tooltip/parts/TooltipContent";
 export type { TooltipContentProps } from "./components/Tooltip/parts/TooltipContent.types";
 export { tooltipContentVariants } from "./components/Tooltip/parts/TooltipContent.variants";
 export type { TooltipContentVariantProps } from "./components/Tooltip/parts/TooltipContent.variants";
+
+export { Pagination } from "./components/Pagination/Pagination";
+export type { PaginationProps } from "./components/Pagination/Pagination.types";
+export {
+  paginationListVariants,
+  paginationItemVariants,
+  paginationEllipsisVariants,
+  paginationStepLabelVariants,
+} from "./components/Pagination/Pagination.variants";
+export type { PaginationItemVariantProps } from "./components/Pagination/Pagination.variants";
