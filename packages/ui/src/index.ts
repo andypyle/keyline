@@ -376,3 +376,17 @@ export type { AccordionTriggerVariantProps } from "./components/Accordion/parts/
 
 export { AccordionContent } from "./components/Accordion/parts/AccordionContent";
 export type { AccordionContentProps } from "./components/Accordion/parts/AccordionContent.types";
+
+export { Popover } from "./components/Popover/Popover";
+export type { PopoverProps } from "./components/Popover/Popover.types";
+
+export { PopoverTrigger } from "./components/Popover/parts/PopoverTrigger";
+export type { PopoverTriggerProps } from "./components/Popover/parts/PopoverTrigger.types";
+
+export { PopoverContent } from "./components/Popover/parts/PopoverContent";
+export type { PopoverContentProps } from "./components/Popover/parts/PopoverContent.types";
+export { popoverContentVariants, popoverBodyVariants } from "./components/Popover/parts/PopoverContent.variants";
+export type { PopoverContentVariantProps } from "./components/Popover/parts/PopoverContent.variants";
+
+export { PopoverClose } from "./components/Popover/parts/PopoverClose";
+export type { PopoverCloseProps } from "./components/Popover/parts/PopoverClose.types";
