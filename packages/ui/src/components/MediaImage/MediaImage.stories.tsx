@@ -72,7 +72,9 @@ export const Ratios: Story = {
       {(["auto", "1/1", "4/3", "16/9", "21/9", "3/4", "9/16"] as const).map((ratio) => (
         <figure key={ratio} style={{ margin: 0, width: ratio === "9/16" || ratio === "3/4" ? 160 : 240 }}>
           <MediaImage {...args} ratio={ratio} style={undefined} />
-          <figcaption style={{ marginTop: 8, fontFamily: "monospace" }}>{ratio}</figcaption>
+          {/* Keyline's bundled mono, not the generic `monospace`: which installed font that resolves
+              to varied between CI runs on the same image, which broke the screenshot comparison. */}
+          <figcaption style={{ marginTop: 8, fontFamily: "var(--kl-font-mono)", fontSize: 13 }}>{ratio}</figcaption>
         </figure>
       ))}
     </div>
