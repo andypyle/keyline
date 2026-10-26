@@ -1,0 +1,5 @@
+---
+"@keyline/ui": minor
+---
+
+Add `Popover`, composed from `PopoverTrigger`, `PopoverContent` and `PopoverClose`. The content is a non-modal dialog that can hold anything, form fields and links included, named by the trigger unless given its own `aria-label`. Opening moves focus to its first focusable element (or the panel itself); Escape closes it and returns focus to the trigger, and a click or focus moving outside closes it too. Inside a `Modal`, Escape closes only the popover. It opens in the top layer tethered to the trigger with CSS anchor positioning, on any `side` (`bottom` by default, flipping when there's no room) and lined up by `align` (`start`, `center` or `end`). `tone` takes Toast's status tones (`success`, `warning`, `danger`, `info`) as a colored outline on the usual surface, with the tone's icon before the content; `icon` swaps it, or `null` leaves it out. `PopoverTrigger` and `PopoverClose` are `Button`s, and calling `preventDefault()` in a `PopoverClose`'s `onClick` keeps the popover open. `open`, `defaultOpen` and `onOpenChange` support controlled and uncontrolled use.
