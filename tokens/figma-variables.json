@@ -1,0 +1,2003 @@
+{
+  "format": "token-parity/compact@1",
+  "colorProfile": "srgb",
+  "collections": [
+    {
+      "id": "2:106",
+      "name": "Dimension",
+      "modes": [
+        [
+          "2:3",
+          "Value"
+        ]
+      ],
+      "default": "2:3",
+      "variables": [
+        {
+          "id": "2:107",
+          "name": "spacing/0",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 0)",
+          "values": [
+            0
+          ]
+        },
+        {
+          "id": "2:108",
+          "name": "spacing/0-5",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 0.5)",
+          "values": [
+            2
+          ]
+        },
+        {
+          "id": "2:109",
+          "name": "spacing/1",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 1)",
+          "values": [
+            4
+          ]
+        },
+        {
+          "id": "2:110",
+          "name": "spacing/1-5",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 1.5)",
+          "values": [
+            6
+          ]
+        },
+        {
+          "id": "2:111",
+          "name": "spacing/2",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 2)",
+          "values": [
+            8
+          ]
+        },
+        {
+          "id": "2:112",
+          "name": "spacing/2-5",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 2.5)",
+          "values": [
+            10
+          ]
+        },
+        {
+          "id": "2:113",
+          "name": "spacing/3",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 3)",
+          "values": [
+            12
+          ]
+        },
+        {
+          "id": "2:114",
+          "name": "spacing/3-5",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 3.5)",
+          "values": [
+            14
+          ]
+        },
+        {
+          "id": "2:115",
+          "name": "spacing/4",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 4)",
+          "values": [
+            16
+          ]
+        },
+        {
+          "id": "2:116",
+          "name": "spacing/5",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 5)",
+          "values": [
+            20
+          ]
+        },
+        {
+          "id": "2:117",
+          "name": "spacing/6",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 6)",
+          "values": [
+            24
+          ]
+        },
+        {
+          "id": "2:118",
+          "name": "spacing/7",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 7)",
+          "values": [
+            28
+          ]
+        },
+        {
+          "id": "2:119",
+          "name": "spacing/8",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 8)",
+          "values": [
+            32
+          ]
+        },
+        {
+          "id": "2:120",
+          "name": "spacing/10",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 10)",
+          "values": [
+            40
+          ]
+        },
+        {
+          "id": "2:121",
+          "name": "spacing/12",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 12)",
+          "values": [
+            48
+          ]
+        },
+        {
+          "id": "2:122",
+          "name": "spacing/16",
+          "type": "FLOAT",
+          "scopes": [
+            "GAP"
+          ],
+          "code": "calc(var(--kl-spacing) * 16)",
+          "values": [
+            64
+          ]
+        },
+        {
+          "id": "2:123",
+          "name": "radius/sm",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "code": "var(--kl-radius-sm)",
+          "values": [
+            6
+          ]
+        },
+        {
+          "id": "2:124",
+          "name": "radius/md",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "code": "var(--kl-radius-md)",
+          "values": [
+            10
+          ]
+        },
+        {
+          "id": "2:125",
+          "name": "radius/lg",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "code": "var(--kl-radius-lg)",
+          "values": [
+            16
+          ]
+        },
+        {
+          "id": "2:126",
+          "name": "radius/xl",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "code": "var(--kl-radius-xl)",
+          "values": [
+            24
+          ]
+        },
+        {
+          "id": "2:127",
+          "name": "radius/full",
+          "type": "FLOAT",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "code": "calc(infinity * 1px)",
+          "values": [
+            9999
+          ]
+        },
+        {
+          "id": "2:128",
+          "name": "border/2",
+          "type": "FLOAT",
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "code": "2px",
+          "values": [
+            2
+          ]
+        },
+        {
+          "id": "2:129",
+          "name": "border/3",
+          "type": "FLOAT",
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "code": "3px",
+          "values": [
+            3
+          ]
+        },
+        {
+          "id": "2:130",
+          "name": "text/xs",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-xs)",
+          "values": [
+            12
+          ]
+        },
+        {
+          "id": "2:131",
+          "name": "text/sm",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-sm)",
+          "values": [
+            14
+          ]
+        },
+        {
+          "id": "2:132",
+          "name": "text/base",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-base)",
+          "values": [
+            16
+          ]
+        },
+        {
+          "id": "2:133",
+          "name": "text/lg",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-lg)",
+          "values": [
+            18
+          ]
+        },
+        {
+          "id": "2:134",
+          "name": "text/xl",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-xl)",
+          "values": [
+            20
+          ]
+        },
+        {
+          "id": "2:135",
+          "name": "text/2xl",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-2xl)",
+          "values": [
+            24
+          ]
+        },
+        {
+          "id": "2:136",
+          "name": "text/3xl",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-3xl)",
+          "values": [
+            30
+          ]
+        },
+        {
+          "id": "2:137",
+          "name": "text/4xl",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-4xl)",
+          "values": [
+            36
+          ]
+        },
+        {
+          "id": "2:138",
+          "name": "text/h4",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-h4)",
+          "values": [
+            22
+          ]
+        },
+        {
+          "id": "2:139",
+          "name": "text/h3",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-h3)",
+          "values": [
+            28
+          ]
+        },
+        {
+          "id": "2:140",
+          "name": "text/h2",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-h2)",
+          "values": [
+            38
+          ]
+        },
+        {
+          "id": "2:141",
+          "name": "text/h1",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-h1)",
+          "values": [
+            52
+          ]
+        },
+        {
+          "id": "2:142",
+          "name": "text/display",
+          "type": "FLOAT",
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "code": "var(--kl-text-display)",
+          "values": [
+            72
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2:2",
+      "name": "Primitives",
+      "modes": [
+        [
+          "2:0",
+          "Value"
+        ]
+      ],
+      "default": "2:0",
+      "variables": [
+        {
+          "id": "2:10",
+          "name": "slate/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-500)",
+          "values": [
+            [
+              0.3372549,
+              0.38039216,
+              0.41960785
+            ]
+          ]
+        },
+        {
+          "id": "2:11",
+          "name": "slate/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-700)",
+          "values": [
+            [
+              0.21176471,
+              0.24705882,
+              0.28235295
+            ]
+          ]
+        },
+        {
+          "id": "2:12",
+          "name": "ink/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-ink-900)",
+          "values": [
+            [
+              0.101960786,
+              0.12156863,
+              0.14117648
+            ]
+          ]
+        },
+        {
+          "id": "2:13",
+          "name": "sage/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-sage-100)",
+          "values": [
+            [
+              0.8745098,
+              0.91764706,
+              0.85882354
+            ]
+          ]
+        },
+        {
+          "id": "2:14",
+          "name": "sage/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-sage-300)",
+          "values": [
+            [
+              0.6784314,
+              0.7882353,
+              0.6313726
+            ]
+          ]
+        },
+        {
+          "id": "2:15",
+          "name": "sage/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-sage-500)",
+          "values": [
+            [
+              0.49803922,
+              0.64705884,
+              0.43529412
+            ]
+          ]
+        },
+        {
+          "id": "2:16",
+          "name": "sage/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-sage-700)",
+          "values": [
+            [
+              0.2901961,
+              0.43137255,
+              0.23921569
+            ]
+          ]
+        },
+        {
+          "id": "2:17",
+          "name": "mist/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-mist-100)",
+          "values": [
+            [
+              0.87058824,
+              0.8980392,
+              0.9254902
+            ]
+          ]
+        },
+        {
+          "id": "2:18",
+          "name": "mist/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-mist-300)",
+          "values": [
+            [
+              0.67058825,
+              0.7372549,
+              0.8039216
+            ]
+          ]
+        },
+        {
+          "id": "2:19",
+          "name": "mist/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-mist-500)",
+          "values": [
+            [
+              0.5568628,
+              0.6431373,
+              0.73333335
+            ]
+          ]
+        },
+        {
+          "id": "2:20",
+          "name": "mist/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-mist-700)",
+          "values": [
+            [
+              0.29803923,
+              0.38431373,
+              0.47843137
+            ]
+          ]
+        },
+        {
+          "id": "2:21",
+          "name": "moss/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-moss-100)",
+          "values": [
+            [
+              0.85490197,
+              0.9098039,
+              0.88235295
+            ]
+          ]
+        },
+        {
+          "id": "2:22",
+          "name": "moss/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-moss-300)",
+          "values": [
+            [
+              0.6117647,
+              0.7647059,
+              0.6901961
+            ]
+          ]
+        },
+        {
+          "id": "2:23",
+          "name": "moss/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-moss-500)",
+          "values": [
+            [
+              0.34117648,
+              0.56078434,
+              0.45882353
+            ]
+          ]
+        },
+        {
+          "id": "2:24",
+          "name": "moss/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-moss-700)",
+          "values": [
+            [
+              0.20784314,
+              0.38039216,
+              0.3019608
+            ]
+          ]
+        },
+        {
+          "id": "2:25",
+          "name": "lichen/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-lichen-100)",
+          "values": [
+            [
+              0.8862745,
+              0.9137255,
+              0.8666667
+            ]
+          ]
+        },
+        {
+          "id": "2:26",
+          "name": "lichen/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-lichen-300)",
+          "values": [
+            [
+              0.7372549,
+              0.79607844,
+              0.69803923
+            ]
+          ]
+        },
+        {
+          "id": "2:27",
+          "name": "lichen/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-lichen-500)",
+          "values": [
+            [
+              0.5529412,
+              0.6392157,
+              0.5137255
+            ]
+          ]
+        },
+        {
+          "id": "2:28",
+          "name": "dusk/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-dusk-100)",
+          "values": [
+            [
+              0.8666667,
+              0.8901961,
+              0.93333334
+            ]
+          ]
+        },
+        {
+          "id": "2:29",
+          "name": "dusk/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-dusk-300)",
+          "values": [
+            [
+              0.64705884,
+              0.7058824,
+              0.80784315
+            ]
+          ]
+        },
+        {
+          "id": "2:3",
+          "name": "white",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-white)",
+          "values": [
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "id": "2:30",
+          "name": "dusk/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-dusk-500)",
+          "values": [
+            [
+              0.3764706,
+              0.4509804,
+              0.5921569
+            ]
+          ]
+        },
+        {
+          "id": "2:31",
+          "name": "dusk/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-dusk-700)",
+          "values": [
+            [
+              0.24705882,
+              0.30588236,
+              0.42745098
+            ]
+          ]
+        },
+        {
+          "id": "2:32",
+          "name": "amber/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-amber-100)",
+          "values": [
+            [
+              0.9607843,
+              0.89411765,
+              0.7372549
+            ]
+          ]
+        },
+        {
+          "id": "2:33",
+          "name": "amber/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-amber-300)",
+          "values": [
+            [
+              0.92156863,
+              0.7607843,
+              0.4509804
+            ]
+          ]
+        },
+        {
+          "id": "2:34",
+          "name": "amber/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-amber-500)",
+          "values": [
+            [
+              0.8509804,
+              0.6313726,
+              0.23137255
+            ]
+          ]
+        },
+        {
+          "id": "2:35",
+          "name": "amber/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-amber-700)",
+          "values": [
+            [
+              0.5254902,
+              0.3529412,
+              0.039215688
+            ]
+          ]
+        },
+        {
+          "id": "2:36",
+          "name": "rust/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-rust-100)",
+          "values": [
+            [
+              0.9529412,
+              0.827451,
+              0.79607844
+            ]
+          ]
+        },
+        {
+          "id": "2:37",
+          "name": "rust/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-rust-300)",
+          "values": [
+            [
+              0.8784314,
+              0.5647059,
+              0.49411765
+            ]
+          ]
+        },
+        {
+          "id": "2:38",
+          "name": "rust/500",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-rust-500)",
+          "values": [
+            [
+              0.7019608,
+              0.22745098,
+              0.14117648
+            ]
+          ]
+        },
+        {
+          "id": "2:39",
+          "name": "rust/700",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-rust-700)",
+          "values": [
+            [
+              0.5411765,
+              0.16470589,
+              0.09411765
+            ]
+          ]
+        },
+        {
+          "id": "2:4",
+          "name": "black",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-black)",
+          "values": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "2:40",
+          "name": "sage/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-sage-900)",
+          "values": [
+            [
+              0.14509805,
+              0.19607843,
+              0.13333334
+            ]
+          ]
+        },
+        {
+          "id": "2:41",
+          "name": "mist/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-mist-900)",
+          "values": [
+            [
+              0.13333334,
+              0.17254902,
+              0.21568628
+            ]
+          ]
+        },
+        {
+          "id": "2:42",
+          "name": "moss/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-moss-900)",
+          "values": [
+            [
+              0.12156863,
+              0.1882353,
+              0.16078432
+            ]
+          ]
+        },
+        {
+          "id": "2:44",
+          "name": "dusk/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-dusk-900)",
+          "values": [
+            [
+              0.13725491,
+              0.16470589,
+              0.22745098
+            ]
+          ]
+        },
+        {
+          "id": "2:45",
+          "name": "amber/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-amber-900)",
+          "values": [
+            [
+              0.22745098,
+              0.18431373,
+              0.09019608
+            ]
+          ]
+        },
+        {
+          "id": "2:46",
+          "name": "rust/900",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-rust-900)",
+          "values": [
+            [
+              0.23921569,
+              0.12941177,
+              0.105882354
+            ]
+          ]
+        },
+        {
+          "id": "2:47",
+          "name": "ink/950",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-ink-950)",
+          "values": [
+            [
+              0.078431375,
+              0.09411765,
+              0.10980392
+            ]
+          ]
+        },
+        {
+          "id": "2:49",
+          "name": "slate/800",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-800)",
+          "values": [
+            [
+              0.14901961,
+              0.17254902,
+              0.19607843
+            ]
+          ]
+        },
+        {
+          "id": "2:5",
+          "name": "slate/50",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-50)",
+          "values": [
+            [
+              0.96862745,
+              0.972549,
+              0.9764706
+            ]
+          ]
+        },
+        {
+          "id": "2:6",
+          "name": "slate/100",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-100)",
+          "values": [
+            [
+              0.92941177,
+              0.9372549,
+              0.94509804
+            ]
+          ]
+        },
+        {
+          "id": "2:7",
+          "name": "slate/200",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-200)",
+          "values": [
+            [
+              0.8745098,
+              0.8901961,
+              0.90588236
+            ]
+          ]
+        },
+        {
+          "id": "2:8",
+          "name": "slate/300",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-300)",
+          "values": [
+            [
+              0.7647059,
+              0.7921569,
+              0.81960785
+            ]
+          ]
+        },
+        {
+          "id": "2:9",
+          "name": "slate/400",
+          "type": "COLOR",
+          "scopes": [],
+          "code": "var(--kl-color-slate-400)",
+          "values": [
+            [
+              0.5411765,
+              0.5803922,
+              0.61960787
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2:59",
+      "name": "Color",
+      "modes": [
+        [
+          "2:1",
+          "Light"
+        ],
+        [
+          "2:2",
+          "Dark"
+        ]
+      ],
+      "default": "2:1",
+      "variables": [
+        {
+          "id": "233:8041",
+          "name": "on-danger",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-on-danger)",
+          "values": [
+            {
+              "alias": "2:3"
+            },
+            {
+              "alias": "2:3"
+            }
+          ]
+        },
+        {
+          "id": "233:8042",
+          "name": "on-info",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-on-info)",
+          "values": [
+            {
+              "alias": "2:3"
+            },
+            {
+              "alias": "2:3"
+            }
+          ]
+        },
+        {
+          "id": "2:100",
+          "name": "danger-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-danger-hover)",
+          "values": [
+            {
+              "alias": "2:39"
+            },
+            {
+              "alias": "2:39"
+            }
+          ]
+        },
+        {
+          "id": "2:101",
+          "name": "danger-soft",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-danger-soft)",
+          "values": [
+            {
+              "alias": "2:36"
+            },
+            {
+              "alias": "2:46"
+            }
+          ]
+        },
+        {
+          "id": "2:102",
+          "name": "danger-text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-danger-text)",
+          "values": [
+            {
+              "alias": "2:38"
+            },
+            {
+              "alias": "2:37"
+            }
+          ]
+        },
+        {
+          "id": "2:103",
+          "name": "info",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-info)",
+          "values": [
+            {
+              "alias": "2:30"
+            },
+            {
+              "alias": "2:30"
+            }
+          ]
+        },
+        {
+          "id": "2:104",
+          "name": "info-soft",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-info-soft)",
+          "values": [
+            {
+              "alias": "2:28"
+            },
+            {
+              "alias": "2:44"
+            }
+          ]
+        },
+        {
+          "id": "2:105",
+          "name": "info-text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-info-text)",
+          "values": [
+            {
+              "alias": "2:31"
+            },
+            {
+              "alias": "2:29"
+            }
+          ]
+        },
+        {
+          "id": "2:60",
+          "name": "page",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-page)",
+          "values": [
+            {
+              "alias": "2:6"
+            },
+            {
+              "alias": "2:47"
+            }
+          ]
+        },
+        {
+          "id": "2:61",
+          "name": "surface",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-surface)",
+          "values": [
+            {
+              "alias": "2:5"
+            },
+            {
+              "alias": "2:12"
+            }
+          ]
+        },
+        {
+          "id": "2:62",
+          "name": "surface-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-surface-hover)",
+          "values": [
+            {
+              "alias": "2:17"
+            },
+            {
+              "alias": "2:41"
+            }
+          ]
+        },
+        {
+          "id": "2:63",
+          "name": "sunken",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-sunken)",
+          "values": [
+            {
+              "alias": "2:7"
+            },
+            {
+              "alias": "2:49"
+            }
+          ]
+        },
+        {
+          "id": "2:64",
+          "name": "inverse",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-inverse)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:6"
+            }
+          ]
+        },
+        {
+          "id": "2:65",
+          "name": "inverse-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-inverse-hover)",
+          "values": [
+            {
+              "alias": "2:11"
+            },
+            {
+              "alias": "2:8"
+            }
+          ]
+        },
+        {
+          "id": "2:66",
+          "name": "fg-1",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-fg-1)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:6"
+            }
+          ]
+        },
+        {
+          "id": "2:67",
+          "name": "fg-2",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-fg-2)",
+          "values": [
+            {
+              "alias": "2:11"
+            },
+            {
+              "alias": "2:8"
+            }
+          ]
+        },
+        {
+          "id": "2:68",
+          "name": "fg-3",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-fg-3)",
+          "values": [
+            {
+              "alias": "2:10"
+            },
+            {
+              "alias": "2:9"
+            }
+          ]
+        },
+        {
+          "id": "2:69",
+          "name": "fg-inverse",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-fg-inverse)",
+          "values": [
+            {
+              "alias": "2:5"
+            },
+            {
+              "alias": "2:47"
+            }
+          ]
+        },
+        {
+          "id": "2:70",
+          "name": "line",
+          "type": "COLOR",
+          "scopes": [
+            "EFFECT_COLOR",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-line)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:4"
+            }
+          ]
+        },
+        {
+          "id": "2:71",
+          "name": "on-fill",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-on-fill)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:12"
+            }
+          ]
+        },
+        {
+          "id": "2:72",
+          "name": "subtle",
+          "type": "COLOR",
+          "scopes": [
+            "EFFECT_COLOR",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-subtle)",
+          "values": [
+            {
+              "alias": "2:8"
+            },
+            {
+              "alias": "2:11"
+            }
+          ]
+        },
+        {
+          "id": "2:73",
+          "name": "accent",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-accent)",
+          "values": [
+            {
+              "alias": "2:15"
+            },
+            {
+              "alias": "2:15"
+            }
+          ]
+        },
+        {
+          "id": "2:74",
+          "name": "accent-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-accent-hover)",
+          "values": [
+            {
+              "alias": "2:14"
+            },
+            {
+              "alias": "2:14"
+            }
+          ]
+        },
+        {
+          "id": "2:75",
+          "name": "accent-strong",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-accent-strong)",
+          "values": [
+            {
+              "alias": "2:16"
+            },
+            {
+              "alias": "2:14"
+            }
+          ]
+        },
+        {
+          "id": "2:76",
+          "name": "accent-soft",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-accent-soft)",
+          "values": [
+            {
+              "alias": "2:13"
+            },
+            {
+              "alias": "2:40"
+            }
+          ]
+        },
+        {
+          "id": "2:77",
+          "name": "control",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-control)",
+          "values": [
+            {
+              "alias": "2:19"
+            },
+            {
+              "alias": "2:19"
+            }
+          ]
+        },
+        {
+          "id": "2:78",
+          "name": "control-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-control-hover)",
+          "values": [
+            {
+              "alias": "2:18"
+            },
+            {
+              "alias": "2:18"
+            }
+          ]
+        },
+        {
+          "id": "2:79",
+          "name": "on-control",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-on-control)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:12"
+            }
+          ]
+        },
+        {
+          "id": "2:80",
+          "name": "thumb",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-thumb)",
+          "values": [
+            {
+              "alias": "2:5"
+            },
+            {
+              "alias": "2:7"
+            }
+          ]
+        },
+        {
+          "id": "2:81",
+          "name": "thumb-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-thumb-hover)",
+          "values": [
+            {
+              "alias": "2:17"
+            },
+            {
+              "alias": "2:18"
+            }
+          ]
+        },
+        {
+          "id": "2:82",
+          "name": "neutral",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-neutral)",
+          "values": [
+            {
+              "alias": "2:11"
+            },
+            {
+              "alias": "2:11"
+            }
+          ]
+        },
+        {
+          "id": "2:83",
+          "name": "neutral-hover",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-neutral-hover)",
+          "values": [
+            {
+              "alias": "2:10"
+            },
+            {
+              "alias": "2:10"
+            }
+          ]
+        },
+        {
+          "id": "2:84",
+          "name": "on-neutral",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-on-neutral)",
+          "values": [
+            {
+              "alias": "2:5"
+            },
+            {
+              "alias": "2:5"
+            }
+          ]
+        },
+        {
+          "id": "2:85",
+          "name": "link",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-link)",
+          "values": [
+            {
+              "alias": "2:16"
+            },
+            {
+              "alias": "2:14"
+            }
+          ]
+        },
+        {
+          "id": "2:86",
+          "name": "link-hover",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-link-hover)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:6"
+            }
+          ]
+        },
+        {
+          "id": "2:87",
+          "name": "focus",
+          "type": "COLOR",
+          "scopes": [
+            "EFFECT_COLOR",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-focus)",
+          "values": [
+            {
+              "alias": "2:30"
+            },
+            {
+              "alias": "2:29"
+            }
+          ]
+        },
+        {
+          "id": "2:88",
+          "name": "selection",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-selection)",
+          "values": [
+            {
+              "alias": "2:18"
+            },
+            {
+              "alias": "2:19"
+            }
+          ]
+        },
+        {
+          "id": "2:89",
+          "name": "code",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-code)",
+          "values": [
+            {
+              "alias": "2:12"
+            },
+            {
+              "alias": "2:4"
+            }
+          ]
+        },
+        {
+          "id": "2:90",
+          "name": "code-fg",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-code-fg)",
+          "values": [
+            {
+              "alias": "2:6"
+            },
+            {
+              "alias": "2:7"
+            }
+          ]
+        },
+        {
+          "id": "2:91",
+          "name": "overlay",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-overlay)",
+          "values": [
+            [
+              0.101960786,
+              0.12156863,
+              0.14117648,
+              0.5019608
+            ],
+            [
+              0,
+              0,
+              0,
+              0.6
+            ]
+          ]
+        },
+        {
+          "id": "2:92",
+          "name": "success",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-success)",
+          "values": [
+            {
+              "alias": "2:23"
+            },
+            {
+              "alias": "2:23"
+            }
+          ]
+        },
+        {
+          "id": "2:93",
+          "name": "success-soft",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-success-soft)",
+          "values": [
+            {
+              "alias": "2:21"
+            },
+            {
+              "alias": "2:42"
+            }
+          ]
+        },
+        {
+          "id": "2:94",
+          "name": "success-fill",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-success-fill)",
+          "values": [
+            {
+              "alias": "2:22"
+            },
+            {
+              "alias": "2:22"
+            }
+          ]
+        },
+        {
+          "id": "2:95",
+          "name": "success-text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-success-text)",
+          "values": [
+            {
+              "alias": "2:24"
+            },
+            {
+              "alias": "2:22"
+            }
+          ]
+        },
+        {
+          "id": "2:96",
+          "name": "warning",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-warning)",
+          "values": [
+            {
+              "alias": "2:34"
+            },
+            {
+              "alias": "2:34"
+            }
+          ]
+        },
+        {
+          "id": "2:97",
+          "name": "warning-soft",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "code": "var(--kl-color-warning-soft)",
+          "values": [
+            {
+              "alias": "2:32"
+            },
+            {
+              "alias": "2:45"
+            }
+          ]
+        },
+        {
+          "id": "2:98",
+          "name": "warning-text",
+          "type": "COLOR",
+          "scopes": [
+            "SHAPE_FILL",
+            "STROKE_COLOR",
+            "TEXT_FILL"
+          ],
+          "code": "var(--kl-color-warning-text)",
+          "values": [
+            {
+              "alias": "2:35"
+            },
+            {
+              "alias": "2:33"
+            }
+          ]
+        },
+        {
+          "id": "2:99",
+          "name": "danger",
+          "type": "COLOR",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "code": "var(--kl-color-danger)",
+          "values": [
+            {
+              "alias": "2:38"
+            },
+            {
+              "alias": "2:38"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # Compares theme.css with the committed Figma export (tokens/). CI can't reach Figma, so this
+      # catches token edits in CSS that weren't synced to Figma.
+      - run: pnpm tokens:check
+
       - run: pnpm typecheck
 
       - run: pnpm test

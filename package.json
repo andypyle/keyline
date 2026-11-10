@@ -16,10 +16,12 @@
     "changeset": "changeset",
     "screenshots:update": "bash scripts/update-screenshots.sh",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=./packages/* && changeset publish"
+    "release": "turbo run build --filter=./packages/* && changeset publish",
+    "tokens:check": "token-parity check"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
+    "token-parity": "0.1.0",
     "turbo": "^2.11.9",
     "typescript": "^6.0.3"
   }

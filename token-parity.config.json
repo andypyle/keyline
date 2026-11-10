@@ -1,0 +1,26 @@
+{
+  "figmaFile": "https://www.figma.com/design/gVJvJJAOtJkcdeBHk61Ivb/Keyline",
+  "figma": "tokens/figma-variables.json",
+  "code": "packages/ui/src/styles/theme.css",
+  "lock": "tokens/tokens.lock.json",
+  "resolutions": "tokens/token-parity.resolutions.json",
+  "prefix": "kl",
+  "ignore": [
+    "animate-*",
+    "dur",
+    "dur-*",
+    "ease-*",
+    "shadow-*",
+    "font-*",
+    "leading-*",
+    "tracking-*",
+    "container-*",
+    "breakpoint-*",
+    "spacing",
+    "text-body",
+    "text-prose",
+    "border-2",
+    "border-3",
+    "radius-full"
+  ]
+}
