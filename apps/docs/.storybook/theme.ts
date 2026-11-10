@@ -55,26 +55,26 @@ export const darkTheme = create({
   colorSecondary: "#4a6e3d", // sage-700: keeps white text readable on the selected sidebar item
 
   appBg: "#14181c", // page
-  appContentBg: "#1d2227", // surface
+  appContentBg: "#1a1f24", // surface
   appPreviewBg: "#14181c", // page
   appHoverBg: "#222c37", // surface-hover
-  appBorderColor: "#353d45", // subtle
+  appBorderColor: "#363f48", // subtle
 
-  textColor: "#e9edf0", // fg-1
+  textColor: "#edeff1", // fg-1
   textInverseColor: "#14181c", // fg-inverse
-  textMutedColor: "#8d97a1", // fg-3
+  textMutedColor: "#8a949e", // fg-3
 
-  barBg: "#1d2227", // surface
-  barTextColor: "#8d97a1", // fg-3
+  barBg: "#1a1f24", // surface
+  barTextColor: "#8a949e", // fg-3
   barHoverColor: "#adc9a1", // sage-300
   barSelectedColor: "#adc9a1", // sage-300
 
   buttonBg: "#262c32", // sunken
-  buttonBorder: "#353d45",
+  buttonBorder: "#363f48",
   booleanBg: "#14181c",
   booleanSelectedBg: "#262c32",
 
   inputBg: "#14181c",
-  inputBorder: "#353d45",
-  inputTextColor: "#e9edf0",
+  inputBorder: "#363f48",
+  inputTextColor: "#edeff1",
 });
