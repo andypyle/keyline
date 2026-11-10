@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "resolutions": {
+    "color-on-control:default": "figma",
+    "color-on-control:dark": "figma",
+    "color-overlay:default": "code",
+    "color-overlay:dark": "code"
+  }
+}

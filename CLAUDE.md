@@ -96,6 +96,7 @@ Every story is also checked with axe (`@storybook/addon-a11y`), and violations f
 - Every Tailwind utility uses the `kl:` prefix (`kl:bg-surface`, `kl:px-3`). Unprefixed utilities aren't generated.
 - Use the semantic tokens (`surface`, `fg-1`, `line`, `inverse`, …) in components, not the raw palette (`slate-200`, `sage-500`); dark mode works by swapping the semantic tokens.
 - Tokens live in `packages/ui/src/styles/theme.css`. A token that references another token must use the prefixed name, `var(--kl-color-ink-900)`, because Tailwind doesn't rewrite `var()` references.
+- Tokens are kept in parity with the Figma file's variables by token-parity (`token-parity.config.json`, state in `tokens/`). After changing a token in `theme.css`, sync it to Figma; `pnpm tokens:check` runs in CI and fails on drift against the committed export.
 - Visual language: outlines in `line` (2px, or 3px on larger controls), hard offset shadows with no blur.
 
 ### Class lists

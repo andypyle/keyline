@@ -1,0 +1,2680 @@
+{
+  "version": 1,
+  "figmaColorProfile": "srgb",
+  "tokens": {
+    "color-accent": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.6797987 0.08733115 136.686659)",
+          "figmaRgb": {
+            "r": 0.49803922,
+            "g": 0.64705884,
+            "b": 0.43529412,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-500",
+          "codeAlias": "color-sage-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.6797987 0.08733115 136.686659)",
+          "figmaRgb": {
+            "r": 0.49803922,
+            "g": 0.64705884,
+            "b": 0.43529412,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-500",
+          "codeAlias": "color-sage-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:73",
+        "name": "accent"
+      }
+    },
+    "color-accent-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.80438488 0.06282993 136.328001)",
+          "figmaRgb": {
+            "r": 0.6784314,
+            "g": 0.7882353,
+            "b": 0.6313726,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-300",
+          "codeAlias": "color-sage-300"
+        },
+        "dark": {
+          "oklch": "oklch(0.80438488 0.06282993 136.328001)",
+          "figmaRgb": {
+            "r": 0.6784314,
+            "g": 0.7882353,
+            "b": 0.6313726,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-300",
+          "codeAlias": "color-sage-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:74",
+        "name": "accent-hover"
+      }
+    },
+    "color-accent-soft": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.92462031 0.02319192 137.248706)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.91764706,
+            "b": 0.85882354,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-100",
+          "codeAlias": "color-sage-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.29998124 0.03321859 139.79483)",
+          "figmaRgb": {
+            "r": 0.14509805,
+            "g": 0.19607843,
+            "b": 0.13333334,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-900",
+          "codeAlias": "color-sage-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:76",
+        "name": "accent-soft"
+      }
+    },
+    "color-accent-strong": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.49787962 0.08501411 137.795284)",
+          "figmaRgb": {
+            "r": 0.2901961,
+            "g": 0.43137255,
+            "b": 0.23921569,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-700",
+          "codeAlias": "color-sage-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.80438488 0.06282993 136.328001)",
+          "figmaRgb": {
+            "r": 0.6784314,
+            "g": 0.7882353,
+            "b": 0.6313726,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-300",
+          "codeAlias": "color-sage-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:75",
+        "name": "accent-strong"
+      }
+    },
+    "color-amber-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.92254934 0.05539693 87.717342)",
+          "figmaRgb": {
+            "r": 0.9607843,
+            "g": 0.89411765,
+            "b": 0.7372549,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:32",
+        "name": "amber/100"
+      }
+    },
+    "color-amber-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.83339731 0.10834936 82.690966)",
+          "figmaRgb": {
+            "r": 0.92156863,
+            "g": 0.7607843,
+            "b": 0.4509804,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:33",
+        "name": "amber/300"
+      }
+    },
+    "color-amber-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.74434445 0.13257144 78.740643)",
+          "figmaRgb": {
+            "r": 0.8509804,
+            "g": 0.6313726,
+            "b": 0.23137255,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:34",
+        "name": "amber/500"
+      }
+    },
+    "color-amber-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.50303112 0.10268989 74.683201)",
+          "figmaRgb": {
+            "r": 0.5254902,
+            "g": 0.3529412,
+            "b": 0.039215688,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:35",
+        "name": "amber/700"
+      }
+    },
+    "color-amber-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.3110247 0.04108311 85.397743)",
+          "figmaRgb": {
+            "r": 0.22745098,
+            "g": 0.18431373,
+            "b": 0.09019608,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:45",
+        "name": "amber/900"
+      }
+    },
+    "color-black": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0 0 none)",
+          "figmaRgb": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:4",
+        "name": "black"
+      }
+    },
+    "color-code": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0 0 none)",
+          "figmaRgb": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "figmaAlias": "color-black",
+          "codeAlias": "color-black"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:89",
+        "name": "code"
+      }
+    },
+    "color-code-fg": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-100",
+          "codeAlias": "color-slate-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.91391666 0.00695334 247.901205)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.8901961,
+            "b": 0.90588236,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-200",
+          "codeAlias": "color-slate-200"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:90",
+        "name": "code-fg"
+      }
+    },
+    "color-control": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.70956312 0.04180715 249.583087)",
+          "figmaRgb": {
+            "r": 0.5568628,
+            "g": 0.6431373,
+            "b": 0.73333335,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-500",
+          "codeAlias": "color-mist-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.70956312 0.04180715 249.583087)",
+          "figmaRgb": {
+            "r": 0.5568628,
+            "g": 0.6431373,
+            "b": 0.73333335,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-500",
+          "codeAlias": "color-mist-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:77",
+        "name": "control"
+      }
+    },
+    "color-control-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.78758964 0.03063855 248.216287)",
+          "figmaRgb": {
+            "r": 0.67058825,
+            "g": 0.7372549,
+            "b": 0.8039216,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-300",
+          "codeAlias": "color-mist-300"
+        },
+        "dark": {
+          "oklch": "oklch(0.78758964 0.03063855 248.216287)",
+          "figmaRgb": {
+            "r": 0.67058825,
+            "g": 0.7372549,
+            "b": 0.8039216,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-300",
+          "codeAlias": "color-mist-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:78",
+        "name": "control-hover"
+      }
+    },
+    "color-danger": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.52145377 0.16080944 32.555443)",
+          "figmaRgb": {
+            "r": 0.7019608,
+            "g": 0.22745098,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-500",
+          "codeAlias": "color-rust-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.52145377 0.16080944 32.555443)",
+          "figmaRgb": {
+            "r": 0.7019608,
+            "g": 0.22745098,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-500",
+          "codeAlias": "color-rust-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:99",
+        "name": "danger"
+      }
+    },
+    "color-danger-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.42979584 0.13378309 32.761842)",
+          "figmaRgb": {
+            "r": 0.5411765,
+            "g": 0.16470589,
+            "b": 0.09411765,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-700",
+          "codeAlias": "color-rust-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.42979584 0.13378309 32.761842)",
+          "figmaRgb": {
+            "r": 0.5411765,
+            "g": 0.16470589,
+            "b": 0.09411765,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-700",
+          "codeAlias": "color-rust-700"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:100",
+        "name": "danger-hover"
+      }
+    },
+    "color-danger-soft": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.89147248 0.03765643 34.317849)",
+          "figmaRgb": {
+            "r": 0.9529412,
+            "g": 0.827451,
+            "b": 0.79607844,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-100",
+          "codeAlias": "color-rust-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.28325883 0.04498966 32.913326)",
+          "figmaRgb": {
+            "r": 0.23921569,
+            "g": 0.12941177,
+            "b": 0.105882354,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-900",
+          "codeAlias": "color-rust-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:101",
+        "name": "danger-soft"
+      }
+    },
+    "color-danger-text": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.52145377 0.16080944 32.555443)",
+          "figmaRgb": {
+            "r": 0.7019608,
+            "g": 0.22745098,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-500",
+          "codeAlias": "color-rust-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.73054354 0.10144352 33.343863)",
+          "figmaRgb": {
+            "r": 0.8784314,
+            "g": 0.5647059,
+            "b": 0.49411765,
+            "a": 1
+          },
+          "figmaAlias": "color-rust-300",
+          "codeAlias": "color-rust-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:102",
+        "name": "danger-text"
+      }
+    },
+    "color-dusk-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91449028 0.01630428 262.750264)",
+          "figmaRgb": {
+            "r": 0.8666667,
+            "g": 0.8901961,
+            "b": 0.93333334,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:28",
+        "name": "dusk/100"
+      }
+    },
+    "color-dusk-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.76687065 0.04088653 261.485107)",
+          "figmaRgb": {
+            "r": 0.64705884,
+            "g": 0.7058824,
+            "b": 0.80784315,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:29",
+        "name": "dusk/300"
+      }
+    },
+    "color-dusk-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.55440678 0.06076714 262.915384)",
+          "figmaRgb": {
+            "r": 0.3764706,
+            "g": 0.4509804,
+            "b": 0.5921569,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:30",
+        "name": "dusk/500"
+      }
+    },
+    "color-dusk-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.42465382 0.0553137 264.2723)",
+          "figmaRgb": {
+            "r": 0.24705882,
+            "g": 0.30588236,
+            "b": 0.42745098,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:31",
+        "name": "dusk/700"
+      }
+    },
+    "color-dusk-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.28570573 0.03116457 266.140158)",
+          "figmaRgb": {
+            "r": 0.13725491,
+            "g": 0.16470589,
+            "b": 0.22745098,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:44",
+        "name": "dusk/900"
+      }
+    },
+    "color-fg-1": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-100",
+          "codeAlias": "color-slate-100"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:66",
+        "name": "fg-1"
+      }
+    },
+    "color-fg-2": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-700",
+          "codeAlias": "color-slate-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.83566358 0.01244358 247.976226)",
+          "figmaRgb": {
+            "r": 0.7647059,
+            "g": 0.7921569,
+            "b": 0.81960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-300",
+          "codeAlias": "color-slate-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:67",
+        "name": "fg-2"
+      }
+    },
+    "color-fg-3": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.4867855 0.02108855 245.678224)",
+          "figmaRgb": {
+            "r": 0.3372549,
+            "g": 0.38039216,
+            "b": 0.41960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-500",
+          "codeAlias": "color-slate-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.6616906 0.01883705 248.11281)",
+          "figmaRgb": {
+            "r": 0.5411765,
+            "g": 0.5803922,
+            "b": 0.61960787,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-400",
+          "codeAlias": "color-slate-400"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:68",
+        "name": "fg-3"
+      }
+    },
+    "color-fg-inverse": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-50",
+          "codeAlias": "color-slate-50"
+        },
+        "dark": {
+          "oklch": "oklch(0.20660967 0.01006444 248.313572)",
+          "figmaRgb": {
+            "r": 0.078431375,
+            "g": 0.09411765,
+            "b": 0.10980392,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-950",
+          "codeAlias": "color-ink-950"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:69",
+        "name": "fg-inverse"
+      }
+    },
+    "color-focus": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.55440678 0.06076714 262.915384)",
+          "figmaRgb": {
+            "r": 0.3764706,
+            "g": 0.4509804,
+            "b": 0.5921569,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-500",
+          "codeAlias": "color-dusk-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.76687065 0.04088653 261.485107)",
+          "figmaRgb": {
+            "r": 0.64705884,
+            "g": 0.7058824,
+            "b": 0.80784315,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-300",
+          "codeAlias": "color-dusk-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:87",
+        "name": "focus"
+      }
+    },
+    "color-info": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.55440678 0.06076714 262.915384)",
+          "figmaRgb": {
+            "r": 0.3764706,
+            "g": 0.4509804,
+            "b": 0.5921569,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-500",
+          "codeAlias": "color-dusk-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.55440678 0.06076714 262.915384)",
+          "figmaRgb": {
+            "r": 0.3764706,
+            "g": 0.4509804,
+            "b": 0.5921569,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-500",
+          "codeAlias": "color-dusk-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:103",
+        "name": "info"
+      }
+    },
+    "color-info-soft": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91449028 0.01630428 262.750264)",
+          "figmaRgb": {
+            "r": 0.8666667,
+            "g": 0.8901961,
+            "b": 0.93333334,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-100",
+          "codeAlias": "color-dusk-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.28570573 0.03116457 266.140158)",
+          "figmaRgb": {
+            "r": 0.13725491,
+            "g": 0.16470589,
+            "b": 0.22745098,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-900",
+          "codeAlias": "color-dusk-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:104",
+        "name": "info-soft"
+      }
+    },
+    "color-info-text": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.42465382 0.0553137 264.2723)",
+          "figmaRgb": {
+            "r": 0.24705882,
+            "g": 0.30588236,
+            "b": 0.42745098,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-700",
+          "codeAlias": "color-dusk-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.76687065 0.04088653 261.485107)",
+          "figmaRgb": {
+            "r": 0.64705884,
+            "g": 0.7058824,
+            "b": 0.80784315,
+            "a": 1
+          },
+          "figmaAlias": "color-dusk-300",
+          "codeAlias": "color-dusk-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:105",
+        "name": "info-text"
+      }
+    },
+    "color-ink-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:12",
+        "name": "ink/900"
+      }
+    },
+    "color-ink-950": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.20660967 0.01006444 248.313572)",
+          "figmaRgb": {
+            "r": 0.078431375,
+            "g": 0.09411765,
+            "b": 0.10980392,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:47",
+        "name": "ink/950"
+      }
+    },
+    "color-inverse": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-100",
+          "codeAlias": "color-slate-100"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:64",
+        "name": "inverse"
+      }
+    },
+    "color-inverse-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-700",
+          "codeAlias": "color-slate-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.83566358 0.01244358 247.976226)",
+          "figmaRgb": {
+            "r": 0.7647059,
+            "g": 0.7921569,
+            "b": 0.81960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-300",
+          "codeAlias": "color-slate-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:65",
+        "name": "inverse-hover"
+      }
+    },
+    "color-lichen-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.92538302 0.01765981 131.880981)",
+          "figmaRgb": {
+            "r": 0.8862745,
+            "g": 0.9137255,
+            "b": 0.8666667,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:25",
+        "name": "lichen/100"
+      }
+    },
+    "color-lichen-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.82375719 0.03795837 132.713042)",
+          "figmaRgb": {
+            "r": 0.7372549,
+            "g": 0.79607844,
+            "b": 0.69803923,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:26",
+        "name": "lichen/300"
+      }
+    },
+    "color-lichen-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.6894961 0.05203963 135.909974)",
+          "figmaRgb": {
+            "r": 0.5529412,
+            "g": 0.6392157,
+            "b": 0.5137255,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:27",
+        "name": "lichen/500"
+      }
+    },
+    "color-line": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0 0 none)",
+          "figmaRgb": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "figmaAlias": "color-black",
+          "codeAlias": "color-black"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:70",
+        "name": "line"
+      }
+    },
+    "color-link": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.49787962 0.08501411 137.795284)",
+          "figmaRgb": {
+            "r": 0.2901961,
+            "g": 0.43137255,
+            "b": 0.23921569,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-700",
+          "codeAlias": "color-sage-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.80438488 0.06282993 136.328001)",
+          "figmaRgb": {
+            "r": 0.6784314,
+            "g": 0.7882353,
+            "b": 0.6313726,
+            "a": 1
+          },
+          "figmaAlias": "color-sage-300",
+          "codeAlias": "color-sage-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:85",
+        "name": "link"
+      }
+    },
+    "color-link-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-100",
+          "codeAlias": "color-slate-100"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:86",
+        "name": "link-hover"
+      }
+    },
+    "color-mist-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.9186171 0.0121528 247.959248)",
+          "figmaRgb": {
+            "r": 0.87058824,
+            "g": 0.8980392,
+            "b": 0.9254902,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:17",
+        "name": "mist/100"
+      }
+    },
+    "color-mist-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.78758964 0.03063855 248.216287)",
+          "figmaRgb": {
+            "r": 0.67058825,
+            "g": 0.7372549,
+            "b": 0.8039216,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:18",
+        "name": "mist/300"
+      }
+    },
+    "color-mist-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.70956312 0.04180715 249.583087)",
+          "figmaRgb": {
+            "r": 0.5568628,
+            "g": 0.6431373,
+            "b": 0.73333335,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:19",
+        "name": "mist/500"
+      }
+    },
+    "color-mist-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.48790199 0.04702865 250.990276)",
+          "figmaRgb": {
+            "r": 0.29803923,
+            "g": 0.38431373,
+            "b": 0.47843137,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:20",
+        "name": "mist/700"
+      }
+    },
+    "color-mist-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.28865814 0.02455591 251.102183)",
+          "figmaRgb": {
+            "r": 0.13333334,
+            "g": 0.17254902,
+            "b": 0.21568628,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:41",
+        "name": "mist/900"
+      }
+    },
+    "color-moss-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91851892 0.01760873 164.63171)",
+          "figmaRgb": {
+            "r": 0.85490197,
+            "g": 0.9098039,
+            "b": 0.88235295,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:21",
+        "name": "moss/100"
+      }
+    },
+    "color-moss-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.7834332 0.04961389 164.000975)",
+          "figmaRgb": {
+            "r": 0.6117647,
+            "g": 0.7647059,
+            "b": 0.6901961,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:22",
+        "name": "moss/300"
+      }
+    },
+    "color-moss-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.60342841 0.07190614 163.178959)",
+          "figmaRgb": {
+            "r": 0.34117648,
+            "g": 0.56078434,
+            "b": 0.45882353,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:23",
+        "name": "moss/500"
+      }
+    },
+    "color-moss-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.45437416 0.05951931 163.164056)",
+          "figmaRgb": {
+            "r": 0.20784314,
+            "g": 0.38039216,
+            "b": 0.3019608,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:24",
+        "name": "moss/700"
+      }
+    },
+    "color-moss-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.29167055 0.02593377 167.101124)",
+          "figmaRgb": {
+            "r": 0.12156863,
+            "g": 0.1882353,
+            "b": 0.16078432,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:42",
+        "name": "moss/900"
+      }
+    },
+    "color-neutral": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-700",
+          "codeAlias": "color-slate-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-700",
+          "codeAlias": "color-slate-700"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:82",
+        "name": "neutral"
+      }
+    },
+    "color-neutral-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.4867855 0.02108855 245.678224)",
+          "figmaRgb": {
+            "r": 0.3372549,
+            "g": 0.38039216,
+            "b": 0.41960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-500",
+          "codeAlias": "color-slate-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.4867855 0.02108855 245.678224)",
+          "figmaRgb": {
+            "r": 0.3372549,
+            "g": 0.38039216,
+            "b": 0.41960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-500",
+          "codeAlias": "color-slate-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:83",
+        "name": "neutral-hover"
+      }
+    },
+    "color-on-control": {
+      "type": "color",
+      "modes": {
+        "dark": {
+          "alias": "color-ink-900"
+        },
+        "default": {
+          "alias": "color-ink-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:79",
+        "name": "on-control"
+      }
+    },
+    "color-on-danger": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(1 0 none)",
+          "figmaRgb": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "figmaAlias": "color-white",
+          "codeAlias": "color-white"
+        },
+        "dark": {
+          "oklch": "oklch(1 0 none)",
+          "figmaRgb": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "figmaAlias": "color-white",
+          "codeAlias": "color-white"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:233:8041",
+        "name": "on-danger"
+      }
+    },
+    "color-on-fill": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        },
+        "dark": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:71",
+        "name": "on-fill"
+      }
+    },
+    "color-on-info": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(1 0 none)",
+          "figmaRgb": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "figmaAlias": "color-white",
+          "codeAlias": "color-white"
+        },
+        "dark": {
+          "oklch": "oklch(1 0 none)",
+          "figmaRgb": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "figmaAlias": "color-white",
+          "codeAlias": "color-white"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:233:8042",
+        "name": "on-info"
+      }
+    },
+    "color-on-neutral": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-50",
+          "codeAlias": "color-slate-50"
+        },
+        "dark": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-50",
+          "codeAlias": "color-slate-50"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:84",
+        "name": "on-neutral"
+      }
+    },
+    "color-overlay": {
+      "type": "color",
+      "modes": {
+        "dark": {
+          "oklch": "oklch(0 0 none / 0.6)",
+          "figmaRgb": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "default": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785 / 0.5)",
+          "figmaRgb": {
+            "r": 0.10196078431372549,
+            "g": 0.12156862745098039,
+            "b": 0.1411764705882353,
+            "a": 0.5019607843137255
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:91",
+        "name": "overlay"
+      }
+    },
+    "color-page": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-100",
+          "codeAlias": "color-slate-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.20660967 0.01006444 248.313572)",
+          "figmaRgb": {
+            "r": 0.078431375,
+            "g": 0.09411765,
+            "b": 0.10980392,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-950",
+          "codeAlias": "color-ink-950"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:60",
+        "name": "page"
+      }
+    },
+    "color-rust-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.89147248 0.03765643 34.317849)",
+          "figmaRgb": {
+            "r": 0.9529412,
+            "g": 0.827451,
+            "b": 0.79607844,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:36",
+        "name": "rust/100"
+      }
+    },
+    "color-rust-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.73054354 0.10144352 33.343863)",
+          "figmaRgb": {
+            "r": 0.8784314,
+            "g": 0.5647059,
+            "b": 0.49411765,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:37",
+        "name": "rust/300"
+      }
+    },
+    "color-rust-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.52145377 0.16080944 32.555443)",
+          "figmaRgb": {
+            "r": 0.7019608,
+            "g": 0.22745098,
+            "b": 0.14117648,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:38",
+        "name": "rust/500"
+      }
+    },
+    "color-rust-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.42979584 0.13378309 32.761842)",
+          "figmaRgb": {
+            "r": 0.5411765,
+            "g": 0.16470589,
+            "b": 0.09411765,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:39",
+        "name": "rust/700"
+      }
+    },
+    "color-rust-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.28325883 0.04498966 32.913326)",
+          "figmaRgb": {
+            "r": 0.23921569,
+            "g": 0.12941177,
+            "b": 0.105882354,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:46",
+        "name": "rust/900"
+      }
+    },
+    "color-sage-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.92462031 0.02319192 137.248706)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.91764706,
+            "b": 0.85882354,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:13",
+        "name": "sage/100"
+      }
+    },
+    "color-sage-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.80438488 0.06282993 136.328001)",
+          "figmaRgb": {
+            "r": 0.6784314,
+            "g": 0.7882353,
+            "b": 0.6313726,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:14",
+        "name": "sage/300"
+      }
+    },
+    "color-sage-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.6797987 0.08733115 136.686659)",
+          "figmaRgb": {
+            "r": 0.49803922,
+            "g": 0.64705884,
+            "b": 0.43529412,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:15",
+        "name": "sage/500"
+      }
+    },
+    "color-sage-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.49787962 0.08501411 137.795284)",
+          "figmaRgb": {
+            "r": 0.2901961,
+            "g": 0.43137255,
+            "b": 0.23921569,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:16",
+        "name": "sage/700"
+      }
+    },
+    "color-sage-900": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.29998124 0.03321859 139.79483)",
+          "figmaRgb": {
+            "r": 0.14509805,
+            "g": 0.19607843,
+            "b": 0.13333334,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:40",
+        "name": "sage/900"
+      }
+    },
+    "color-selection": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.78758964 0.03063855 248.216287)",
+          "figmaRgb": {
+            "r": 0.67058825,
+            "g": 0.7372549,
+            "b": 0.8039216,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-300",
+          "codeAlias": "color-mist-300"
+        },
+        "dark": {
+          "oklch": "oklch(0.70956312 0.04180715 249.583087)",
+          "figmaRgb": {
+            "r": 0.5568628,
+            "g": 0.6431373,
+            "b": 0.73333335,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-500",
+          "codeAlias": "color-mist-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:88",
+        "name": "selection"
+      }
+    },
+    "color-slate-100": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.95117136 0.00344192 247.859369)",
+          "figmaRgb": {
+            "r": 0.92941177,
+            "g": 0.9372549,
+            "b": 0.94509804,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:6",
+        "name": "slate/100"
+      }
+    },
+    "color-slate-200": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91391666 0.00695334 247.901205)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.8901961,
+            "b": 0.90588236,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:7",
+        "name": "slate/200"
+      }
+    },
+    "color-slate-300": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.83566358 0.01244358 247.976226)",
+          "figmaRgb": {
+            "r": 0.7647059,
+            "g": 0.7921569,
+            "b": 0.81960785,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:8",
+        "name": "slate/300"
+      }
+    },
+    "color-slate-400": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.6616906 0.01883705 248.11281)",
+          "figmaRgb": {
+            "r": 0.5411765,
+            "g": 0.5803922,
+            "b": 0.61960787,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:9",
+        "name": "slate/400"
+      }
+    },
+    "color-slate-50": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:5",
+        "name": "slate/50"
+      }
+    },
+    "color-slate-500": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.4867855 0.02108855 245.678224)",
+          "figmaRgb": {
+            "r": 0.3372549,
+            "g": 0.38039216,
+            "b": 0.41960785,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:10",
+        "name": "slate/500"
+      }
+    },
+    "color-slate-700": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:11",
+        "name": "slate/700"
+      }
+    },
+    "color-slate-800": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.28977414 0.01387362 248.305269)",
+          "figmaRgb": {
+            "r": 0.14901961,
+            "g": 0.17254902,
+            "b": 0.19607843,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:49",
+        "name": "slate/800"
+      }
+    },
+    "color-subtle": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.83566358 0.01244358 247.976226)",
+          "figmaRgb": {
+            "r": 0.7647059,
+            "g": 0.7921569,
+            "b": 0.81960785,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-300",
+          "codeAlias": "color-slate-300"
+        },
+        "dark": {
+          "oklch": "oklch(0.3630302 0.01965711 248.367815)",
+          "figmaRgb": {
+            "r": 0.21176471,
+            "g": 0.24705882,
+            "b": 0.28235295,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-700",
+          "codeAlias": "color-slate-700"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:72",
+        "name": "subtle"
+      }
+    },
+    "color-success": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.60342841 0.07190614 163.178959)",
+          "figmaRgb": {
+            "r": 0.34117648,
+            "g": 0.56078434,
+            "b": 0.45882353,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-500",
+          "codeAlias": "color-moss-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.60342841 0.07190614 163.178959)",
+          "figmaRgb": {
+            "r": 0.34117648,
+            "g": 0.56078434,
+            "b": 0.45882353,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-500",
+          "codeAlias": "color-moss-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:92",
+        "name": "success"
+      }
+    },
+    "color-success-fill": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.7834332 0.04961389 164.000975)",
+          "figmaRgb": {
+            "r": 0.6117647,
+            "g": 0.7647059,
+            "b": 0.6901961,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-300",
+          "codeAlias": "color-moss-300"
+        },
+        "dark": {
+          "oklch": "oklch(0.7834332 0.04961389 164.000975)",
+          "figmaRgb": {
+            "r": 0.6117647,
+            "g": 0.7647059,
+            "b": 0.6901961,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-300",
+          "codeAlias": "color-moss-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:94",
+        "name": "success-fill"
+      }
+    },
+    "color-success-soft": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91851892 0.01760873 164.63171)",
+          "figmaRgb": {
+            "r": 0.85490197,
+            "g": 0.9098039,
+            "b": 0.88235295,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-100",
+          "codeAlias": "color-moss-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.29167055 0.02593377 167.101124)",
+          "figmaRgb": {
+            "r": 0.12156863,
+            "g": 0.1882353,
+            "b": 0.16078432,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-900",
+          "codeAlias": "color-moss-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:93",
+        "name": "success-soft"
+      }
+    },
+    "color-success-text": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.45437416 0.05951931 163.164056)",
+          "figmaRgb": {
+            "r": 0.20784314,
+            "g": 0.38039216,
+            "b": 0.3019608,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-700",
+          "codeAlias": "color-moss-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.7834332 0.04961389 164.000975)",
+          "figmaRgb": {
+            "r": 0.6117647,
+            "g": 0.7647059,
+            "b": 0.6901961,
+            "a": 1
+          },
+          "figmaAlias": "color-moss-300",
+          "codeAlias": "color-moss-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:95",
+        "name": "success-text"
+      }
+    },
+    "color-sunken": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.91391666 0.00695334 247.901205)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.8901961,
+            "b": 0.90588236,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-200",
+          "codeAlias": "color-slate-200"
+        },
+        "dark": {
+          "oklch": "oklch(0.28977414 0.01387362 248.305269)",
+          "figmaRgb": {
+            "r": 0.14901961,
+            "g": 0.17254902,
+            "b": 0.19607843,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-800",
+          "codeAlias": "color-slate-800"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:63",
+        "name": "sunken"
+      }
+    },
+    "color-surface": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-50",
+          "codeAlias": "color-slate-50"
+        },
+        "dark": {
+          "oklch": "oklch(0.23638803 0.01216066 248.340785)",
+          "figmaRgb": {
+            "r": 0.101960786,
+            "g": 0.12156863,
+            "b": 0.14117648,
+            "a": 1
+          },
+          "figmaAlias": "color-ink-900",
+          "codeAlias": "color-ink-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:61",
+        "name": "surface"
+      }
+    },
+    "color-surface-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.9186171 0.0121528 247.959248)",
+          "figmaRgb": {
+            "r": 0.87058824,
+            "g": 0.8980392,
+            "b": 0.9254902,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-100",
+          "codeAlias": "color-mist-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.28865814 0.02455591 251.102183)",
+          "figmaRgb": {
+            "r": 0.13333334,
+            "g": 0.17254902,
+            "b": 0.21568628,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-900",
+          "codeAlias": "color-mist-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:62",
+        "name": "surface-hover"
+      }
+    },
+    "color-thumb": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.97865031 0.00170867 247.839524)",
+          "figmaRgb": {
+            "r": 0.96862745,
+            "g": 0.972549,
+            "b": 0.9764706,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-50",
+          "codeAlias": "color-slate-50"
+        },
+        "dark": {
+          "oklch": "oklch(0.91391666 0.00695334 247.901205)",
+          "figmaRgb": {
+            "r": 0.8745098,
+            "g": 0.8901961,
+            "b": 0.90588236,
+            "a": 1
+          },
+          "figmaAlias": "color-slate-200",
+          "codeAlias": "color-slate-200"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:80",
+        "name": "thumb"
+      }
+    },
+    "color-thumb-hover": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.9186171 0.0121528 247.959248)",
+          "figmaRgb": {
+            "r": 0.87058824,
+            "g": 0.8980392,
+            "b": 0.9254902,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-100",
+          "codeAlias": "color-mist-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.78758964 0.03063855 248.216287)",
+          "figmaRgb": {
+            "r": 0.67058825,
+            "g": 0.7372549,
+            "b": 0.8039216,
+            "a": 1
+          },
+          "figmaAlias": "color-mist-300",
+          "codeAlias": "color-mist-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:81",
+        "name": "thumb-hover"
+      }
+    },
+    "color-warning": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.74434445 0.13257144 78.740643)",
+          "figmaRgb": {
+            "r": 0.8509804,
+            "g": 0.6313726,
+            "b": 0.23137255,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-500",
+          "codeAlias": "color-amber-500"
+        },
+        "dark": {
+          "oklch": "oklch(0.74434445 0.13257144 78.740643)",
+          "figmaRgb": {
+            "r": 0.8509804,
+            "g": 0.6313726,
+            "b": 0.23137255,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-500",
+          "codeAlias": "color-amber-500"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:96",
+        "name": "warning"
+      }
+    },
+    "color-warning-soft": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.92254934 0.05539693 87.717342)",
+          "figmaRgb": {
+            "r": 0.9607843,
+            "g": 0.89411765,
+            "b": 0.7372549,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-100",
+          "codeAlias": "color-amber-100"
+        },
+        "dark": {
+          "oklch": "oklch(0.3110247 0.04108311 85.397743)",
+          "figmaRgb": {
+            "r": 0.22745098,
+            "g": 0.18431373,
+            "b": 0.09019608,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-900",
+          "codeAlias": "color-amber-900"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:97",
+        "name": "warning-soft"
+      }
+    },
+    "color-warning-text": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(0.50303112 0.10268989 74.683201)",
+          "figmaRgb": {
+            "r": 0.5254902,
+            "g": 0.3529412,
+            "b": 0.039215688,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-700",
+          "codeAlias": "color-amber-700"
+        },
+        "dark": {
+          "oklch": "oklch(0.83339731 0.10834936 82.690966)",
+          "figmaRgb": {
+            "r": 0.92156863,
+            "g": 0.7607843,
+            "b": 0.4509804,
+            "a": 1
+          },
+          "figmaAlias": "color-amber-300",
+          "codeAlias": "color-amber-300"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:98",
+        "name": "warning-text"
+      }
+    },
+    "color-white": {
+      "type": "color",
+      "modes": {
+        "default": {
+          "oklch": "oklch(1 0 none)",
+          "figmaRgb": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:3",
+        "name": "white"
+      }
+    },
+    "radius-lg": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "16px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:125",
+        "name": "radius/lg"
+      }
+    },
+    "radius-md": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "10px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:124",
+        "name": "radius/md"
+      }
+    },
+    "radius-sm": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "6px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:123",
+        "name": "radius/sm"
+      }
+    },
+    "radius-xl": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "24px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:126",
+        "name": "radius/xl"
+      }
+    },
+    "spacing-0": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:107",
+        "name": "spacing/0"
+      }
+    },
+    "spacing-0-5": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.125rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:108",
+        "name": "spacing/0-5"
+      }
+    },
+    "spacing-1": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.25rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:109",
+        "name": "spacing/1"
+      }
+    },
+    "spacing-1-5": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.375rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:110",
+        "name": "spacing/1-5"
+      }
+    },
+    "spacing-10": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "2.5rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:120",
+        "name": "spacing/10"
+      }
+    },
+    "spacing-12": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "3rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:121",
+        "name": "spacing/12"
+      }
+    },
+    "spacing-16": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "4rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:122",
+        "name": "spacing/16"
+      }
+    },
+    "spacing-2": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.5rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:111",
+        "name": "spacing/2"
+      }
+    },
+    "spacing-2-5": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.625rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:112",
+        "name": "spacing/2-5"
+      }
+    },
+    "spacing-3": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.75rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:113",
+        "name": "spacing/3"
+      }
+    },
+    "spacing-3-5": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "0.875rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:114",
+        "name": "spacing/3-5"
+      }
+    },
+    "spacing-4": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "1rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:115",
+        "name": "spacing/4"
+      }
+    },
+    "spacing-5": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "1.25rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:116",
+        "name": "spacing/5"
+      }
+    },
+    "spacing-6": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "1.5rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:117",
+        "name": "spacing/6"
+      }
+    },
+    "spacing-7": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "1.75rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:118",
+        "name": "spacing/7"
+      }
+    },
+    "spacing-8": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "2rem"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:119",
+        "name": "spacing/8"
+      }
+    },
+    "text-2xl": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "24px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:135",
+        "name": "text/2xl"
+      }
+    },
+    "text-3xl": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "30px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:136",
+        "name": "text/3xl"
+      }
+    },
+    "text-4xl": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "36px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:137",
+        "name": "text/4xl"
+      }
+    },
+    "text-base": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "16px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:132",
+        "name": "text/base"
+      }
+    },
+    "text-display": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "72px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:142",
+        "name": "text/display"
+      }
+    },
+    "text-h1": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "52px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:141",
+        "name": "text/h1"
+      }
+    },
+    "text-h2": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "38px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:140",
+        "name": "text/h2"
+      }
+    },
+    "text-h3": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "28px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:139",
+        "name": "text/h3"
+      }
+    },
+    "text-h4": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "22px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:138",
+        "name": "text/h4"
+      }
+    },
+    "text-lg": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "18px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:133",
+        "name": "text/lg"
+      }
+    },
+    "text-sm": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "14px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:131",
+        "name": "text/sm"
+      }
+    },
+    "text-xl": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "20px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:134",
+        "name": "text/xl"
+      }
+    },
+    "text-xs": {
+      "type": "dimension",
+      "modes": {
+        "default": {
+          "value": "12px"
+        }
+      },
+      "figma": {
+        "variableId": "VariableID:2:130",
+        "name": "text/xs"
+      }
+    }
+  }
+}
