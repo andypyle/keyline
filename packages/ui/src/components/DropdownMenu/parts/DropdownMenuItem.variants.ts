@@ -43,7 +43,7 @@ export const dropdownMenuItemVariants = cva(
       variant: {
         default: ["kl:text-fg-1", "kl:focus:bg-surface-hover"],
         // Fills like a danger Button once highlighted, so the action reads as destructive before it runs.
-        danger: ["kl:text-fg-1", "kl:focus:bg-danger", "kl:focus:text-white"],
+        danger: ["kl:text-fg-1", "kl:focus:bg-danger", "kl:focus:text-on-danger"],
       },
     },
     defaultVariants: {

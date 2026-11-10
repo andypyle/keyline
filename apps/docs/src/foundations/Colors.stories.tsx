@@ -54,7 +54,7 @@ function Colors() {
     <Page
       key={theme}
       title="Colors"
-      lede="Components use the semantic colors, which swap in dark mode. The scales underneath are there for one-off tints; 100-level tints darken in dark mode too."
+      lede="Components use the semantic colors, which swap in dark mode. The scales underneath keep one value in every mode; dark mode points the semantic colors at other steps."
     >
       <Section title="Semantic" note="Surfaces, text, lines and accents. Prefer these in components.">
         <Grid tokens={baseTokens} />

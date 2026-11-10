@@ -76,9 +76,8 @@ export const toastIconVariants = cva(
         neutral: ["kl:bg-sunken", "kl:text-fg-1"],
         success: ["kl:bg-success-fill", "kl:text-on-fill"],
         warning: ["kl:bg-warning", "kl:text-on-fill"],
-        // Rust and dusk are too dark for on-fill text, so these two take white.
-        danger: ["kl:bg-danger", "kl:text-white"],
-        info: ["kl:bg-info", "kl:text-white"],
+                danger: ["kl:bg-danger", "kl:text-on-danger"],
+        info: ["kl:bg-info", "kl:text-on-info"],
       },
     },
     defaultVariants: {

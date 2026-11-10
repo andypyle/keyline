@@ -24,25 +24,30 @@
   --color-slate-400: #8a949e;
   --color-slate-500: #56616b;
   --color-slate-700: #363f48;
+  --color-slate-800: #262c32;
   --color-ink-900: #1a1f24;
+  --color-ink-950: #14181c;
 
   /* Sage — primary accent */
   --color-sage-100: #dfeadb;
   --color-sage-300: #adc9a1;
   --color-sage-500: #7fa56f;
   --color-sage-700: #4a6e3d;
+  --color-sage-900: #253222;
 
   /* Mist — pale slate-blue, active/selected highlight */
   --color-mist-100: #dee5ec;
   --color-mist-300: #abbccd;
   --color-mist-500: #8ea4bb;
   --color-mist-700: #4c627a;
+  --color-mist-900: #222c37;
 
   /* Moss — sea green, "on" + success */
   --color-moss-100: #dae8e1;
   --color-moss-300: #9cc3b0;
   --color-moss-500: #578f75;
   --color-moss-700: #35614d;
+  --color-moss-900: #1f3029;
 
   /* Lichen — soft grey-green tint */
   --color-lichen-100: #e2e9dd;
@@ -54,18 +59,21 @@
   --color-dusk-300: #a5b4ce;
   --color-dusk-500: #607397;
   --color-dusk-700: #3f4e6d;
+  --color-dusk-900: #232a3a;
 
   /* Amber — warnings only */
   --color-amber-100: #f5e4bc;
   --color-amber-300: #ebc273;
   --color-amber-500: #d9a13b;
   --color-amber-700: #865a0a;
+  --color-amber-900: #3a2f17;
 
   /* Rust — errors only */
   --color-rust-100: #f3d3cb;
   --color-rust-300: #e0907e;
   --color-rust-500: #b33a24;
   --color-rust-700: #8a2a18;
+  --color-rust-900: #3d211b;
 
   /* Semantic — prefer these in components; dark mode swaps them below */
   --color-page: var(--kl-color-slate-100);
@@ -99,7 +107,7 @@
   --color-selection: var(--kl-color-mist-300);
   --color-code: var(--kl-color-ink-900);
   --color-code-fg: var(--kl-color-slate-100);
-  --color-overlay: rgba(26, 31, 36, 0.5);
+  --color-overlay: color-mix(in srgb, var(--kl-color-ink-900) 50%, transparent);
 
   --color-success: var(--kl-color-moss-500);
   --color-success-soft: var(--kl-color-moss-100);
@@ -111,9 +119,11 @@
   --color-danger: var(--kl-color-rust-500);
   --color-danger-hover: var(--kl-color-rust-700); /* darker, not lighter: white text needs the contrast */
   --color-danger-soft: var(--kl-color-rust-100);
+  --color-on-danger: var(--kl-color-white); /* text/icons on danger fills; rust is too dark for on-fill */
   --color-danger-text: var(--kl-color-rust-500); /* error messages; lightens in dark mode, where rust-500 is too dim */
   --color-info: var(--kl-color-dusk-500);
   --color-info-soft: var(--kl-color-dusk-100);
+  --color-on-info: var(--kl-color-white); /* text/icons on info fills; dusk is too dark for on-fill */
   --color-info-text: var(--kl-color-dusk-700);
 
   /* Type */
@@ -366,69 +376,47 @@
    themselves. These sit outside @theme, so they use the emitted --kl- names directly. */
 @layer keyline.theme {
   [data-theme="dark"] {
-    /* 100-level tints become deep, low-light versions of each hue */
-    --kl-color-sage-100: #253222;
-    --kl-color-mist-100: #222c37;
-    --kl-color-moss-100: #1f3029;
-    --kl-color-lichen-100: #262d24;
-    --kl-color-dusk-100: #232a3a;
-    --kl-color-amber-100: #3a2f17;
-    --kl-color-rust-100: #3d211b;
-
-    --kl-color-page: #14181c;
-    --kl-color-surface: #1d2227;
-    --kl-color-sunken: #262c32;
-    --kl-color-inverse: #e6eaee;
-    --kl-color-inverse-hover: #c3cad1;
-    --kl-color-fg-1: #e9edf0;
-    --kl-color-fg-2: #b6bfc8;
-    --kl-color-fg-3: #8d97a1;
-    --kl-color-fg-inverse: #14181c;
-    --kl-color-subtle: #353d45;
-    --kl-color-line: #07090b;
-    --kl-color-on-fill: #1a1f24;
+    /* Only semantic tokens change here, and only to other steps on the scales. Scale steps keep
+       one value in every mode, so never redefine them here and never give a semantic a literal. */
+    --kl-color-page: var(--kl-color-ink-950);
+    --kl-color-surface: var(--kl-color-ink-900);
+    --kl-color-surface-hover: var(--kl-color-mist-900);
+    --kl-color-sunken: var(--kl-color-slate-800);
+    --kl-color-inverse: var(--kl-color-slate-100);
+    --kl-color-inverse-hover: var(--kl-color-slate-300);
+    --kl-color-fg-1: var(--kl-color-slate-100);
+    --kl-color-fg-2: var(--kl-color-slate-300);
+    --kl-color-fg-3: var(--kl-color-slate-400);
+    --kl-color-fg-inverse: var(--kl-color-ink-950);
+    --kl-color-subtle: var(--kl-color-slate-700);
+    --kl-color-line: var(--kl-color-black);
 
     --kl-color-accent-strong: var(--kl-color-sage-300);
+    --kl-color-accent-soft: var(--kl-color-sage-900);
     --kl-color-link: var(--kl-color-sage-300);
-    --kl-color-link-hover: #e9edf0;
+    --kl-color-link-hover: var(--kl-color-slate-100);
     --kl-color-focus: var(--kl-color-dusk-300);
-    --kl-color-danger-text: var(--kl-color-rust-300);
-    --kl-color-success-text: var(--kl-color-moss-300);
-    --kl-color-warning-text: var(--kl-color-amber-300);
-    --kl-color-info-text: var(--kl-color-dusk-300);
     --kl-color-selection: var(--kl-color-mist-500);
     --kl-color-thumb: var(--kl-color-slate-200);
     --kl-color-thumb-hover: var(--kl-color-mist-300);
+    --kl-color-code: var(--kl-color-black);
+    --kl-color-code-fg: var(--kl-color-slate-200);
+    --kl-color-overlay: color-mix(in srgb, var(--kl-color-black) 60%, transparent);
 
-    --kl-color-code: #0c0f12;
-    --kl-color-code-fg: #dfe3e7;
-    --kl-color-overlay: rgba(5, 7, 9, 0.6);
+    --kl-color-success-soft: var(--kl-color-moss-900);
+    --kl-color-success-text: var(--kl-color-moss-300);
+    --kl-color-warning-soft: var(--kl-color-amber-900);
+    --kl-color-warning-text: var(--kl-color-amber-300);
+    --kl-color-danger-soft: var(--kl-color-rust-900);
+    --kl-color-danger-text: var(--kl-color-rust-300);
+    --kl-color-info-soft: var(--kl-color-dusk-900);
+    --kl-color-info-text: var(--kl-color-dusk-300);
 
-    /* The rest of the tokens that point at other tokens, restated unchanged. A var() resolves
+    /* Tokens that point at a semantic token changed above, restated unchanged. A var() resolves
        on the element that declares it and descendants inherit the result, so the @theme
-       declarations resolve once on <html>, against the light palette. Restating them here
-       resolves them again against the swapped one, which is what makes data-theme work on
-       elements below <html>. Any new token that points at another token belongs here too. */
-    --kl-color-surface-hover: var(--kl-color-mist-100);
-    --kl-color-accent: var(--kl-color-sage-500);
-    --kl-color-accent-hover: var(--kl-color-sage-300);
-    --kl-color-accent-soft: var(--kl-color-sage-100);
-    --kl-color-control: var(--kl-color-mist-500);
-    --kl-color-control-hover: var(--kl-color-mist-300);
-    --kl-color-on-control: var(--kl-color-on-fill);
-    --kl-color-neutral: var(--kl-color-slate-700);
-    --kl-color-neutral-hover: var(--kl-color-slate-500);
-    --kl-color-on-neutral: var(--kl-color-slate-50);
-    --kl-color-success: var(--kl-color-moss-500);
-    --kl-color-success-soft: var(--kl-color-moss-100);
-    --kl-color-success-fill: var(--kl-color-moss-300);
-    --kl-color-warning: var(--kl-color-amber-500);
-    --kl-color-warning-soft: var(--kl-color-amber-100);
-    --kl-color-danger: var(--kl-color-rust-500);
-    --kl-color-danger-hover: var(--kl-color-rust-700);
-    --kl-color-danger-soft: var(--kl-color-rust-100);
-    --kl-color-info: var(--kl-color-dusk-500);
-    --kl-color-info-soft: var(--kl-color-dusk-100);
+       declarations resolve once on <html>, against the light values. Restating them here
+       resolves them again against the dark ones, which is what makes data-theme work on
+       elements below <html>. Any new token that points at a token swapped here belongs here too. */
     --kl-shadow-sm: 2px 2px 0 0 var(--kl-color-line);
     --kl-shadow-md: 4px 4px 0 0 var(--kl-color-line);
     --kl-shadow-lg: 6px 6px 0 0 var(--kl-color-line);

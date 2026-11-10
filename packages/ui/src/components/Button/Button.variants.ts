@@ -69,7 +69,7 @@ export const buttonVariants = cva(
         ],
         danger: [
           "kl:bg-danger",
-          "kl:text-white",
+          "kl:text-on-danger",
           "kl:enabled:hover:bg-danger-hover",
           "kl:enabled:aria-expanded:bg-danger-hover",
         ],

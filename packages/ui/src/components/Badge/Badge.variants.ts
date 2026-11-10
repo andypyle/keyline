@@ -43,9 +43,8 @@ export const badgeVariants = cva(
       { variant: "filled", tone: "accent", class: ["kl:bg-accent", "kl:text-on-fill"] },
       { variant: "filled", tone: "success", class: ["kl:bg-success-fill", "kl:text-on-fill"] },
       { variant: "filled", tone: "warning", class: ["kl:bg-warning", "kl:text-on-fill"] },
-      // Rust and dusk are too dark for on-fill text, so these two take white.
-      { variant: "filled", tone: "danger", class: ["kl:bg-danger", "kl:text-white"] },
-      { variant: "filled", tone: "info", class: ["kl:bg-info", "kl:text-white"] },
+            { variant: "filled", tone: "danger", class: ["kl:bg-danger", "kl:text-on-danger"] },
+      { variant: "filled", tone: "info", class: ["kl:bg-info", "kl:text-on-info"] },
       { variant: "outline", tone: "neutral", class: ["kl:text-fg-1"] },
       { variant: "outline", tone: "accent", class: ["kl:text-accent-strong"] },
       { variant: "outline", tone: "success", class: ["kl:text-success-text"] },
