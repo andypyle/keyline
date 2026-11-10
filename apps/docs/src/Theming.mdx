@@ -59,13 +59,11 @@ To rebrand Keyline, override palette colors. The semantic tokens point at them i
   --kl-color-sage-300: #a3c0e6;
   --kl-color-sage-500: #5b8fd1;
   --kl-color-sage-700: #2f5d99;
-}
-
-/* Dark mode redefines each 100-level tint as a deep, low-light version of its hue. */
-[data-theme="dark"] {
-  --kl-color-sage-100: #1e2a3a;
+  --kl-color-sage-900: #1e2a3a; /* dark mode's soft tint */
 }
 ```
+
+Scale steps have one value in every mode. Dark mode doesn't redefine them; it points the semantic tokens at other steps, such as `accent-soft` at `sage-900` instead of `sage-100`, so override every step of a scale you replace.
 
 For a narrower change, override a semantic token instead, such as `--kl-color-link`. That changes it in both modes. To give it a different value in dark mode, add a `[data-theme="dark"]` rule after the light one.
 
