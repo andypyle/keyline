@@ -1265,7 +1265,7 @@
           "code": "var(--kl-color-page)",
           "values": [
             {
-              "alias": "2:6"
+              "alias": "2:8"
             },
             {
               "alias": "2:47"
@@ -1319,7 +1319,7 @@
           "code": "var(--kl-color-sunken)",
           "values": [
             {
-              "alias": "2:7"
+              "alias": "2:19"
             },
             {
               "alias": "2:49"
@@ -1337,7 +1337,7 @@
           "code": "var(--kl-color-inverse)",
           "values": [
             {
-              "alias": "2:12"
+              "alias": "2:10"
             },
             {
               "alias": "2:6"
